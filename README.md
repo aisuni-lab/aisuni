@@ -1,78 +1,108 @@
 # AISUNI — Archivo Activo | Sistemas Generativos & Artes Visuales
 
-Sitio web responsivo y archivo digital interactivo para el laboratorio de investigación en artes visuales y sistemas generativos **AISUNI**.
+Arquitectura modular para portafolio y archivo digital basada en **Markdown + GitHub Pages**, inspirada en el diseño tipográfico y editorial de alta gama de **nebulosapicante.com**.
 
-Diseñado con una arquitectura editorial minimalista, tipografía de alta precisión y experiencia interactiva lista para publicarse en **GitHub Pages** de manera instantánea.
-
----
-
-## ✷ Características Principales
-
-1. **Estructura Desktop (Escritorio)**:
-   - **Índice Typographical con Vista Previa Flotante**: Al pasar el ratón (*hover*) sobre cualquier fila de proyecto o del archivo activo, una tarjeta visual con la obra y metadatos sigue fluidamente el cursor (*mouse follower*).
-   - **Archivo Activo Conectado**: Las 12 piezas de investigación del archivo están completamente conectadas a la base de datos interactiva, permitiendo inspeccionar fichas completas, metodología y procesos algorítmicos.
-   - **Selector de Modo de Vista**: Alterna con 1 clic entre modo lista editorial y cuadrícula visual (*Grid Gallery*), sincronizado tanto para proyectos como para el archivo.
-   - **Filtros por Taxonomía Algorítmica**: Filtros inmediatos por las 8 categorías del estudio:
-     - *Sistemas*
-     - *Algoritmos*
-     - *Tipografía*
-     - *Simulación*
-     - *Collage*
-     - *Patrones*
-     - *Procesos*
-     - *Interfaces*
-   - **Modal de Detalle Completo (*Slide-Over / Lightbox*)**: Muestra visualizaciones de alta fidelidad, metadatos estructurados (Cliente/Ámbito, Año, Categoría, Herramientas) y pestañas narrativas editoriales (*Concepto & Enfoque* vs *Proceso & Algoritmo*). Soporta navegación por teclado (`←`, `→`, `Esc`).
-
-2. **Estructura Móvil (Responsive Touch)**:
-   - Diseño adaptable de una sola columna optimizado para pantallas táctiles (sin desbordamientos horizontales).
-   - Al tocar cualquier proyecto o pieza de archivo, se despliega la información contextual con enlace directo a la ficha completa.
-   - Navegación táctil fluida con tiempos de respuesta instantáneos.
-
-3. **Diseño Visual Editorial**:
-   - Selector de modo Oscuro / Claro (*Dark Mode* / *Light Mode*) con persistencia en `localStorage`.
-   - Reloj digital en vivo sincronizado con el huso horario de Barcelona.
-   - Secciones completas: **Proyectos**, **Archivo Activo**, **Información / Manifiesto**, y **Contacto directo con botón de copia de email en 1 clic**.
+El contenido está **100% desacoplado del código HTML**: para crear, editar o eliminar proyectos y piezas del archivo, **nunca necesitas tocar `index.html`**. Solo editas archivos Markdown simples y subes tus fotos a `assets/`.
 
 ---
 
-## 🚀 Despliegue en GitHub Pages (en 2 minutos)
+## 🚀 Cómo Actualizar el Sitio en 2 Minutos
 
-No se requiere instalar Node.js ni compilar dependencias. Todo funciona con estándares web puros.
+### 1. Para agregar un nuevo Proyecto Destacado:
+1. Ve a la carpeta `assets/`, haz clic en **Add file > Upload files** y arrastra tu fotografía (ej. `09-nuevo-trabajo.jpg`).
+2. Ve a la carpeta `_proyectos/`, haz clic en **Add file > Create new file** y nómbralo `09-nuevo-trabajo.md`.
+3. Pega esta plantilla y completa los datos:
 
-### Paso 1: Crear el repositorio en GitHub
-1. Inicia sesión en [GitHub](https://github.com/) y crea un nuevo repositorio público (ej. `aisuni` o `<tu-usuario>.github.io`).
+```markdown
+---
+id: "nuevo-trabajo"
+num: "09"
+title: "Título de la Obra"
+category: "Algoritmos"
+categoryTag: "Algoritmos & Simulación"
+year: "2026"
+client: "Nombre del Cliente o Convocatoria"
+image: "assets/09-nuevo-trabajo.jpg"
+tools: "Python, GLSL, Processing"
+---
 
-### Paso 2: Subir los archivos
-Sube todos los archivos de esta carpeta al repositorio:
-- `index.html`
-- `style.css`
-- `data.js`
-- Carpeta `assets/` (con todas las imágenes en alta resolución)
-- `README.md`
+## Concepto
+Escribe aquí la explicación conceptual de tu obra...
 
-### Paso 3: Activar GitHub Pages
-1. En tu repositorio, entra a **Settings > Pages**.
-2. En *Build and deployment*, selecciona `Deploy from a branch`, rama `main` (o `master`) y carpeta `/ (root)`.
-3. Haz clic en **Save**. En un minuto tu sitio estará online.
+## Proceso
+Escribe aquí la metodología, herramientas o algoritmos utilizados...
+```
+
+4. Haz clic en **Commit changes**. En menos de 60 segundos tu web en GitHub Pages se actualizará automáticamente con la nueva obra, su ficha completa, sus filtros y su vista previa flotante.
 
 ---
 
-## 📁 Estructura de Archivos
+### 2. Para agregar una pieza al Archivo:
+1. Sube tu foto a `assets/`.
+2. Crea un archivo en `_archivo/` (ej. `13-nueva-exploracion.md`) con este formato:
+
+```markdown
+---
+id: "arch-13"
+num: "A-13"
+title: "Nombre de la Exploración"
+category: "Patrones"
+categoryTag: "Patrones Generativos"
+year: "2026"
+client: "Estudio Autónomo"
+image: "assets/13-foto.jpg"
+tools: "Processing, Axidraw"
+status: "Investigación activa"
+---
+
+## Concepto
+Descripción de la exploración...
+
+## Proceso
+Detalles del proceso técnico...
+```
+
+---
+
+### 3. Las 8 Categorías de Filtro Oficiales
+Puedes asignar cualquiera de estas categorías en el campo `category`:
+* `Sistemas`
+* `Algoritmos`
+* `Tipografía`
+* `Simulación`
+* `Collage`
+* `Patrones`
+* `Procesos`
+* `Interfaces`
+
+---
+
+## 📁 Estructura del Repositorio
 
 ```
-├── index.html         # Archivo web principal (HTML5 + Tailwind CSS + JS interactivo)
-├── style.css          # Estilos complementarios y transiciones de cursor
-├── data.js            # Base de datos modular de proyectos y archivo
-├── README.md          # Documentación del proyecto y despliegue
-└── assets/            # Directorio de fotografías, tramas y simulaciones visuales
+├── _config.yml         # Configuración nativa de GitHub Pages (Jekyll)
+├── index.html          # Interfaz editorial minimalista y sistema reactivo
+├── style.css           # Estilos complementarios y transiciones de cursor
+├── data.json           # Índice de datos compilado para carga ultrarrápida
+├── README.md           # Esta guía de uso
+├── _proyectos/         # Un archivo Markdown (.md) por cada proyecto principal
+│   ├── 01-give-it-a-shape.md
+│   ├── 02-2640-tangerine-segments.md
+│   └── ...
+├── _archivo/           # Un archivo Markdown (.md) por cada pieza de archivo
+│   ├── 01-encrypted-words.md
+│   ├── 02-metalinguistic-graphic.md
+│   └── ...
+└── assets/             # Fotografías e imágenes en alta resolución
     ├── 01-give-it-a-shape.jpg
-    ├── 02-2640-tangerine.jpg
-    ├── 03-painting-with-sound.jpg
-    ├── 04-oldest-tree.jpg
-    ├── 05-elso-typeface.jpg
-    ├── 06-mundano-oracle.jpg
-    ├── 07-interfaces-hud.jpg
-    ├── 08-simulation-fluid.jpg
-    ├── 09-typographic-matrix.jpg
-    └── 10-parametric-lattice.jpg
+    └── ...
 ```
+
+---
+
+## 🌐 Despliegue en GitHub Pages
+
+1. Crea tu repositorio en GitHub y sube todos los archivos descomprimidos.
+2. Ve a **Settings > Pages**.
+3. En **Source**, selecciona `Deploy from a branch`, rama `main` y carpeta `/ (root)`.
+4. Haz clic en **Save**. ¡Listo!

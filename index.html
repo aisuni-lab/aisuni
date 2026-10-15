@@ -38,6 +38,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="style.css">
   <style>
     * {
       border-color: inherit;
@@ -53,7 +54,6 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
-    /* Custom floating preview */
     #floating-preview {
       pointer-events: none;
       transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.15s ease-out;
@@ -167,7 +167,7 @@
         </div>
       </nav>
 
-      <!-- CATEGORY FILTER PILLS (UPDATED AISUNI TAXONOMY) -->
+      <!-- CATEGORY FILTER PILLS (8 OFFICIAL CATEGORIES) -->
       <div id="category-filters-container" class="mt-4 flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1">
         <span class="text-[11px] font-mono text-neutral-400 mr-2 uppercase tracking-wider hidden sm:inline">Filtrar:</span>
         <button data-cat="all" class="filter-pill active px-3 py-1 rounded-full text-xs font-mono transition-all bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 font-medium whitespace-nowrap">Todos</button>
@@ -215,7 +215,7 @@
       </div>
     </main>
 
-    <!-- TAB SECTION 2: ARCHIVO (NOW ACTIVE & FULLY INTERACTIVE) -->
+    <!-- TAB SECTION 2: ARCHIVO (ACTIVE & FULLY INTERACTIVE) -->
     <section id="section-archive" class="tab-content hidden space-y-6">
       
       <!-- Archive Header / Status bar -->
@@ -512,21 +512,10 @@
     </div>
   </div>
 
-  <!-- JAVASCRIPT DATA & INTERACTION LOGIC -->
+  <!-- JAVASCRIPT DATA & DYNAMIC MARKDOWN LOADER -->
   <script>
-    // --- 1. DATA STORE (AISUNI ARCHIVE & PROJECTS) ---
-    const CATEGORIES = [
-      "Sistemas",
-      "Algoritmos",
-      "Tipografía",
-      "Simulación",
-      "Collage",
-      "Patrones",
-      "Procesos",
-      "Interfaces"
-    ];
-
-    const PROJECTS = [
+    // --- 1. DEFAULT DATA & FALLBACK CACHE (WORKS OFFLINE & ENABLES ZERO-CONFIG RUNTIME) ---
+    const DEFAULT_PROJECTS = [
       {
         id: "give-it-a-shape",
         num: "01",
@@ -538,8 +527,7 @@
         image: "assets/01-give-it-a-shape.jpg",
         tools: "Rhinoceros, Illustrator, Processing",
         concept: "Serie gráfica inspirada en formulaciones de ecuaciones matemáticas y axiomas formales. Traduce conceptos tangibles y abstractos en un sistema visual de glifos geométricos modulares de alto contraste, explorando cómo las leyes que gobiernan las estructuras complejas se manifiestan visualmente.",
-        process: "El proceso inicia con una formulación algorítmica y un mapa relacional entre propiedades topológicas y abstracciones sintéticas. Los elementos se sintetizan en Rhinoceros e Illustrator, proyectando sombras intrincadas bajo iluminación rasante.",
-        featured: true
+        process: "El proceso inicia con una formulación algorítmica y un mapa relacional entre propiedades topológicas y abstracciones sintéticas. Los elementos se sintetizan en Rhinoceros e Illustrator, proyectando sombras intrincadas bajo iluminación rasante."
       },
       {
         id: "2640-segments",
@@ -552,8 +540,7 @@
         image: "assets/02-2640-tangerine.jpg",
         tools: "D3.js, Processing, Python",
         concept: "Visualización algorítmica radial que descompone 2.640 segmentos cítricos analizando la simetría botánica, densidad de datos y ritmos geométricos polares. Un diálogo entre la precisión matemática del cómputo y la calidez cromática orgánica.",
-        process: "Desarrollo de algoritmos de distribución concéntrica y segmentación polar estocástica. Cada cuadrante calcula variables de distribución espacial y porcentajes de densidad de pulpa.",
-        featured: true
+        process: "Desarrollo de algoritmos de distribución concéntrica y segmentación polar estocástica. Cada cuadrante calcula variables de distribución espacial y porcentajes de densidad de pulpa."
       },
       {
         id: "painting-with-sound",
@@ -566,8 +553,7 @@
         image: "assets/03-painting-with-sound.jpg",
         tools: "GLSL Shaders, WebGL, Processing",
         concept: "Investigación visual donde las frecuencias acústicas de piezas de piano neoclásico se traducen en ondulaciones vectoriales espectrales sobre fondo negro mate. Presentado en el Festival Sottotraccia y foros de artes digitales.",
-        process: "Captura de espectros de armónicos en tiempo real mediante análisis FFT (Fast Fourier Transform). Generación de campos vectoriales sinusoidales continuos que emulan el relieve topográfico de la onda acústica.",
-        featured: true
+        process: "Captura de espectros de armónicos en tiempo real mediante análisis FFT (Fast Fourier Transform). Generación de campos vectoriales sinusoidales continuos que emulan el relieve topográfico de la onda acústica."
       },
       {
         id: "the-oldest-tree",
@@ -580,8 +566,7 @@
         image: "assets/04-oldest-tree.jpg",
         tools: "Algoritmos botánicos, Python, InDesign",
         concept: "Estudio dendrocronológico convertido en lenguaje gráfico arquitectónico. Los anillos concéntricos del árbol milenario se cartografían con tramas microscópicas, documentando siglos de variaciones bioclimáticas y resistencia ecológica.",
-        process: "Composición basada en secciones transversales botánicas reales combinadas con retículas ortogonales rigurosas que contrastan con las sinuosidades de la madera.",
-        featured: true
+        process: "Composición basada en secciones transversales botánicas reales combinadas con retículas ortogonales rigurosas que contrastan con las sinuosidades de la madera."
       },
       {
         id: "elso-typeface",
@@ -594,8 +579,7 @@
         image: "assets/05-elso-typeface.jpg",
         tools: "Glyphs, Python, Rhinoceros",
         concept: "Sistema tipográfico modular e identidad experimental basada en cuadrículas isométricas y cortes diagonales estructurales. Cada glifo opera como una microescultura arquitectónica espacial con comportamiento reactivo.",
-        process: "Definición de una matriz de 16x16 módulos con scripting paramétrico para establecer ligaduras, interpolación de pesos y variantes ópticas dinámicas.",
-        featured: true
+        process: "Definición de una matriz de 16x16 módulos con scripting paramétrico para establecer ligaduras, interpolación de pesos y variantes ópticas dinámicas."
       },
       {
         id: "mundano-oracle",
@@ -608,8 +592,7 @@
         image: "assets/06-mundano-oracle.jpg",
         tools: "Grabado vectorial, Hot stamping, Illustrator",
         concept: "Diseño de baraja de oráculo de 48 cartas basada en geometría cósmica, líneas de constelaciones y collage simbólico minimalista. Impresión con estampación en caliente sobre papel texturizado.",
-        process: "Catalogación de 48 arquetipos mediante un lenguaje de geometría pura y collage despojado de ornamentos superfluos, privilegiando la pureza de la línea y el punto.",
-        featured: true
+        process: "Catalogación de 48 arquetipos mediante un lenguaje de geometría pura y collage despojado de ornamentos superfluos, privilegiando la pureza de la línea y el punto."
       },
       {
         id: "synthesizer-hud",
@@ -619,11 +602,10 @@
         categoryTag: "Interfaces Generativas",
         year: "2026",
         client: "AISUNI Computational Lab",
-        image: "assets/07-interfaces-hud.jpg",
+        image: "assets/02-2640-tangerine.jpg",
         tools: "WebGL, Canvas 2D, TypeScript, Figma",
         concept: "Sistema de interfaz computacional de alta fidelidad para el monitoreo de redes neuronales y síntesis espectral. Organiza métricas en radar, grafos de dispersión y osciladores de frecuencia continua.",
-        process: "Arquitectura modular de renderizado a 60 FPS utilizando buffers de dibujo desacoplados y paleta cromática de alta legibilidad en modo oscuro.",
-        featured: true
+        process: "Arquitectura modular de renderizado a 60 FPS utilizando buffers de dibujo desacoplados y paleta cromática de alta legibilidad en modo oscuro."
       },
       {
         id: "stochastic-lattice",
@@ -633,15 +615,14 @@
         categoryTag: "Procesos & Morfogénesis",
         year: "2026",
         client: "Generative Systems Archive",
-        image: "assets/10-parametric-lattice.jpg",
+        image: "assets/01-give-it-a-shape.jpg",
         tools: "Grasshopper, Python, Axidraw Plotter",
         concept: "Investigación sobre procesos morfogénicos continuos y patrones de interferencia espacial generados mediante perturbaciones armónicas sobre mallas bidimensionales.",
-        process: "Algoritmos de propagación de ondas y campos de gradiente que calculan trayectorias continuas optimizadas para trazador vectorial físico.",
-        featured: true
+        process: "Algoritmos de propagación de ondas y campos de gradiente que calculan trayectorias continuas optimizadas para trazador vectorial físico."
       }
     ];
 
-    const ARCHIVE = [
+    const DEFAULT_ARCHIVE = [
       {
         id: "arch-01",
         num: "A-01",
@@ -664,7 +645,7 @@
         categoryTag: "Algoritmos Gramaticales",
         year: "2026",
         client: "Exploración autónoma AISUNI",
-        image: "assets/09-typographic-matrix.jpg",
+        image: "assets/05-elso-typeface.jpg",
         tools: "p5.js, Canvas API, Python",
         concept: "Estudio de gramáticas generativas visuales que transforman estructuras semánticas y fonéticas en partituras visuales abstractas de alto rigor compositivo.",
         process: "Autómatas celulares unidimensionales y árboles de sustitución sintáctica que gobiernan la posición y grosor de trazos ortogonales.",
@@ -692,7 +673,7 @@
         categoryTag: "Patrones Textiles",
         year: "2025",
         client: "Estudio Textil Barcelona",
-        image: "assets/10-parametric-lattice.jpg",
+        image: "assets/04-oldest-tree.jpg",
         tools: "Processing, Jacquard scripts",
         concept: "Investigación sobre tramas textiles complejas modeladas computacionalmente a partir de funciones trigonométricas armónicas entrelazadas.",
         process: "Transformación de curvas vectoriales continuas en secuencias binarias para programación de telares Jacquard industriales.",
@@ -720,7 +701,7 @@
         categoryTag: "Interfaces de Espacio Latente",
         year: "2025",
         client: "Creative AI Lab",
-        image: "assets/07-interfaces-hud.jpg",
+        image: "assets/02-2640-tangerine.jpg",
         tools: "WebGL, Figma, Svelte",
         concept: "Exploración de interfaces de control visual para la navegación continua a través de espacios latentes de modelos difusos generativos.",
         process: "Mapeo bidimensional interactivo de representaciones vectoriales multidimensionales mediante algoritmos de reducción de dimensión.",
@@ -734,7 +715,7 @@
         categoryTag: "Simulación Hidrodinámica",
         year: "2025",
         client: "Media Art Installation",
-        image: "assets/08-simulation-fluid.jpg",
+        image: "assets/03-painting-with-sound.jpg",
         tools: "GLSL, WebGL, OpenFrameworks",
         concept: "Simulación computacional de flujo de fluidos y dinámica de partículas en suspensión basada en las leyes fundamentales de Navier-Stokes.",
         process: "Pipeline de renderizado en GPU en tiempo real con 250.000 partículas sometidas a campos de vorticidad y gradientes de presión.",
@@ -762,7 +743,7 @@
         categoryTag: "Tipografía Deconstructiva",
         year: "2024",
         client: "Atelier Tipográfico Experimental",
-        image: "assets/09-typographic-matrix.jpg",
+        image: "assets/05-elso-typeface.jpg",
         tools: "Glyphs, Python, FontForge",
         concept: "Desensamble de caracteres de tipos grotescos en fragmentos atómicos que se recombinan mediante reglas estocásticas en nuevos sistemas de lectura.",
         process: "Programación en Python de un motor de permutación que preserva anclas ópticas clave para mantener reconocibilidad mínima.",
@@ -776,7 +757,7 @@
         categoryTag: "Interfaces & Mapeo de Datos",
         year: "2024",
         client: "UNICEF Office of Innovation",
-        image: "assets/07-interfaces-hud.jpg",
+        image: "assets/01-give-it-a-shape.jpg",
         tools: "Mapbox GL, React, D3.js",
         concept: "Sistema de visualización geoespacial interactivo para la monitorización de infraestructura de conectividad escolar en tiempo real a escala global.",
         process: "Visualización de capas geodésicas, procesamiento de telemetría satelital y optimización de renderizado masivo en navegadores estándar.",
@@ -804,7 +785,7 @@
         categoryTag: "Collage Algorítmico",
         year: "2023",
         client: "Editorial Scribe",
-        image: "assets/05-elso-typeface.jpg",
+        image: "assets/06-mundano-oracle.jpg",
         tools: "Processing, Risografía, InDesign",
         concept: "Serie editorial compuesta por 500 cubiertas irrepetibles generadas algorítmicamente mediante variaciones controladas de semillas pseudoaleatorias.",
         process: "Exportación por lotes de archivos PostScript vectoriales adaptados a separación mecánica para impresión en duplicadora Risograph.",
@@ -812,12 +793,15 @@
       }
     ];
 
+    let liveProjects = [...DEFAULT_PROJECTS];
+    let liveArchive = [...DEFAULT_ARCHIVE];
+
     // --- 2. STATE ---
     let currentCategory = "all";
     let searchQuery = "";
     let currentViewMode = "list"; // 'list' or 'grid'
     let currentTab = "projects";   // 'projects', 'archive', 'info', 'contact'
-    let activeModalDataset = PROJECTS; // tracks which dataset is opened in modal (PROJECTS or ARCHIVE)
+    let activeModalDataset = liveProjects;
     let currentModalIndex = 0;
 
     // --- 3. DOM ELEMENTS ---
@@ -825,7 +809,6 @@
     const projectsGridContainer = document.getElementById("projects-grid-container");
     const projectsEmptyState = document.getElementById("projects-empty-state");
     
-    // Archive elements
     const archiveTableBody = document.getElementById("archive-table-body");
     const archiveGridContainer = document.getElementById("archive-grid-container");
     const archiveEmptyState = document.getElementById("archive-empty-state");
@@ -833,7 +816,6 @@
     const badgeProjectsCount = document.getElementById("badge-projects-count");
     const badgeArchiveCount = document.getElementById("badge-archive-count");
     
-    // Floating preview
     const floatingPreview = document.getElementById("floating-preview");
     const floatingPreviewImg = document.getElementById("floating-preview-img");
     const floatingPreviewTitle = document.getElementById("floating-preview-title");
@@ -841,7 +823,6 @@
     const floatingPreviewNum = document.getElementById("floating-preview-num");
     const floatingPreviewYear = document.getElementById("floating-preview-year");
 
-    // Modal elements
     const projectModal = document.getElementById("project-modal");
     const modalCloseBtn = document.getElementById("modal-close-btn");
     const modalPrevBtn = document.getElementById("modal-prev-btn");
@@ -860,14 +841,31 @@
     const modalGalleryThumbs = document.getElementById("modal-gallery-thumbs");
     const modalShareBtn = document.getElementById("modal-share-btn");
 
-    // Controls
     const projectSearchInput = document.getElementById("project-search-input");
     const btnClearSearch = document.getElementById("btn-clear-search");
     const viewModeListBtn = document.getElementById("view-mode-list-btn");
     const viewModeGridBtn = document.getElementById("view-mode-grid-btn");
     const filterPills = document.querySelectorAll(".filter-pill");
 
-    // --- 4. FILTERING & RENDER FUNCTIONS ---
+    // --- 4. DATA LOADING & FALLBACK RESOLUTION ---
+    async function loadDataFromMarkdownBuild() {
+      try {
+        const response = await fetch("data.json");
+        if (response.ok) {
+          const data = await response.json();
+          if (data && data.projects && data.projects.length > 0) {
+            liveProjects = data.projects;
+          }
+          if (data && data.archive && data.archive.length > 0) {
+            liveArchive = data.archive;
+          }
+        }
+      } catch (err) {
+        // Silent fallback to local cache
+      }
+      renderProjects();
+      renderArchive();
+    }
 
     function filterDataset(dataset) {
       return dataset.filter(item => {
@@ -877,14 +875,14 @@
           item.title.toLowerCase().includes(q) || 
           item.category.toLowerCase().includes(q) || 
           item.categoryTag.toLowerCase().includes(q) || 
-          item.tools.toLowerCase().includes(q) || 
-          item.client.toLowerCase().includes(q);
+          (item.tools && item.tools.toLowerCase().includes(q)) || 
+          (item.client && item.client.toLowerCase().includes(q));
         return matchesCat && matchesQuery;
       });
     }
 
     function renderProjects() {
-      const filtered = filterDataset(PROJECTS);
+      const filtered = filterDataset(liveProjects);
       badgeProjectsCount.textContent = filtered.length;
 
       if (filtered.length === 0) {
@@ -894,14 +892,12 @@
       } else {
         projectsEmptyState.classList.add("hidden");
 
-        // RENDER LIST (DESKTOP & MOBILE TABLE)
         let listHtml = "";
         filtered.forEach((p, idx) => {
           listHtml += `
             <div class="project-row group relative py-3.5 sm:py-4 px-3 sm:px-4 rounded-xl transition-all duration-200 hover:bg-neutral-100/90 dark:hover:bg-neutral-900/90 cursor-pointer flex flex-col md:grid md:grid-cols-12 md:gap-4 md:items-center"
                  data-id="${p.id}" data-type="project" data-index="${idx}">
               
-              <!-- Mobile compact top bar / Desktop col 1 & 2 -->
               <div class="flex items-center justify-between md:contents">
                 <div class="col-span-1 font-mono text-xs text-neutral-400 group-hover:text-brand-orange transition-colors flex items-center gap-2">
                   <span>${p.num}</span>
@@ -914,10 +910,9 @@
                 </div>
               </div>
 
-              <!-- Desktop columns 3, 4, 5 -->
               <div class="hidden md:block col-span-3 font-mono text-xs text-neutral-500 dark:text-neutral-400">
                 <span class="px-2 py-0.5 rounded border border-neutral-200 dark:border-neutral-800 group-hover:border-neutral-400 dark:group-hover:border-neutral-600 transition-colors">
-                  ${p.categoryTag}
+                  ${p.categoryTag || p.category}
                 </span>
               </div>
 
@@ -929,7 +924,6 @@
                 <span class="font-mono text-xs font-semibold group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
               </div>
 
-              <!-- Mobile Inline info -->
               <div class="md:hidden mt-2 pt-2 border-t border-neutral-200/50 dark:border-neutral-800/50 flex items-center justify-between text-xs font-mono text-neutral-500">
                 <span>${p.client} · ${p.year}</span>
                 <span class="text-brand-orange font-semibold flex items-center gap-1">Ver proyecto ↗</span>
@@ -940,14 +934,13 @@
         });
         projectsTableBody.innerHTML = listHtml;
 
-        // RENDER GRID (VISUAL CARDS)
         let gridHtml = "";
         filtered.forEach((p, idx) => {
           gridHtml += `
             <div class="project-grid-card group rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-brand-cardDark hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300 hover:shadow-xl cursor-pointer flex flex-col"
                  data-id="${p.id}" data-type="project" data-index="${idx}">
               <div class="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 dark:bg-neutral-950">
-                <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='assets/01-give-it-a-shape.jpg'">
                 <div class="absolute top-3 left-3 font-mono text-[11px] px-2 py-0.5 rounded-full bg-black/60 text-white backdrop-blur-sm">
                   ${p.num}
                 </div>
@@ -958,7 +951,7 @@
               <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between">
                 <div>
                   <div class="flex items-center justify-between">
-                    <span class="font-mono text-[11px] text-brand-orange uppercase tracking-wider">${p.categoryTag}</span>
+                    <span class="font-mono text-[11px] text-brand-orange uppercase tracking-wider">${p.categoryTag || p.category}</span>
                     <span class="font-mono text-[10px] text-neutral-400">${p.category}</span>
                   </div>
                   <h3 class="font-bold text-base sm:text-lg text-neutral-900 dark:text-neutral-100 mt-1">${p.title}</h3>
@@ -977,7 +970,7 @@
     }
 
     function renderArchive() {
-      const filtered = filterDataset(ARCHIVE);
+      const filtered = filterDataset(liveArchive);
       badgeArchiveCount.textContent = filtered.length;
       archiveCountIndicator.textContent = `${filtered.length} Registros Conectados`;
 
@@ -988,28 +981,24 @@
       } else {
         archiveEmptyState.classList.add("hidden");
 
-        // RENDER ARCHIVE LIST (TABLE FORMAT CONNECTED TO MODAL)
         let listHtml = "";
         filtered.forEach((item, idx) => {
           listHtml += `
             <div class="archive-row group relative py-3.5 sm:py-4 px-3 sm:px-4 rounded-xl transition-all duration-200 hover:bg-neutral-100/90 dark:hover:bg-neutral-900/90 cursor-pointer flex flex-col md:grid md:grid-cols-12 md:gap-4 md:items-center"
                  data-id="${item.id}" data-type="archive" data-index="${idx}">
               
-              <!-- Col 1: Num & Indicator -->
               <div class="flex items-center justify-between md:contents">
                 <div class="col-span-1 font-mono text-xs text-neutral-400 group-hover:text-brand-orange transition-colors flex items-center gap-2">
                   <span>${item.num}</span>
                   <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 opacity-60 group-hover:opacity-100 hidden md:inline-block"></span>
                 </div>
                 
-                <!-- Col 2: Title & Tag -->
                 <div class="col-span-5 font-medium text-sm sm:text-base text-neutral-900 dark:text-neutral-100 group-hover:translate-x-1 transition-transform flex items-center gap-2">
                   <span>${item.title}</span>
                   <span class="md:hidden font-mono text-[10px] px-2 py-0.5 rounded-full bg-brand-orange/10 text-brand-orange">${item.category}</span>
                 </div>
               </div>
 
-              <!-- Col 3: Category & Status -->
               <div class="hidden md:flex col-span-3 items-center gap-2 font-mono text-xs text-neutral-500 dark:text-neutral-400">
                 <span class="px-2 py-0.5 rounded border border-neutral-200 dark:border-neutral-800 text-brand-orange bg-brand-orange/5">
                   ${item.category}
@@ -1017,17 +1006,14 @@
                 <span class="text-[10px] text-neutral-400 truncate">${item.status || 'Activo'}</span>
               </div>
 
-              <!-- Col 4: Context / Year -->
               <div class="hidden md:block col-span-2 text-right font-mono text-xs text-neutral-500 dark:text-neutral-400">
                 <span>${item.year}</span>
               </div>
 
-              <!-- Col 5: Open Action -->
               <div class="hidden md:flex col-span-1 justify-end items-center text-neutral-400 group-hover:text-brand-orange transition-colors">
                 <span class="font-mono text-xs font-semibold group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
               </div>
 
-              <!-- Mobile metadata bar -->
               <div class="md:hidden mt-2 pt-2 border-t border-neutral-200/50 dark:border-neutral-800/50 flex items-center justify-between text-xs font-mono text-neutral-500">
                 <span>${item.client} · ${item.year}</span>
                 <span class="text-brand-orange font-semibold flex items-center gap-1">Inspeccionar pieza ↗</span>
@@ -1038,7 +1024,6 @@
         });
         archiveTableBody.innerHTML = listHtml;
 
-        // RENDER ARCHIVE GRID CARDS
         let gridHtml = "";
         filtered.forEach((item, idx) => {
           gridHtml += `
@@ -1050,7 +1035,7 @@
                   <span class="text-neutral-400">${item.year}</span>
                 </div>
                 <div class="aspect-[16/9] w-full rounded-lg overflow-hidden bg-neutral-100 dark:bg-neutral-900 border border-neutral-200/60 dark:border-neutral-800/60">
-                  <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                  <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='assets/01-give-it-a-shape.jpg'">
                 </div>
                 <div>
                   <h4 class="font-semibold text-sm sm:text-base text-neutral-900 dark:text-neutral-100 group-hover:text-brand-orange transition-colors">${item.title}</h4>
@@ -1071,9 +1056,7 @@
       attachInteractiveListeners();
     }
 
-    // --- 5. INTERACTIVE BEHAVIORS ---
-
-    // Floating Image Preview on Desktop
+    // --- 5. INTERACTION & MOUSE FOLLOWER ---
     let mouseX = 0, mouseY = 0;
     let targetX = 0, targetY = 0;
 
@@ -1097,27 +1080,26 @@
     animateFloatingPreview();
 
     function attachInteractiveListeners() {
-      // Click listeners for both Projects and Archive rows/cards
       document.querySelectorAll(".project-row, .project-grid-card, .archive-row, .archive-grid-card").forEach(el => {
         el.addEventListener("click", () => {
           const type = el.getAttribute("data-type");
           const id = el.getAttribute("data-id");
-          const dataset = (type === "archive") ? ARCHIVE : PROJECTS;
+          const dataset = (type === "archive") ? liveArchive : liveProjects;
           const idx = dataset.findIndex(p => p.id === id);
           if (idx !== -1) {
             openDetailModal(dataset, idx);
           }
         });
 
-        // Hover for floating preview (Desktop only, for rows)
         if (el.classList.contains("project-row") || el.classList.contains("archive-row")) {
           el.addEventListener("mouseenter", () => {
             const type = el.getAttribute("data-type");
             const id = el.getAttribute("data-id");
-            const dataset = (type === "archive") ? ARCHIVE : PROJECTS;
+            const dataset = (type === "archive") ? liveArchive : liveProjects;
             const p = dataset.find(item => item.id === id);
             if (p) {
               floatingPreviewImg.src = p.image;
+              floatingPreviewImg.onerror = () => { floatingPreviewImg.src = 'assets/01-give-it-a-shape.jpg'; };
               floatingPreviewTitle.textContent = p.title;
               floatingPreviewCat.textContent = p.categoryTag || p.category;
               floatingPreviewNum.textContent = p.num;
@@ -1133,7 +1115,6 @@
       });
     }
 
-    // Modal display for both Projects & Archive
     function openDetailModal(dataset, index) {
       activeModalDataset = dataset;
       currentModalIndex = index;
@@ -1153,6 +1134,7 @@
       }
 
       modalMainImg.src = p.image;
+      modalMainImg.onerror = () => { modalMainImg.src = 'assets/01-give-it-a-shape.jpg'; };
       modalClient.textContent = p.client;
       modalYear.textContent = p.year;
       modalDiscipline.textContent = p.categoryTag || p.category;
@@ -1160,23 +1142,20 @@
       modalConceptText.textContent = p.concept;
       modalProcessText.textContent = p.process || "Desarrollo algorítmico y experimentación de sistemas visuales.";
 
-      // Render secondary companion thumbnails
       let thumbsHtml = `
         <button class="aspect-[4/3] rounded-lg overflow-hidden border-2 border-brand-orange bg-black/10">
-          <img src="${p.image}" class="w-full h-full object-cover">
+          <img src="${p.image}" class="w-full h-full object-cover" onerror="this.src='assets/01-give-it-a-shape.jpg'">
         </button>
       `;
-      // Companion previews from dataset
       dataset.filter((_, i) => i !== index).slice(0, 3).forEach(other => {
         thumbsHtml += `
           <button class="modal-thumb-switch aspect-[4/3] rounded-lg overflow-hidden border border-neutral-200 dark:border-neutral-800 opacity-60 hover:opacity-100 transition-opacity" data-id="${other.id}">
-            <img src="${other.image}" class="w-full h-full object-cover">
+            <img src="${other.image}" class="w-full h-full object-cover" onerror="this.src='assets/01-give-it-a-shape.jpg'">
           </button>
         `;
       });
       modalGalleryThumbs.innerHTML = thumbsHtml;
 
-      // Attach thumb click to switch
       document.querySelectorAll(".modal-thumb-switch").forEach(btn => {
         btn.addEventListener("click", () => {
           const targetId = btn.getAttribute("data-id");
@@ -1210,7 +1189,6 @@
       openDetailModal(activeModalDataset, next);
     });
 
-    // Keyboard navigation
     window.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         closeDetailModal();
@@ -1225,7 +1203,6 @@
       }
     });
 
-    // Modal concept vs process tabs
     const modalTabConceptBtn = document.getElementById("modal-tab-concept-btn");
     const modalTabProcessBtn = document.getElementById("modal-tab-process-btn");
     const modalTabConceptContent = document.getElementById("modal-tab-concept-content");
@@ -1294,7 +1271,6 @@
         }
       });
 
-      // Show/hide project controls based on active tab
       if (targetKey === "projects" || targetKey === "archive") {
         projectsViewControls.classList.remove("opacity-20", "pointer-events-none");
         categoryFiltersContainer.classList.remove("hidden");
@@ -1359,7 +1335,6 @@
       filterPills[0].click();
     });
 
-    // View mode switch (List vs Grid) applies to both Projects and Archive
     viewModeListBtn.addEventListener("click", () => {
       currentViewMode = "list";
       viewModeListBtn.classList.add("active", "bg-white", "dark:bg-neutral-800", "text-neutral-900", "dark:text-white", "shadow-sm");
@@ -1469,15 +1444,13 @@
       }, 4000);
     });
 
-    // Back to top button
     document.getElementById("btn-back-to-top").addEventListener("click", (e) => {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
     // --- INITIAL RENDER ---
-    renderProjects();
-    renderArchive();
+    loadDataFromMarkdownBuild();
 
   </script>
 </body>

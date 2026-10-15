@@ -1,0 +1,10 @@
+title: AISUNI — Archivo Activo
+description: "Investigación en artes visuales y sistemas generativos: un espacio de experimentación con tecnologías emergentes y herramientas algorítmicas para nuevas inteligencias visuales."
+markdown: kramdown
+permalink: pretty
+
+collections:
+  proyectos:
+    output: false
+  archivo:
+    output: false
