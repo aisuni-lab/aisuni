@@ -1,0 +1,25 @@
+/* Nebulosa Picante - Custom Styles */
+* {
+  border-color: inherit;
+}
+body {
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+#floating-preview {
+  pointer-events: none;
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.15s ease-out;
+  transform: translate(-50%, -50%) scale(0.96);
+  will-change: transform, opacity;
+}
+#floating-preview.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
