@@ -1,7 +1,7 @@
 ---
 id: "give-it-a-shit"
 num: "01"
-title: "Give it a shape"
+title: "Give it a shit"
 category: "Sistemas"
 categoryTag: "Sistemas & Glifos"
 year: "2026"
