@@ -1,6 +1,6 @@
 /* =========================================================================
-   AISUNI — Custom Styles & Interaction Refinements
-   Investigación en artes visuales y sistemas generativos
+   AISUNI — Editorial Typographic Styling & Fluid Transitions
+   Inspirado en la composición minimalista continua de nebulosapicante.com
    ========================================================================= */
 
 * {
@@ -21,6 +21,7 @@ body {
   scrollbar-width: none;
 }
 
+/* Floating mouse preview follower */
 #floating-preview {
   pointer-events: none;
   transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.15s ease-out;
@@ -31,4 +32,9 @@ body {
 #floating-preview.active {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
+}
+
+/* Row hover subtle shift */
+.project-row, .archive-row {
+  transition: background-color 0.15s ease, padding 0.15s ease;
 }

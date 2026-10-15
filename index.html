@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="dark">
+<html lang="es" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,136 +39,78 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
-  <style>
-    * {
-      border-color: inherit;
-    }
-    body {
-      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-      -webkit-font-smoothing: antialiased;
-    }
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-    #floating-preview {
-      pointer-events: none;
-      transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.15s ease-out;
-      transform: translate(-50%, -50%) scale(0.96);
-      will-change: transform, opacity;
-    }
-    #floating-preview.active {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1);
-    }
-  </style>
 </head>
 <body class="bg-brand-light text-neutral-900 dark:bg-brand-dark dark:text-neutral-100 min-h-screen font-sans selection:bg-brand-orange selection:text-white transition-colors duration-300">
 
-  <!-- FLOATING MOUSE PREVIEW (DESKTOP LIST & ARCHIVE HOVER) -->
+  <!-- FLOATING MOUSE PREVIEW (SIGNATURE DESKTOP HOVER) -->
   <div id="floating-preview" class="fixed z-50 hidden md:block opacity-0 pointer-events-none w-72 lg:w-80 rounded-xl overflow-hidden shadow-2xl border border-neutral-200/80 dark:border-neutral-800 bg-white/95 dark:bg-neutral-900/95 backdrop-blur-md">
     <div class="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 dark:bg-neutral-950">
-      <img id="floating-preview-img" src="" alt="Vista previa" class="w-full h-full object-cover transition-transform duration-300">
+      <img id="floating-preview-img" src="" alt="Vista previa de obra" class="w-full h-full object-cover transition-transform duration-300">
       <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60"></div>
       <span id="floating-preview-num" class="absolute top-2.5 left-3 font-mono text-[11px] px-2 py-0.5 rounded-full bg-black/60 text-white backdrop-blur-sm">01</span>
       <span id="floating-preview-year" class="absolute top-2.5 right-3 font-mono text-[11px] px-2 py-0.5 rounded-full bg-black/60 text-white backdrop-blur-sm">2026</span>
     </div>
     <div class="p-3 bg-white dark:bg-neutral-900 border-t border-neutral-100 dark:border-neutral-800 flex items-center justify-between">
       <div>
-        <p id="floating-preview-title" class="font-medium text-xs text-neutral-900 dark:text-neutral-100 leading-tight">Proyecto</p>
+        <p id="floating-preview-title" class="font-medium text-xs text-neutral-900 dark:text-neutral-100 leading-tight">Obra</p>
         <p id="floating-preview-cat" class="font-mono text-[10px] text-neutral-500 dark:text-neutral-400">Disciplina</p>
       </div>
       <span class="text-[10px] font-mono uppercase tracking-wider text-brand-orange flex items-center gap-1 font-semibold">
-        Clic para abrir ↗
+        Abrir ficha ↗
       </span>
     </div>
   </div>
 
-  <!-- MAIN WRAPPER -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-10">
+  <!-- MAIN WRAPPER (CONTINUOUS EDITORIAL LAYOUT) -->
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-14 space-y-16 sm:space-y-24">
 
-    <!-- TOP HEADER / BRANDING BAR -->
-    <header class="border-b border-neutral-200 dark:border-neutral-800/80 pb-6 mb-8">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
-        
-        <!-- Identity & Statement -->
-        <div class="space-y-2 max-w-3xl">
-          <div class="flex items-center gap-3">
-            <span class="inline-block w-2.5 h-2.5 rounded-full bg-brand-orange animate-pulse"></span>
-            <h1 class="font-bold text-xl sm:text-2xl tracking-tight uppercase flex items-center gap-2">
-              AISUNI <span class="text-brand-orange text-lg">✷</span>
-            </h1>
-            <span class="font-mono text-[11px] px-2 py-0.5 rounded border border-neutral-300 dark:border-neutral-700 text-neutral-600 dark:text-neutral-400">
-              Archivo Activo
-            </span>
-          </div>
-          <p class="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed font-light">
-            <span class="text-neutral-900 dark:text-white font-medium">Investigación en artes visuales y sistemas generativos:</span> un espacio de experimentación con tecnologías emergentes y herramientas algorítmicas para nuevas inteligencias visuales.
-          </p>
+    <!-- 1. HEADER & IDENTITY BAR -->
+    <header class="space-y-8">
+      
+      <!-- Top Navigation & Brand Name -->
+      <div class="flex items-center justify-between border-b border-neutral-200 dark:border-neutral-800/80 pb-6">
+        <div class="flex items-center gap-3">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-brand-orange animate-pulse"></span>
+          <a href="#" class="font-bold text-xl sm:text-2xl tracking-tight uppercase flex items-center gap-2 hover:text-brand-orange transition-colors">
+            AISUNI <span class="text-brand-orange text-lg">✷</span>
+          </a>
+          <span class="font-mono text-[10px] sm:text-[11px] px-2 py-0.5 rounded border border-neutral-300 dark:border-neutral-700 text-neutral-600 dark:text-neutral-400">
+            Archivo Activo
+          </span>
         </div>
 
-        <!-- Meta status & Action buttons -->
-        <div class="flex flex-wrap items-center gap-3 font-mono text-xs">
+        <!-- Quick Navigation Links (Smooth Anchors) & Controls -->
+        <div class="flex items-center gap-4 sm:gap-6 font-mono text-xs">
+          <nav class="hidden md:flex items-center gap-5 text-neutral-500 dark:text-neutral-400">
+            <a href="#proyectos" class="hover:text-brand-orange transition-colors">Proyectos</a>
+            <a href="#archivo" class="hover:text-brand-orange transition-colors">Archivo</a>
+            <a href="#info" class="hover:text-brand-orange transition-colors">Información</a>
+            <a href="#contacto" class="hover:text-brand-orange transition-colors">Contacto</a>
+          </nav>
+
           <!-- Live Clock -->
-          <div class="px-3 py-1.5 rounded-lg bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 flex items-center gap-2">
+          <div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-500">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
             <span id="clock-display">BCN · --:--:--</span>
           </div>
 
           <!-- Theme toggle -->
-          <button id="btn-theme-toggle" aria-label="Cambiar tema de color" class="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-brand-orange dark:hover:text-brand-orange transition-colors">
+          <button id="btn-theme-toggle" aria-label="Cambiar tema de color" class="p-1.5 rounded-lg bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-500 hover:text-brand-orange transition-colors">
             <svg id="theme-icon-sun" class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
             <svg id="theme-icon-moon" class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
           </button>
         </div>
-
       </div>
 
-      <!-- MAIN NAVIGATION TABS -->
-      <nav class="mt-8 flex flex-wrap items-center justify-between gap-4">
-        <div class="flex items-center gap-1 sm:gap-2 p-1 bg-neutral-100 dark:bg-neutral-900/90 rounded-xl border border-neutral-200 dark:border-neutral-800 text-xs sm:text-sm font-mono">
-          <button id="nav-btn-projects" class="nav-tab active px-3.5 py-1.5 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white font-medium shadow-sm transition-all flex items-center gap-1.5">
-            <span>Proyectos</span>
-            <span id="badge-projects-count" class="text-[10px] px-1.5 py-0.2 rounded-full bg-brand-orange/10 text-brand-orange font-bold">8</span>
-          </button>
-          <button id="nav-btn-archive" class="nav-tab px-3.5 py-1.5 rounded-lg text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-all flex items-center gap-1.5">
-            <span>Archivo</span>
-            <span id="badge-archive-count" class="text-[10px] px-1.5 py-0.2 rounded-full bg-neutral-200 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400">12</span>
-          </button>
-          <button id="nav-btn-info" class="nav-tab px-3.5 py-1.5 rounded-lg text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-all">
-            <span>Información</span>
-          </button>
-          <button id="nav-btn-contact" class="nav-tab px-3.5 py-1.5 rounded-lg text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-all">
-            <span>Contacto</span>
-          </button>
-        </div>
+      <!-- Manifesto / Statement -->
+      <div class="max-w-3xl pt-2">
+        <p class="text-base sm:text-xl lg:text-2xl text-neutral-700 dark:text-neutral-300 font-light leading-relaxed">
+          <span class="text-neutral-950 dark:text-white font-medium">Investigación en artes visuales y sistemas generativos:</span> un espacio de experimentación con tecnologías emergentes y herramientas algorítmicas para nuevas inteligencias visuales.
+        </p>
+      </div>
 
-        <!-- View Controls (Search & List/Grid Switcher) -->
-        <div id="projects-view-controls" class="flex items-center gap-3 w-full sm:w-auto">
-          <!-- Search box -->
-          <div class="relative flex-1 sm:w-56 lg:w-64">
-            <input type="text" id="project-search-input" placeholder="Buscar proyecto, algoritmo o tag..." class="w-full pl-8 pr-7 py-1.5 rounded-lg text-xs bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200 focus:outline-none focus:ring-1 focus:ring-brand-orange">
-            <svg class="w-3.5 h-3.5 absolute left-2.5 top-2.5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-            <button id="btn-clear-search" class="hidden absolute right-2.5 top-2 text-neutral-400 hover:text-neutral-600 text-xs font-mono">×</button>
-          </div>
-
-          <!-- List vs Grid Toggle (Desktop & Mobile) -->
-          <div class="flex items-center p-1 rounded-lg bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
-            <button id="view-mode-list-btn" title="Modo Lista (con vista previa al pasar el ratón)" class="view-toggle-btn active p-1.5 rounded bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white shadow-sm">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
-            <button id="view-mode-grid-btn" title="Modo Galería / Cuadrícula" class="view-toggle-btn p-1.5 rounded text-neutral-500 hover:text-neutral-900 dark:hover:text-white">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      <!-- CATEGORY FILTER PILLS (8 OFFICIAL CATEGORIES) -->
-      <div id="category-filters-container" class="mt-4 flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1">
+      <!-- Clean Category Filter Ribbon (8 Official Disciplines) -->
+      <div class="pt-4 flex items-center gap-1.5 overflow-x-auto no-scrollbar border-b border-neutral-200/70 dark:border-neutral-800/70 pb-3">
         <span class="text-[11px] font-mono text-neutral-400 mr-2 uppercase tracking-wider hidden sm:inline">Filtrar:</span>
         <button data-cat="all" class="filter-pill active px-3 py-1 rounded-full text-xs font-mono transition-all bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 font-medium whitespace-nowrap">Todos</button>
         <button data-cat="Sistemas" class="filter-pill px-3 py-1 rounded-full text-xs font-mono transition-all bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white whitespace-nowrap">Sistemas</button>
@@ -180,276 +122,216 @@
         <button data-cat="Procesos" class="filter-pill px-3 py-1 rounded-full text-xs font-mono transition-all bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white whitespace-nowrap">Procesos</button>
         <button data-cat="Interfaces" class="filter-pill px-3 py-1 rounded-full text-xs font-mono transition-all bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white whitespace-nowrap">Interfaces</button>
       </div>
+
     </header>
 
-    <!-- TAB SECTION 1: PROJECTS (CORE VIEW) -->
-    <main id="section-projects" class="tab-content block">
-
-      <!-- DESKTOP / MOBILE LIST VIEW -->
-      <div id="projects-list-container" class="space-y-1">
-        
-        <!-- Table Column Headers (Visible on Desktop) -->
-        <div class="hidden md:grid grid-cols-12 gap-4 px-4 py-2 text-[11px] font-mono uppercase tracking-wider text-neutral-400 border-b border-neutral-200 dark:border-neutral-800">
-          <div class="col-span-1">No.</div>
-          <div class="col-span-5">Proyecto</div>
-          <div class="col-span-3">Disciplina / Categoría</div>
-          <div class="col-span-2 text-right">Contexto / Año</div>
-          <div class="col-span-1 text-right">Detalle</div>
-        </div>
-
-        <!-- Dynamic List of Projects -->
-        <div id="projects-table-body" class="divide-y divide-neutral-200/60 dark:divide-neutral-800/60">
-          <!-- Injected via JavaScript -->
-        </div>
-
-        <!-- Empty search state -->
-        <div id="projects-empty-state" class="hidden py-16 text-center">
-          <p class="font-mono text-sm text-neutral-500">No se encontraron proyectos en esta categoría con ese criterio.</p>
-          <button id="btn-reset-filters" class="mt-3 px-3 py-1 text-xs font-mono text-brand-orange border border-brand-orange rounded-md">Restablecer filtros</button>
-        </div>
+    <!-- 2. SECTION: PROYECTOS (TYPOGRAPHIC CONTINUOUS INDEX) -->
+    <section id="proyectos" class="space-y-4 pt-2">
+      <div class="flex items-baseline justify-between border-b border-neutral-300 dark:border-neutral-800 pb-2">
+        <h2 class="font-bold text-lg sm:text-xl uppercase tracking-tight flex items-center gap-2">
+          Proyectos <span class="text-xs font-mono font-normal text-neutral-400">(<span id="projects-count">8</span>)</span>
+        </h2>
+        <span class="font-mono text-xs text-neutral-400 hidden sm:inline">Selección destacada · 2024–2026</span>
       </div>
 
-      <!-- GRID / GALLERY VIEW (SWITCHABLE) -->
-      <div id="projects-grid-container" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pt-2">
+      <!-- Typographical List of Projects -->
+      <div id="projects-list-body" class="divide-y divide-neutral-200/80 dark:divide-neutral-800/80">
         <!-- Injected via JavaScript -->
       </div>
-    </main>
 
-    <!-- TAB SECTION 2: ARCHIVO (ACTIVE & FULLY INTERACTIVE) -->
-    <section id="section-archive" class="tab-content hidden space-y-6">
-      
-      <!-- Archive Header / Status bar -->
-      <div class="border-b border-neutral-200 dark:border-neutral-800 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div>
-          <div class="flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-            <h2 class="font-mono text-xs uppercase tracking-wider text-neutral-400">Archivo Activo de Investigación & Exploraciones</h2>
-          </div>
-          <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">Exploraciones algorítmicas, sigilos geométricos, códigos computacionales y ensayos visuales.</p>
-        </div>
-        <div class="flex items-center gap-3">
-          <span id="archive-count-indicator" class="font-mono text-xs text-brand-orange px-2.5 py-1 rounded bg-brand-orange/10 border border-brand-orange/20 font-medium">12 Registros Conectados</span>
-        </div>
-      </div>
-
-      <!-- Archive interactive list & grid -->
-      <div id="archive-list-container" class="space-y-1">
-        
-        <!-- Table Column Headers for Archive (Visible on Desktop) -->
-        <div class="hidden md:grid grid-cols-12 gap-4 px-4 py-2 text-[11px] font-mono uppercase tracking-wider text-neutral-400 border-b border-neutral-200 dark:border-neutral-800">
-          <div class="col-span-1">Ref.</div>
-          <div class="col-span-5">Pieza / Exploración</div>
-          <div class="col-span-3">Categoría & Estado</div>
-          <div class="col-span-2 text-right">Ámbito / Año</div>
-          <div class="col-span-1 text-right">Abrir</div>
-        </div>
-
-        <!-- Dynamic List of Archive Items -->
-        <div id="archive-table-body" class="divide-y divide-neutral-200/60 dark:divide-neutral-800/60">
-          <!-- Injected via JavaScript -->
-        </div>
-
-        <!-- Archive Empty State -->
-        <div id="archive-empty-state" class="hidden py-16 text-center">
-          <p class="font-mono text-sm text-neutral-500">No se encontraron piezas en el archivo con este criterio.</p>
-          <button id="btn-reset-archive-filters" class="mt-3 px-3 py-1 text-xs font-mono text-brand-orange border border-brand-orange rounded-md">Restablecer filtros</button>
-        </div>
-      </div>
-
-      <!-- Archive Grid View (When in Grid Mode) -->
-      <div id="archive-grid-container" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 pt-2">
-        <!-- Injected via JavaScript -->
+      <!-- Empty state if category filter has no results -->
+      <div id="projects-empty-state" class="hidden py-8 text-center text-xs font-mono text-neutral-500">
+        No hay proyectos destacados en esta categoría seleccionada.
       </div>
     </section>
 
-    <!-- TAB SECTION 3: INFO / ABOUT -->
-    <section id="section-info" class="tab-content hidden max-w-4xl space-y-12 py-2">
-      
-      <!-- Bio Summary Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start border-b border-neutral-200 dark:border-neutral-800 pb-10">
-        <div class="md:col-span-4 space-y-4">
-          <div class="aspect-square rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 relative">
-            <img src="assets/01-give-it-a-shape.jpg" alt="AISUNI Visual Research" class="w-full h-full object-cover">
-            <div class="absolute bottom-3 left-3 bg-black/70 backdrop-blur-sm text-white px-2 py-1 rounded text-[10px] font-mono">
-              Barcelona, ES · Lab
+    <!-- 3. SECTION: ARCHIVO ACTIVO (CONTINUOUS EDITORIAL LIST) -->
+    <section id="archivo" class="space-y-4 pt-6">
+      <div class="flex items-baseline justify-between border-b border-neutral-300 dark:border-neutral-800 pb-2">
+        <h2 class="font-bold text-lg sm:text-xl uppercase tracking-tight flex items-center gap-2">
+          Archivo <span class="text-xs font-mono font-normal text-brand-orange">(<span id="archive-count">12</span>)</span>
+        </h2>
+        <span class="font-mono text-xs text-neutral-400 hidden sm:inline">Exploraciones autónomas & sigilos</span>
+      </div>
+
+      <!-- Typographical List of Archive Items -->
+      <div id="archive-list-body" class="divide-y divide-neutral-200/80 dark:divide-neutral-800/80">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <!-- Empty state if category filter has no results -->
+      <div id="archive-empty-state" class="hidden py-8 text-center text-xs font-mono text-neutral-500">
+        No hay piezas en el archivo en esta categoría seleccionada.
+      </div>
+    </section>
+
+    <!-- 4. SECTION: ABOUT / INFORMACIÓN -->
+    <section id="info" class="pt-10 border-t border-neutral-200 dark:border-neutral-800 space-y-12">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left: Image & Location Badge -->
+        <div class="md:col-span-4 space-y-3">
+          <div class="aspect-square rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 relative">
+            <img src="assets/01-give-it-a-shape.jpg" alt="AISUNI Studio" class="w-full h-full object-cover">
+            <div class="absolute bottom-3 left-3 bg-black/75 text-white px-2 py-1 rounded text-[10px] font-mono backdrop-blur-sm">
+              Barcelona, ES · Estudio & Lab
             </div>
           </div>
           <div>
-            <h3 class="font-bold text-lg">AISUNI</h3>
+            <h3 class="font-bold text-base sm:text-lg">AISUNI</h3>
             <p class="font-mono text-xs text-brand-orange">Artes Visuales & Sistemas Generativos</p>
           </div>
         </div>
 
+        <!-- Right: Editorial Text & Bio -->
         <div class="md:col-span-8 space-y-6 text-sm sm:text-base leading-relaxed text-neutral-700 dark:text-neutral-300">
           <div>
-            <h4 class="font-mono text-xs uppercase tracking-wider text-neutral-400 mb-2">Manifiesto & Enfoque</h4>
+            <h4 class="font-mono text-xs uppercase tracking-wider text-neutral-400 mb-2">Manifiesto & Práctica</h4>
             <p>
-              AISUNI es un espacio de investigación en artes visuales y sistemas generativos. Exploramos las fronteras entre el cálculo formal, las herramientas algorítmicas emergentes y la poética de la forma pura. Entendemos el código como una materia viva capaz de revelar patrones botánicos, dinámicas físicas acústicas y nuevas inteligencias visuales.
+              AISUNI es un espacio de investigación en artes visuales y sistemas generativos. Exploramos las fronteras entre el cálculo formal, las herramientas algorítmicas emergentes y la poética de la forma pura. Entendemos el código como una materia plástica viva capaz de revelar patrones botánicos, dinámicas físicas acústicas y nuevas inteligencias visuales.
             </p>
           </div>
 
           <div>
-            <h4 class="font-mono text-xs uppercase tracking-wider text-neutral-400 mb-2">Metodología & Geometría</h4>
+            <h4 class="font-mono text-xs uppercase tracking-wider text-neutral-400 mb-2">Metodología</h4>
             <p>
               Nuestra práctica se articula en torno a la síntesis: convertir la complejidad caótica de datos científicos, sonidos o axiomas matemáticos en artefactos visuales directos, rigurosos y contemplativos. Desarrollamos herramientas propias, shaders GLSL, tipografía paramétrica y tramas vectoriales diseñadas para habitar tanto pantallas de alta resolución como piezas físicas impresas y trazadores mecánicos.
             </p>
           </div>
 
-          <!-- Ask me about / Disciplinas clave -->
+          <!-- Focus areas -->
           <div>
             <h4 class="font-mono text-xs uppercase tracking-wider text-neutral-400 mb-2">Ejes de Experimentación</h4>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200">Sistemas Generativos</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200">Algoritmos Visuales</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200">Tipografía Paramétrica</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200">Simulación Acústica</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200">Collage & Sigilos</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200">Patrones Dinámicos</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200">Interfaces HUD & Datos</span>
-              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-brand-orange/10 border border-brand-orange/30 text-brand-orange">Experimentación Algorítmica ✷</span>
+            <div class="flex flex-wrap gap-2 text-xs font-mono">
+              <span class="px-2.5 py-1 rounded bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">Sistemas Generativos</span>
+              <span class="px-2.5 py-1 rounded bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">Algoritmos Visuales</span>
+              <span class="px-2.5 py-1 rounded bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">Tipografía Paramétrica</span>
+              <span class="px-2.5 py-1 rounded bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">Simulación Acústica</span>
+              <span class="px-2.5 py-1 rounded bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">Collage & Sigilos</span>
+              <span class="px-2.5 py-1 rounded bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">Patrones Dinámicos</span>
+              <span class="px-2.5 py-1 rounded bg-brand-orange/10 border border-brand-orange/30 text-brand-orange font-semibold">Interfaces HUD ✷</span>
             </div>
           </div>
         </div>
+
       </div>
 
-      <!-- Clients & Exhibitions -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-b border-neutral-200 dark:border-neutral-800 pb-10">
+      <!-- Clients & Exhibitions Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6 border-t border-neutral-200 dark:border-neutral-800 text-xs sm:text-sm">
         <div>
-          <h4 class="font-mono text-xs uppercase tracking-wider text-neutral-400 mb-4">Colaboraciones & Clientes</h4>
-          <ul class="space-y-2 text-sm text-neutral-700 dark:text-neutral-300 font-mono">
+          <h4 class="font-mono text-xs uppercase tracking-wider text-neutral-400 mb-3">Colaboraciones & Clientes Seleccionados</h4>
+          <ul class="space-y-1.5 font-mono text-neutral-600 dark:text-neutral-400">
             <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-brand-orange rounded-full"></span>UNICEF Office of Innovation</li>
             <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-brand-orange rounded-full"></span>MIT Media Lab</li>
             <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-brand-orange rounded-full"></span>ITU (International Telecommunication Union)</li>
             <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-brand-orange rounded-full"></span>Information Aesthetics Lab</li>
             <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-brand-orange rounded-full"></span>Flexible Visual Systems Workshop</li>
             <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-brand-orange rounded-full"></span>Sottotraccia Festival / Sofiane Pamart</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-brand-orange rounded-full"></span>Ediciones Mundano</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-brand-orange rounded-full"></span>Creative AI Research Lab</li>
           </ul>
         </div>
 
         <div>
-          <h4 class="font-mono text-xs uppercase tracking-wider text-neutral-400 mb-4">Exposiciones, Charlas & Publicaciones</h4>
-          <ul class="space-y-3 text-xs sm:text-sm text-neutral-700 dark:text-neutral-300">
+          <h4 class="font-mono text-xs uppercase tracking-wider text-neutral-400 mb-3">Charlas & Exhibiciones</h4>
+          <ul class="space-y-2 text-neutral-600 dark:text-neutral-400">
             <li class="border-l-2 border-brand-orange pl-3">
-              <span class="font-mono text-neutral-400 text-xs">2026</span>
-              <p class="font-medium">Mozilla Fest Talk: Expanding the Generative Map</p>
+              <span class="font-mono text-[11px] text-neutral-400">2026</span>
+              <p class="font-medium text-neutral-900 dark:text-white">Mozilla Fest: Expanding the Generative Map</p>
             </li>
             <li class="border-l-2 border-neutral-300 dark:border-neutral-700 pl-3">
-              <span class="font-mono text-neutral-400 text-xs">2026</span>
-              <p class="font-medium">Sottotraccia Festival: Painting with Sound (Audio-Reactive Waves)</p>
+              <span class="font-mono text-[11px] text-neutral-400">2026</span>
+              <p class="font-medium text-neutral-900 dark:text-white">Sottotraccia Festival: Painting with Sound</p>
             </li>
             <li class="border-l-2 border-neutral-300 dark:border-neutral-700 pl-3">
-              <span class="font-mono text-neutral-400 text-xs">2026</span>
-              <p class="font-medium">AISUNI Working Paper 04: Inteligencias Visuales en Entornos Latentes</p>
-            </li>
-            <li class="border-l-2 border-neutral-300 dark:border-neutral-700 pl-3">
-              <span class="font-mono text-neutral-400 text-xs">2025</span>
-              <p class="font-medium">Flexible Visual Systems: Framora Generative Architecture</p>
-            </li>
-            <li class="border-l-2 border-neutral-300 dark:border-neutral-700 pl-3">
-              <span class="font-mono text-neutral-400 text-xs">2024</span>
-              <p class="font-medium">Exhibición Art Number 23 Barcelona: Give it a Shape</p>
+              <span class="font-mono text-[11px] text-neutral-400">2025</span>
+              <p class="font-medium text-neutral-900 dark:text-white">Flexible Visual Systems: Framora Generative Architecture</p>
             </li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- TAB SECTION 4: CONTACT -->
-    <section id="section-contact" class="tab-content hidden max-w-2xl py-6 space-y-8">
-      <div>
-        <h2 class="font-bold text-2xl mb-2">Hablemos de nuevos proyectos</h2>
-        <p class="text-neutral-600 dark:text-neutral-400 text-sm">Disponible para colaboraciones en sistemas generativos, visualización de datos complejos, tipografía algorítmica y dirección de arte computacional.</p>
+    <!-- 5. SECTION: CONTACTO -->
+    <section id="contacto" class="pt-8 border-t border-neutral-200 dark:border-neutral-800 space-y-6">
+      <div class="space-y-2">
+        <h2 class="font-bold text-xl uppercase tracking-tight">Hablemos de nuevos proyectos</h2>
+        <p class="text-sm text-neutral-600 dark:text-neutral-400">Disponible para proyectos de sistemas generativos, visualización de datos complejos, tipografía algorítmica y dirección de arte computacional.</p>
       </div>
 
-      <!-- Direct Email Copy Card -->
-      <div class="p-6 rounded-2xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 space-y-4">
-        <p class="font-mono text-xs uppercase text-neutral-400">Contacto directo por correo:</p>
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <span id="contact-email-text" class="font-mono text-lg font-semibold text-neutral-900 dark:text-white">contacto@aisuni.art</span>
-          <button id="btn-copy-email" class="px-4 py-2 rounded-lg bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-mono font-medium hover:bg-brand-orange dark:hover:bg-brand-orange dark:hover:text-white transition-colors flex items-center justify-center gap-2">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
-            <span id="copy-btn-label">Copiar email</span>
-          </button>
+      <!-- Direct Email Card -->
+      <div class="p-5 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <span class="font-mono text-[10px] uppercase text-neutral-400 block">Contacto directo:</span>
+          <span id="contact-email-text" class="font-mono text-base sm:text-lg font-semibold text-neutral-900 dark:text-white">contacto@aisuni.art</span>
         </div>
+        <button id="btn-copy-email" class="px-4 py-2 rounded-lg bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-mono font-medium hover:bg-brand-orange dark:hover:bg-brand-orange dark:hover:text-white transition-colors flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
+          <span id="copy-btn-label">Copiar email</span>
+        </button>
       </div>
 
-      <!-- Social & Direct links -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs">
-        <a href="https://instagram.com/aisuni.art" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl border border-neutral-200 dark:border-neutral-800 hover:border-brand-orange dark:hover:border-brand-orange transition-colors flex items-center justify-between">
+      <!-- Direct Links (Socials & GitHub) -->
+      <div class="flex flex-wrap items-center gap-6 font-mono text-xs pt-2">
+        <a href="https://instagram.com/aisuni.art" target="_blank" rel="noopener noreferrer" class="hover:text-brand-orange flex items-center gap-1">
           <span>Instagram</span>
           <span>@aisuni.art ↗</span>
         </a>
-        <a href="https://github.com/aisuni" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl border border-neutral-200 dark:border-neutral-800 hover:border-brand-orange dark:hover:border-brand-orange transition-colors flex items-center justify-between">
+        <a href="https://github.com/aisuni" target="_blank" rel="noopener noreferrer" class="hover:text-brand-orange flex items-center gap-1">
           <span>GitHub</span>
           <span>github.com/aisuni ↗</span>
         </a>
+        <a href="https://aisuni.substack.com" target="_blank" rel="noopener noreferrer" class="hover:text-brand-orange flex items-center gap-1">
+          <span>Investigación</span>
+          <span>Cuaderno algorítmico ↗</span>
+        </a>
       </div>
-
-      <!-- Contact form mockup -->
-      <form id="contact-quick-form" class="space-y-4 pt-4 border-t border-neutral-200 dark:border-neutral-800">
-        <p class="font-mono text-xs uppercase text-neutral-400">O envíanos un mensaje directo:</p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <input type="text" id="contact-name" required placeholder="Tu nombre o estudio" class="w-full px-3 py-2 rounded-lg text-xs bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 focus:outline-none focus:ring-1 focus:ring-brand-orange">
-          <input type="email" id="contact-email" required placeholder="Tu correo electrónico" class="w-full px-3 py-2 rounded-lg text-xs bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 focus:outline-none focus:ring-1 focus:ring-brand-orange">
-        </div>
-        <textarea id="contact-message" required rows="3" placeholder="Describe tu proyecto, inquietud algorítmica o propuesta..." class="w-full px-3 py-2 rounded-lg text-xs bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 focus:outline-none focus:ring-1 focus:ring-brand-orange"></textarea>
-        <button type="submit" class="px-5 py-2.5 rounded-lg bg-brand-orange text-white font-mono text-xs font-semibold hover:bg-orange-600 transition-colors">
-          Enviar mensaje directo
-        </button>
-        <p id="contact-form-status" class="hidden text-xs font-mono text-emerald-500 pt-1">¡Gracias! Tu mensaje ha sido registrado exitosamente.</p>
-      </form>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="mt-20 pt-8 border-t border-neutral-200 dark:border-neutral-800 text-xs font-mono text-neutral-500 dark:text-neutral-400 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <!-- 6. MINIMAL FOOTER -->
+    <footer class="pt-8 pb-12 border-t border-neutral-200 dark:border-neutral-800 text-xs font-mono text-neutral-400 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div>
-        <span>© 2026 AISUNI · Investigación en artes visuales y sistemas generativos. Todos los derechos reservados.</span>
+        <span>© 2026 AISUNI · Investigación en artes visuales y sistemas generativos.</span>
       </div>
-      <div class="flex items-center gap-4">
-        <a href="#top" id="btn-back-to-top" class="hover:text-brand-orange">Volver arriba ↑</a>
+      <div>
+        <a href="#" class="hover:text-brand-orange transition-colors">Volver arriba ↑</a>
       </div>
     </footer>
 
   </div>
 
-  <!-- PROJECT & ARCHIVE DETAIL MODAL (SLIDE-OVER / LIGHTBOX) -->
+  <!-- PROJECT & ARCHIVE DETAIL MODAL (SLIDE-OVER LIGHTBOX) -->
   <div id="project-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-y-auto">
-    <div id="project-modal-card" class="relative w-full max-w-5xl max-h-[92vh] bg-white dark:bg-brand-dark rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+    <div id="project-modal-card" class="relative w-full max-w-4xl max-h-[92vh] bg-white dark:bg-brand-dark rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
       
       <!-- Modal Header Bar -->
       <div class="px-5 py-3.5 border-b border-neutral-200 dark:border-neutral-800 flex items-center justify-between bg-neutral-50/80 dark:bg-neutral-900/80 backdrop-blur">
         <div class="flex items-center gap-3">
           <span id="modal-num" class="font-mono text-xs px-2 py-0.5 rounded bg-brand-orange text-white font-bold">01</span>
-          <h3 id="modal-title" class="font-bold text-base sm:text-lg">Título del Proyecto</h3>
+          <h3 id="modal-title" class="font-bold text-base sm:text-lg">Título de la Obra</h3>
           <span id="modal-category-badge" class="hidden sm:inline-block font-mono text-[11px] text-neutral-500 border border-neutral-200 dark:border-neutral-800 px-2 py-0.5 rounded">Categoría</span>
           <span id="modal-status-badge" class="hidden sm:inline-block font-mono text-[10px] text-emerald-500 border border-emerald-500/30 px-2 py-0.5 rounded bg-emerald-500/10">Activo</span>
         </div>
         <div class="flex items-center gap-2">
-          <!-- Prev / Next buttons inside modal -->
-          <button id="modal-prev-btn" title="Elemento anterior (tecla ←)" class="p-1.5 rounded-lg border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">
+          <button id="modal-prev-btn" title="Anterior (tecla ←)" class="p-1.5 rounded-lg border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
           </button>
-          <button id="modal-next-btn" title="Elemento siguiente (tecla →)" class="p-1.5 rounded-lg border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">
+          <button id="modal-next-btn" title="Siguiente (tecla →)" class="p-1.5 rounded-lg border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
           </button>
-          <!-- Close button -->
-          <button id="modal-close-btn" title="Cerrar modal (Esc)" class="p-1.5 rounded-lg bg-neutral-200 dark:bg-neutral-800 hover:bg-brand-orange hover:text-white transition-colors ml-2">
+          <button id="modal-close-btn" title="Cerrar (Esc)" class="p-1.5 rounded-lg bg-neutral-200 dark:bg-neutral-800 hover:bg-brand-orange hover:text-white transition-colors ml-2">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
           </button>
         </div>
       </div>
 
-      <!-- Modal Body (Two columns on Desktop, Stacked on Mobile) -->
+      <!-- Modal Body -->
       <div class="overflow-y-auto p-5 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-8">
         
-        <!-- Left Column: Visual Media Showcase -->
+        <!-- Left: Image Showcase -->
         <div class="lg:col-span-7 space-y-4">
           <div class="relative group rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-950 aspect-[4/3] flex items-center justify-center">
-            <img id="modal-main-img" src="" alt="Fotografía del proyecto" class="w-full h-full object-contain">
+            <img id="modal-main-img" src="" alt="Fotografía de la obra" class="w-full h-full object-contain">
             <div class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity bg-black/70 text-white font-mono text-[10px] px-2 py-1 rounded backdrop-blur">
-              Visualización de alta fidelidad · AISUNI Lab
+              Alta fidelidad · AISUNI Lab
             </div>
           </div>
           <!-- Gallery thumbnails / companion previews -->
@@ -458,7 +340,7 @@
           </div>
         </div>
 
-        <!-- Right Column: Narrative & Metadata -->
+        <!-- Right: Narrative & Metadata -->
         <div class="lg:col-span-5 space-y-6 flex flex-col justify-between">
           <div class="space-y-5">
             <!-- Metadata grid -->
@@ -512,9 +394,9 @@
     </div>
   </div>
 
-  <!-- JAVASCRIPT DATA & DYNAMIC MARKDOWN LOADER -->
+  <!-- JAVASCRIPT DATA & DYNAMIC LOADER -->
   <script>
-    // --- 1. DEFAULT DATA & FALLBACK CACHE (WORKS OFFLINE & ENABLES ZERO-CONFIG RUNTIME) ---
+    // --- 1. DEFAULT DATA (SYNCS WITH MARKDOWN BUILD) ---
     const DEFAULT_PROJECTS = [
       {
         id: "give-it-a-shape",
@@ -795,27 +677,18 @@
 
     let liveProjects = [...DEFAULT_PROJECTS];
     let liveArchive = [...DEFAULT_ARCHIVE];
-
-    // --- 2. STATE ---
     let currentCategory = "all";
-    let searchQuery = "";
-    let currentViewMode = "list"; // 'list' or 'grid'
-    let currentTab = "projects";   // 'projects', 'archive', 'info', 'contact'
     let activeModalDataset = liveProjects;
     let currentModalIndex = 0;
 
-    // --- 3. DOM ELEMENTS ---
-    const projectsTableBody = document.getElementById("projects-table-body");
-    const projectsGridContainer = document.getElementById("projects-grid-container");
+    // DOM Elements
+    const projectsListBody = document.getElementById("projects-list-body");
+    const archiveListBody = document.getElementById("archive-list-body");
+    const projectsCount = document.getElementById("projects-count");
+    const archiveCount = document.getElementById("archive-count");
     const projectsEmptyState = document.getElementById("projects-empty-state");
-    
-    const archiveTableBody = document.getElementById("archive-table-body");
-    const archiveGridContainer = document.getElementById("archive-grid-container");
     const archiveEmptyState = document.getElementById("archive-empty-state");
-    const archiveCountIndicator = document.getElementById("archive-count-indicator");
-    const badgeProjectsCount = document.getElementById("badge-projects-count");
-    const badgeArchiveCount = document.getElementById("badge-archive-count");
-    
+
     const floatingPreview = document.getElementById("floating-preview");
     const floatingPreviewImg = document.getElementById("floating-preview-img");
     const floatingPreviewTitle = document.getElementById("floating-preview-title");
@@ -841,222 +714,103 @@
     const modalGalleryThumbs = document.getElementById("modal-gallery-thumbs");
     const modalShareBtn = document.getElementById("modal-share-btn");
 
-    const projectSearchInput = document.getElementById("project-search-input");
-    const btnClearSearch = document.getElementById("btn-clear-search");
-    const viewModeListBtn = document.getElementById("view-mode-list-btn");
-    const viewModeGridBtn = document.getElementById("view-mode-grid-btn");
     const filterPills = document.querySelectorAll(".filter-pill");
 
-    // --- 4. DATA LOADING & FALLBACK RESOLUTION ---
+    // Dynamic Loader (reads from Jekyll-generated data.json on GitHub Pages)
     async function loadDataFromMarkdownBuild() {
       try {
         const response = await fetch("data.json");
         if (response.ok) {
           const data = await response.json();
-          if (data && data.projects && data.projects.length > 0) {
-            liveProjects = data.projects;
-          }
-          if (data && data.archive && data.archive.length > 0) {
-            liveArchive = data.archive;
-          }
+          if (data && data.projects && data.projects.length > 0) liveProjects = data.projects;
+          if (data && data.archive && data.archive.length > 0) liveArchive = data.archive;
         }
-      } catch (err) {
-        // Silent fallback to local cache
-      }
-      renderProjects();
-      renderArchive();
+      } catch (err) {}
+      renderAll();
     }
 
     function filterDataset(dataset) {
-      return dataset.filter(item => {
-        const matchesCat = (currentCategory === "all") || (item.category.toLowerCase() === currentCategory.toLowerCase());
-        const q = searchQuery.toLowerCase().trim();
-        const matchesQuery = !q || 
-          item.title.toLowerCase().includes(q) || 
-          item.category.toLowerCase().includes(q) || 
-          item.categoryTag.toLowerCase().includes(q) || 
-          (item.tools && item.tools.toLowerCase().includes(q)) || 
-          (item.client && item.client.toLowerCase().includes(q));
-        return matchesCat && matchesQuery;
-      });
+      if (currentCategory === "all") return dataset;
+      return dataset.filter(item => item.category.toLowerCase() === currentCategory.toLowerCase());
+    }
+
+    function renderAll() {
+      renderProjects();
+      renderArchive();
+      attachListeners();
     }
 
     function renderProjects() {
       const filtered = filterDataset(liveProjects);
-      badgeProjectsCount.textContent = filtered.length;
+      projectsCount.textContent = filtered.length;
 
       if (filtered.length === 0) {
-        projectsTableBody.innerHTML = "";
-        projectsGridContainer.innerHTML = "";
+        projectsListBody.innerHTML = "";
         projectsEmptyState.classList.remove("hidden");
-      } else {
-        projectsEmptyState.classList.add("hidden");
-
-        let listHtml = "";
-        filtered.forEach((p, idx) => {
-          listHtml += `
-            <div class="project-row group relative py-3.5 sm:py-4 px-3 sm:px-4 rounded-xl transition-all duration-200 hover:bg-neutral-100/90 dark:hover:bg-neutral-900/90 cursor-pointer flex flex-col md:grid md:grid-cols-12 md:gap-4 md:items-center"
-                 data-id="${p.id}" data-type="project" data-index="${idx}">
-              
-              <div class="flex items-center justify-between md:contents">
-                <div class="col-span-1 font-mono text-xs text-neutral-400 group-hover:text-brand-orange transition-colors flex items-center gap-2">
-                  <span>${p.num}</span>
-                  <span class="w-1 h-1 rounded-full bg-brand-orange opacity-0 group-hover:opacity-100 transition-opacity hidden md:inline-block"></span>
-                </div>
-                
-                <div class="col-span-5 font-medium text-sm sm:text-base text-neutral-900 dark:text-neutral-100 group-hover:translate-x-1 transition-transform flex items-center gap-2">
-                  <span>${p.title}</span>
-                  <span class="md:hidden font-mono text-[10px] px-2 py-0.5 rounded-full bg-neutral-200 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400">${p.category}</span>
-                </div>
-              </div>
-
-              <div class="hidden md:block col-span-3 font-mono text-xs text-neutral-500 dark:text-neutral-400">
-                <span class="px-2 py-0.5 rounded border border-neutral-200 dark:border-neutral-800 group-hover:border-neutral-400 dark:group-hover:border-neutral-600 transition-colors">
-                  ${p.categoryTag || p.category}
-                </span>
-              </div>
-
-              <div class="hidden md:block col-span-2 text-right font-mono text-xs text-neutral-500 dark:text-neutral-400">
-                <span>${p.year}</span>
-              </div>
-
-              <div class="hidden md:flex col-span-1 justify-end items-center text-neutral-400 group-hover:text-brand-orange transition-colors">
-                <span class="font-mono text-xs font-semibold group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
-              </div>
-
-              <div class="md:hidden mt-2 pt-2 border-t border-neutral-200/50 dark:border-neutral-800/50 flex items-center justify-between text-xs font-mono text-neutral-500">
-                <span>${p.client} · ${p.year}</span>
-                <span class="text-brand-orange font-semibold flex items-center gap-1">Ver proyecto ↗</span>
-              </div>
-
-            </div>
-          `;
-        });
-        projectsTableBody.innerHTML = listHtml;
-
-        let gridHtml = "";
-        filtered.forEach((p, idx) => {
-          gridHtml += `
-            <div class="project-grid-card group rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-brand-cardDark hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300 hover:shadow-xl cursor-pointer flex flex-col"
-                 data-id="${p.id}" data-type="project" data-index="${idx}">
-              <div class="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 dark:bg-neutral-950">
-                <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='assets/01-give-it-a-shape.jpg'">
-                <div class="absolute top-3 left-3 font-mono text-[11px] px-2 py-0.5 rounded-full bg-black/60 text-white backdrop-blur-sm">
-                  ${p.num}
-                </div>
-                <div class="absolute top-3 right-3 font-mono text-[11px] px-2 py-0.5 rounded-full bg-black/60 text-white backdrop-blur-sm">
-                  ${p.year}
-                </div>
-              </div>
-              <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between">
-                <div>
-                  <div class="flex items-center justify-between">
-                    <span class="font-mono text-[11px] text-brand-orange uppercase tracking-wider">${p.categoryTag || p.category}</span>
-                    <span class="font-mono text-[10px] text-neutral-400">${p.category}</span>
-                  </div>
-                  <h3 class="font-bold text-base sm:text-lg text-neutral-900 dark:text-neutral-100 mt-1">${p.title}</h3>
-                  <p class="text-xs text-neutral-600 dark:text-neutral-400 mt-2 line-clamp-2">${p.concept}</p>
-                </div>
-                <div class="pt-4 mt-4 border-t border-neutral-100 dark:border-neutral-800/80 flex items-center justify-between font-mono text-xs text-neutral-500">
-                  <span class="truncate max-w-[150px]">${p.client}</span>
-                  <span class="text-brand-orange font-medium flex items-center gap-1 group-hover:translate-x-1 transition-transform">Inspeccionar ↗</span>
-                </div>
-              </div>
-            </div>
-          `;
-        });
-        projectsGridContainer.innerHTML = gridHtml;
+        return;
       }
+      projectsEmptyState.classList.add("hidden");
+
+      let html = "";
+      filtered.forEach((p, idx) => {
+        html += `
+          <div class="project-row group py-4 px-2 sm:px-3 hover:bg-neutral-100/70 dark:hover:bg-neutral-900/70 transition-all cursor-pointer flex items-center justify-between"
+               data-id="${p.id}" data-type="project" data-index="${idx}">
+            <div class="flex items-center gap-3 sm:gap-5 min-w-0">
+              <span class="font-mono text-xs text-neutral-400 group-hover:text-brand-orange transition-colors">${p.num}</span>
+              <h3 class="font-medium text-base sm:text-lg text-neutral-900 dark:text-neutral-100 group-hover:translate-x-1.5 transition-transform truncate">
+                ${p.title}
+              </h3>
+            </div>
+            <div class="flex items-center gap-3 sm:gap-6 font-mono text-xs text-neutral-500 dark:text-neutral-400 flex-shrink-0">
+              <span class="px-2 py-0.5 rounded text-[11px] border border-neutral-200 dark:border-neutral-800 group-hover:border-neutral-400 transition-colors">
+                ${p.categoryTag || p.category}
+              </span>
+              <span class="hidden sm:inline text-neutral-400">${p.year}</span>
+              <span class="text-neutral-400 group-hover:text-brand-orange group-hover:translate-x-1 transition-all">↗</span>
+            </div>
+          </div>
+        `;
+      });
+      projectsListBody.innerHTML = html;
     }
 
     function renderArchive() {
       const filtered = filterDataset(liveArchive);
-      badgeArchiveCount.textContent = filtered.length;
-      archiveCountIndicator.textContent = `${filtered.length} Registros Conectados`;
+      archiveCount.textContent = filtered.length;
 
       if (filtered.length === 0) {
-        archiveTableBody.innerHTML = "";
-        archiveGridContainer.innerHTML = "";
+        archiveListBody.innerHTML = "";
         archiveEmptyState.classList.remove("hidden");
-      } else {
-        archiveEmptyState.classList.add("hidden");
-
-        let listHtml = "";
-        filtered.forEach((item, idx) => {
-          listHtml += `
-            <div class="archive-row group relative py-3.5 sm:py-4 px-3 sm:px-4 rounded-xl transition-all duration-200 hover:bg-neutral-100/90 dark:hover:bg-neutral-900/90 cursor-pointer flex flex-col md:grid md:grid-cols-12 md:gap-4 md:items-center"
-                 data-id="${item.id}" data-type="archive" data-index="${idx}">
-              
-              <div class="flex items-center justify-between md:contents">
-                <div class="col-span-1 font-mono text-xs text-neutral-400 group-hover:text-brand-orange transition-colors flex items-center gap-2">
-                  <span>${item.num}</span>
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 opacity-60 group-hover:opacity-100 hidden md:inline-block"></span>
-                </div>
-                
-                <div class="col-span-5 font-medium text-sm sm:text-base text-neutral-900 dark:text-neutral-100 group-hover:translate-x-1 transition-transform flex items-center gap-2">
-                  <span>${item.title}</span>
-                  <span class="md:hidden font-mono text-[10px] px-2 py-0.5 rounded-full bg-brand-orange/10 text-brand-orange">${item.category}</span>
-                </div>
-              </div>
-
-              <div class="hidden md:flex col-span-3 items-center gap-2 font-mono text-xs text-neutral-500 dark:text-neutral-400">
-                <span class="px-2 py-0.5 rounded border border-neutral-200 dark:border-neutral-800 text-brand-orange bg-brand-orange/5">
-                  ${item.category}
-                </span>
-                <span class="text-[10px] text-neutral-400 truncate">${item.status || 'Activo'}</span>
-              </div>
-
-              <div class="hidden md:block col-span-2 text-right font-mono text-xs text-neutral-500 dark:text-neutral-400">
-                <span>${item.year}</span>
-              </div>
-
-              <div class="hidden md:flex col-span-1 justify-end items-center text-neutral-400 group-hover:text-brand-orange transition-colors">
-                <span class="font-mono text-xs font-semibold group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
-              </div>
-
-              <div class="md:hidden mt-2 pt-2 border-t border-neutral-200/50 dark:border-neutral-800/50 flex items-center justify-between text-xs font-mono text-neutral-500">
-                <span>${item.client} · ${item.year}</span>
-                <span class="text-brand-orange font-semibold flex items-center gap-1">Inspeccionar pieza ↗</span>
-              </div>
-
-            </div>
-          `;
-        });
-        archiveTableBody.innerHTML = listHtml;
-
-        let gridHtml = "";
-        filtered.forEach((item, idx) => {
-          gridHtml += `
-            <div class="archive-grid-card group rounded-xl p-4 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-brand-cardDark hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300 hover:shadow-lg cursor-pointer flex flex-col justify-between"
-                 data-id="${item.id}" data-type="archive" data-index="${idx}">
-              <div class="space-y-3">
-                <div class="flex items-center justify-between font-mono text-[11px]">
-                  <span class="px-2 py-0.5 rounded bg-brand-orange/10 text-brand-orange font-semibold">${item.num}</span>
-                  <span class="text-neutral-400">${item.year}</span>
-                </div>
-                <div class="aspect-[16/9] w-full rounded-lg overflow-hidden bg-neutral-100 dark:bg-neutral-900 border border-neutral-200/60 dark:border-neutral-800/60">
-                  <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='assets/01-give-it-a-shape.jpg'">
-                </div>
-                <div>
-                  <h4 class="font-semibold text-sm sm:text-base text-neutral-900 dark:text-neutral-100 group-hover:text-brand-orange transition-colors">${item.title}</h4>
-                  <p class="text-xs text-neutral-600 dark:text-neutral-400 mt-1 line-clamp-2">${item.concept}</p>
-                </div>
-              </div>
-
-              <div class="pt-3 mt-3 border-t border-neutral-100 dark:border-neutral-800/80 flex items-center justify-between font-mono text-xs text-neutral-500">
-                <span class="px-2 py-0.5 rounded bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-[10px] text-neutral-600 dark:text-neutral-400">${item.category}</span>
-                <span class="text-brand-orange font-medium flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">Abrir ficha ↗</span>
-              </div>
-            </div>
-          `;
-        });
-        archiveGridContainer.innerHTML = gridHtml;
+        return;
       }
+      archiveEmptyState.classList.add("hidden");
 
-      attachInteractiveListeners();
+      let html = "";
+      filtered.forEach((item, idx) => {
+        html += `
+          <div class="archive-row group py-3.5 px-2 sm:px-3 hover:bg-neutral-100/70 dark:hover:bg-neutral-900/70 transition-all cursor-pointer flex items-center justify-between"
+               data-id="${item.id}" data-type="archive" data-index="${idx}">
+            <div class="flex items-center gap-3 sm:gap-5 min-w-0">
+              <span class="font-mono text-xs text-neutral-400 group-hover:text-brand-orange transition-colors">${item.num}</span>
+              <h4 class="font-medium text-sm sm:text-base text-neutral-900 dark:text-neutral-100 group-hover:translate-x-1.5 transition-transform truncate">
+                ${item.title}
+              </h4>
+            </div>
+            <div class="flex items-center gap-3 sm:gap-6 font-mono text-xs text-neutral-500 dark:text-neutral-400 flex-shrink-0">
+              <span class="px-2 py-0.5 rounded text-[10px] text-brand-orange bg-brand-orange/5 border border-brand-orange/20">
+                ${item.category}
+              </span>
+              <span class="hidden sm:inline text-[11px] text-neutral-400">${item.year}</span>
+              <span class="text-neutral-400 group-hover:text-brand-orange group-hover:translate-x-1 transition-all">↗</span>
+            </div>
+          </div>
+        `;
+      });
+      archiveListBody.innerHTML = html;
     }
 
-    // --- 5. INTERACTION & MOUSE FOLLOWER ---
+    // Floating preview mouse follower
     let mouseX = 0, mouseY = 0;
     let targetX = 0, targetY = 0;
 
@@ -1079,42 +833,39 @@
     }
     animateFloatingPreview();
 
-    function attachInteractiveListeners() {
-      document.querySelectorAll(".project-row, .project-grid-card, .archive-row, .archive-grid-card").forEach(el => {
+    function attachListeners() {
+      document.querySelectorAll(".project-row, .archive-row").forEach(el => {
         el.addEventListener("click", () => {
           const type = el.getAttribute("data-type");
           const id = el.getAttribute("data-id");
           const dataset = (type === "archive") ? liveArchive : liveProjects;
           const idx = dataset.findIndex(p => p.id === id);
-          if (idx !== -1) {
-            openDetailModal(dataset, idx);
+          if (idx !== -1) openDetailModal(dataset, idx);
+        });
+
+        el.addEventListener("mouseenter", () => {
+          const type = el.getAttribute("data-type");
+          const id = el.getAttribute("data-id");
+          const dataset = (type === "archive") ? liveArchive : liveProjects;
+          const p = dataset.find(item => item.id === id);
+          if (p) {
+            floatingPreviewImg.src = p.image;
+            floatingPreviewImg.onerror = () => { floatingPreviewImg.src = 'assets/01-give-it-a-shape.jpg'; };
+            floatingPreviewTitle.textContent = p.title;
+            floatingPreviewCat.textContent = p.categoryTag || p.category;
+            floatingPreviewNum.textContent = p.num;
+            floatingPreviewYear.textContent = p.year;
+            floatingPreview.classList.add("active");
           }
         });
 
-        if (el.classList.contains("project-row") || el.classList.contains("archive-row")) {
-          el.addEventListener("mouseenter", () => {
-            const type = el.getAttribute("data-type");
-            const id = el.getAttribute("data-id");
-            const dataset = (type === "archive") ? liveArchive : liveProjects;
-            const p = dataset.find(item => item.id === id);
-            if (p) {
-              floatingPreviewImg.src = p.image;
-              floatingPreviewImg.onerror = () => { floatingPreviewImg.src = 'assets/01-give-it-a-shape.jpg'; };
-              floatingPreviewTitle.textContent = p.title;
-              floatingPreviewCat.textContent = p.categoryTag || p.category;
-              floatingPreviewNum.textContent = p.num;
-              floatingPreviewYear.textContent = p.year;
-              floatingPreview.classList.add("active");
-            }
-          });
-
-          el.addEventListener("mouseleave", () => {
-            floatingPreview.classList.remove("active");
-          });
-        }
+        el.addEventListener("mouseleave", () => {
+          floatingPreview.classList.remove("active");
+        });
       });
     }
 
+    // Modal behavior
     function openDetailModal(dataset, index) {
       activeModalDataset = dataset;
       currentModalIndex = index;
@@ -1129,7 +880,7 @@
         modalStatusBadge.textContent = p.status;
         modalStatusBadge.classList.remove("hidden");
       } else {
-        modalStatusBadge.textContent = "Proyecto Activo";
+        modalStatusBadge.textContent = "Obra Destacada";
         modalStatusBadge.classList.remove("hidden");
       }
 
@@ -1238,53 +989,10 @@
         document.body.removeChild(input);
       }
       modalShareBtn.innerHTML = '<span class="text-emerald-500 font-bold">¡Enlace copiado!</span>';
-      setTimeout(() => {
-        modalShareBtn.innerHTML = '<span>Copiar enlace</span>';
-      }, 2000);
+      setTimeout(() => { modalShareBtn.innerHTML = '<span>Copiar enlace</span>'; }, 2000);
     });
 
-    // --- 6. NAVIGATION & TABS ---
-    const navTabs = {
-      projects: { btn: document.getElementById("nav-btn-projects"), section: document.getElementById("section-projects") },
-      archive: { btn: document.getElementById("nav-btn-archive"), section: document.getElementById("section-archive") },
-      info: { btn: document.getElementById("nav-btn-info"), section: document.getElementById("section-info") },
-      contact: { btn: document.getElementById("nav-btn-contact"), section: document.getElementById("section-contact") },
-    };
-
-    const projectsViewControls = document.getElementById("projects-view-controls");
-    const categoryFiltersContainer = document.getElementById("category-filters-container");
-
-    function switchSection(targetKey) {
-      currentTab = targetKey;
-      Object.keys(navTabs).forEach(key => {
-        const item = navTabs[key];
-        if (key === targetKey) {
-          item.btn.classList.add("active", "bg-white", "dark:bg-neutral-800", "text-neutral-900", "dark:text-white", "shadow-sm");
-          item.btn.classList.remove("text-neutral-600", "dark:text-neutral-400");
-          item.section.classList.remove("hidden");
-          item.section.classList.add("block");
-        } else {
-          item.btn.classList.remove("active", "bg-white", "dark:bg-neutral-800", "text-neutral-900", "dark:text-white", "shadow-sm");
-          item.btn.classList.add("text-neutral-600", "dark:text-neutral-400");
-          item.section.classList.add("hidden");
-          item.section.classList.remove("block");
-        }
-      });
-
-      if (targetKey === "projects" || targetKey === "archive") {
-        projectsViewControls.classList.remove("opacity-20", "pointer-events-none");
-        categoryFiltersContainer.classList.remove("hidden");
-      } else {
-        projectsViewControls.classList.add("opacity-20", "pointer-events-none");
-        categoryFiltersContainer.classList.add("hidden");
-      }
-    }
-
-    Object.keys(navTabs).forEach(key => {
-      navTabs[key].btn.addEventListener("click", () => switchSection(key));
-    });
-
-    // --- 7. FILTER & SEARCH CONTROLS ---
+    // Filter pills
     filterPills.forEach(pill => {
       pill.addEventListener("click", () => {
         filterPills.forEach(p => {
@@ -1295,96 +1003,23 @@
         pill.classList.remove("bg-neutral-100", "dark:bg-neutral-900", "text-neutral-600", "dark:text-neutral-400");
 
         currentCategory = pill.getAttribute("data-cat");
-        renderProjects();
-        renderArchive();
+        renderAll();
       });
     });
 
-    projectSearchInput.addEventListener("input", (e) => {
-      searchQuery = e.target.value;
-      if (searchQuery.length > 0) {
-        btnClearSearch.classList.remove("hidden");
-      } else {
-        btnClearSearch.classList.add("hidden");
-      }
-      renderProjects();
-      renderArchive();
-    });
-
-    btnClearSearch.addEventListener("click", () => {
-      projectSearchInput.value = "";
-      searchQuery = "";
-      btnClearSearch.classList.add("hidden");
-      renderProjects();
-      renderArchive();
-    });
-
-    document.getElementById("btn-reset-filters").addEventListener("click", () => {
-      projectSearchInput.value = "";
-      searchQuery = "";
-      btnClearSearch.classList.add("hidden");
-      currentCategory = "all";
-      filterPills[0].click();
-    });
-
-    document.getElementById("btn-reset-archive-filters").addEventListener("click", () => {
-      projectSearchInput.value = "";
-      searchQuery = "";
-      btnClearSearch.classList.add("hidden");
-      currentCategory = "all";
-      filterPills[0].click();
-    });
-
-    viewModeListBtn.addEventListener("click", () => {
-      currentViewMode = "list";
-      viewModeListBtn.classList.add("active", "bg-white", "dark:bg-neutral-800", "text-neutral-900", "dark:text-white", "shadow-sm");
-      viewModeListBtn.classList.remove("text-neutral-500");
-      viewModeGridBtn.classList.remove("active", "bg-white", "dark:bg-neutral-800", "text-neutral-900", "dark:text-white", "shadow-sm");
-      viewModeGridBtn.classList.add("text-neutral-500");
-
-      document.getElementById("projects-list-container").classList.remove("hidden");
-      document.getElementById("projects-grid-container").classList.add("hidden");
-      document.getElementById("archive-list-container").classList.remove("hidden");
-      document.getElementById("archive-grid-container").classList.add("hidden");
-    });
-
-    viewModeGridBtn.addEventListener("click", () => {
-      currentViewMode = "grid";
-      viewModeGridBtn.classList.add("active", "bg-white", "dark:bg-neutral-800", "text-neutral-900", "dark:text-white", "shadow-sm");
-      viewModeGridBtn.classList.remove("text-neutral-500");
-      viewModeListBtn.classList.remove("active", "bg-white", "dark:bg-neutral-800", "text-neutral-900", "dark:text-white", "shadow-sm");
-      viewModeListBtn.classList.add("text-neutral-500");
-
-      document.getElementById("projects-list-container").classList.add("hidden");
-      document.getElementById("projects-grid-container").classList.remove("hidden");
-      document.getElementById("archive-list-container").classList.add("hidden");
-      document.getElementById("archive-grid-container").classList.remove("hidden");
-    });
-
-    // --- 8. THEME TOGGLE (DARK / LIGHT) ---
+    // Theme toggle
     const btnThemeToggle = document.getElementById("btn-theme-toggle");
-    
     let isDark = true;
     try {
       const saved = localStorage.getItem("aisuni_theme");
-      if (saved) {
-        isDark = saved === "dark";
-      } else {
-        isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      }
-    } catch(e) {
-      isDark = true;
-    }
+      if (saved) isDark = saved === "dark";
+      else isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    } catch(e) { isDark = true; }
 
     function applyTheme() {
-      if (isDark) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-      try {
-        localStorage.setItem("aisuni_theme", isDark ? "dark" : "light");
-      } catch(e) {}
+      if (isDark) document.documentElement.classList.add("dark");
+      else document.documentElement.classList.remove("dark");
+      try { localStorage.setItem("aisuni_theme", isDark ? "dark" : "light"); } catch(e) {}
     }
     applyTheme();
 
@@ -1393,7 +1028,7 @@
       applyTheme();
     });
 
-    // --- 9. LIVE CLOCK (BARCELONA TIME) ---
+    // Live clock
     const clockDisplay = document.getElementById("clock-display");
     function updateClock() {
       try {
@@ -1407,7 +1042,7 @@
     setInterval(updateClock, 1000);
     updateClock();
 
-    // --- 10. CONTACT COPY BUTTON & FORM ---
+    // Copy email button
     const btnCopyEmail = document.getElementById("btn-copy-email");
     const copyBtnLabel = document.getElementById("copy-btn-label");
     const contactEmailText = document.getElementById("contact-email-text");
@@ -1432,26 +1067,8 @@
       }, 2500);
     });
 
-    const contactForm = document.getElementById("contact-quick-form");
-    const contactFormStatus = document.getElementById("contact-form-status");
-
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      contactFormStatus.classList.remove("hidden");
-      contactForm.reset();
-      setTimeout(() => {
-        contactFormStatus.classList.add("hidden");
-      }, 4000);
-    });
-
-    document.getElementById("btn-back-to-top").addEventListener("click", (e) => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    // --- INITIAL RENDER ---
+    // Init
     loadDataFromMarkdownBuild();
-
   </script>
 </body>
 </html>
