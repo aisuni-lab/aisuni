@@ -1,108 +1,77 @@
-# AISUNI — Archivo Activo | Sistemas Generativos & Artes Visuales
+# AISUNI ✷ — Portafolio y Archivo Digital Interactivo
 
-Arquitectura modular para portafolio y archivo digital basada en **Markdown + GitHub Pages**, inspirada en el diseño tipográfico y editorial de alta gama de **nebulosapicante.com**.
-
-El contenido está **100% desacoplado del código HTML**: para crear, editar o eliminar proyectos y piezas del archivo, **nunca necesitas tocar `index.html`**. Solo editas archivos Markdown simples y subes tus fotos a `assets/`.
+Sitio web editorial suizo y archivo digital interactivo para **AISUNI**, estudio de investigación en artes visuales y sistemas generativos. Diseñado con arquitectura de contenido **100% desacoplada en archivos Markdown** para despliegue directo y gratuito en **GitHub Pages** (con Jekyll nativo).
 
 ---
 
-## 🚀 Cómo Actualizar el Sitio en 2 Minutos
+## 1. Estructura del Proyecto
 
-### 1. Para agregar un nuevo Proyecto Destacado:
-1. Ve a la carpeta `assets/`, haz clic en **Add file > Upload files** y arrastra tu fotografía (ej. `09-nuevo-trabajo.jpg`).
-2. Ve a la carpeta `_proyectos/`, haz clic en **Add file > Create new file** y nómbralo `09-nuevo-trabajo.md`.
-3. Pega esta plantilla y completa los datos:
+```text
+aisuni-github-pages/
+├── _config.yml          # Configuración de Jekyll y definición de colecciones
+├── index.html           # Interfaz editorial continua (con soporte fetch + fallback local)
+├── data.json            # Plantilla Liquid compilada automáticamente por GitHub Pages
+├── _proyectos/          # Archivos Markdown (.md) de obras principales
+│   ├── 01-topologias-de-movilidad.md
+│   ├── 02-arquitectura-conectividad-giga.md
+│   └── ...
+├── _archivo/            # Archivos Markdown (.md) del Archivo Activo de investigación
+│   ├── arc-01-palabras-cifradas.md
+│   ├── arc-02-framora-system.md
+│   └── ...
+└── assets/              # Fotografías (.jpg, .png, .webp) y láminas vectoriales (.svg)
+```
+
+---
+
+## 2. Cómo Publicar o Actualizar Obras (Sin tocar HTML)
+
+Para añadir un nuevo proyecto o pieza de archivo, **nunca necesitas editar `index.html`**:
+
+1. Sube tus imágenes de portada, detalle y proceso a la carpeta `assets/` (por ejemplo: `assets/nueva-obra-portada.jpg`).
+2. Crea un nuevo archivo `.md` dentro de `_proyectos/` (para obras destacadas) o dentro de `_archivo/` (para piezas de investigación).
+3. Usa el siguiente formato estándar con Frontmatter YAML y secciones `## Concepto` y `## Proceso`:
 
 ```markdown
 ---
-id: "nuevo-trabajo"
+id: "identificador-slug"
 num: "09"
 title: "Título de la Obra"
 category: "Algoritmos"
 categoryTag: "Algoritmos & Simulación"
 year: "2026"
-client: "Nombre del Cliente o Convocatoria"
-image: "assets/09-nuevo-trabajo.jpg"
+client: "Cliente o Ámbito"
+image: "assets/foto-portada.jpg"
+gallery:
+  - "assets/foto-portada.jpg"
+  - "assets/foto-detalle.jpg"
+  - "assets/foto-proceso.jpg"
 tools: "Python, GLSL, Processing"
----
-
-## Concepto
-Escribe aquí la explicación conceptual de tu obra...
-
-## Proceso
-Escribe aquí la metodología, herramientas o algoritmos utilizados...
-```
-
-4. Haz clic en **Commit changes**. En menos de 60 segundos tu web en GitHub Pages se actualizará automáticamente con la nueva obra, su ficha completa, sus filtros y su vista previa flotante.
-
----
-
-### 2. Para agregar una pieza al Archivo:
-1. Sube tu foto a `assets/`.
-2. Crea un archivo en `_archivo/` (ej. `13-nueva-exploracion.md`) con este formato:
-
-```markdown
----
-id: "arch-13"
-num: "A-13"
-title: "Nombre de la Exploración"
-category: "Patrones"
-categoryTag: "Patrones Generativos"
-year: "2026"
-client: "Estudio Autónomo"
-image: "assets/13-foto.jpg"
-tools: "Processing, Axidraw"
 status: "Investigación activa"
 ---
 
 ## Concepto
-Descripción de la exploración...
+Texto descriptivo del concepto, contexto institucional y marco teórico de la pieza...
 
 ## Proceso
-Detalles del proceso técnico...
+Metodología, fórmulas matemáticas o algoritmos utilizados. Puedes incluir bloques de código en línea con acentos graves (`fórmula`) para que se muestren con formato técnico monospace.
 ```
+
+### Categorías oficiales soportadas por la Cinta de Filtros:
+- `Sistemas`
+- `Algoritmos`
+- `Tipografía`
+- `Simulación`
+- `Collage`
+- `Patrones`
+- `Procesos`
+- `Interfaces`
 
 ---
 
-### 3. Las 8 Categorías de Filtro Oficiales
-Puedes asignar cualquiera de estas categorías en el campo `category`:
-* `Sistemas`
-* `Algoritmos`
-* `Tipografía`
-* `Simulación`
-* `Collage`
-* `Patrones`
-* `Procesos`
-* `Interfaces`
+## 3. Despliegue en GitHub Pages
 
----
-
-## 📁 Estructura del Repositorio
-
-```
-├── _config.yml         # Configuración nativa de GitHub Pages (Jekyll)
-├── index.html          # Interfaz editorial minimalista y sistema reactivo
-├── style.css           # Estilos complementarios y transiciones de cursor
-├── data.json           # Índice de datos compilado para carga ultrarrápida
-├── README.md           # Esta guía de uso
-├── _proyectos/         # Un archivo Markdown (.md) por cada proyecto principal
-│   ├── 01-give-it-a-shape.md
-│   ├── 02-2640-tangerine-segments.md
-│   └── ...
-├── _archivo/           # Un archivo Markdown (.md) por cada pieza de archivo
-│   ├── 01-encrypted-words.md
-│   ├── 02-metalinguistic-graphic.md
-│   └── ...
-└── assets/             # Fotografías e imágenes en alta resolución
-    ├── 01-give-it-a-shape.jpg
-    └── ...
-```
-
----
-
-## 🌐 Despliegue en GitHub Pages
-
-1. Crea tu repositorio en GitHub y sube todos los archivos descomprimidos.
-2. Ve a **Settings > Pages**.
-3. En **Source**, selecciona `Deploy from a branch`, rama `main` y carpeta `/ (root)`.
-4. Haz clic en **Save**. ¡Listo!
+1. Crea un repositorio en GitHub (por ejemplo `aisuni.github.io` o `portfolio`).
+2. Sube todos los archivos de esta carpeta a la rama `main`.
+3. En tu repositorio de GitHub, ve a **Settings → Pages**, selecciona **Deploy from a branch** (`main` / `/(root)`) y guarda.
+4. GitHub Pages compilará automáticamente `_proyectos/` y `_archivo/` dentro de `data.json` mediante Jekyll, y `index.html` los renderizará dinámicamente.

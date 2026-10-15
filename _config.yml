@@ -1,10 +1,21 @@
-title: AISUNI — Archivo Activo
+# Configuración oficial de Jekyll para GitHub Pages — AISUNI ✷
+title: "AISUNI ✷ — Archivo Activo"
 description: "Investigación en artes visuales y sistemas generativos: un espacio de experimentación con tecnologías emergentes y herramientas algorítmicas para nuevas inteligencias visuales."
+url: "https://aisuni.github.io"
+baseurl: ""
+timezone: "Europe/Madrid"
 markdown: kramdown
-permalink: pretty
 
+# Colecciones desacopladas de contenido (.md)
 collections:
   proyectos:
     output: false
+    sort_by: num
   archivo:
     output: false
+    sort_by: num
+
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore
