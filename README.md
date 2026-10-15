@@ -1,99 +1,78 @@
-# Nebulosa Picante — Minimalist Responsive Portfolio
+# AISUNI — Archivo Activo | Sistemas Generativos & Artes Visuales
 
-Sitio web responsivo de alta gama para portafolio de diseño y dirección de arte, inspirado en la estructura y despliegue visual de **[nebulosapicante.com](https://nebulosapicante.com/)**.
+Sitio web responsivo y archivo digital interactivo para el laboratorio de investigación en artes visuales y sistemas generativos **AISUNI**.
 
-Diseñado para publicarse en **GitHub Pages** de manera instantánea y gratuita, con actualización sencilla de proyectos y fotografías sin necesidad de compilar o instalar dependencias de Node.js.
+Diseñado con una arquitectura editorial minimalista, tipografía de alta precisión y experiencia interactiva lista para publicarse en **GitHub Pages** de manera instantánea.
 
 ---
 
 ## ✷ Características Principales
 
 1. **Estructura Desktop (Escritorio)**:
-   - **Lista Typographical / Índice con Vista Previa Flotante**: Al pasar el ratón (*hover*) sobre cualquier fila de proyecto, una tarjeta visual con la fotografía de alta resolución sigue suavemente el cursor (*mouse follower*), revelando la obra instantáneamente.
-   - **Selector de Modo de Vista**: Alterna con 1 clic entre modo lista editorial y modo cuadrícula visual (*Grid Gallery*).
-   - **Filtros por Disciplina y Buscador en Vivo**: Filtra al instante por *Data Viz*, *Pictogramas*, *Tipografía*, *Ilustración*, *Producto* o búsqueda por texto.
-   - **Modal de Detalle Completo (*Slide-Over / Lightbox*)**: Muestra la fotografía a gran escala, metadatos estructurados (Cliente, Año, Disciplina, Herramientas), y pestañas narrativas editoriales (*Concepto* vs *Proceso*). Incluye navegación por teclado (`←`, `→`, `Esc`).
+   - **Índice Typographical con Vista Previa Flotante**: Al pasar el ratón (*hover*) sobre cualquier fila de proyecto o del archivo activo, una tarjeta visual con la obra y metadatos sigue fluidamente el cursor (*mouse follower*).
+   - **Archivo Activo Conectado**: Las 12 piezas de investigación del archivo están completamente conectadas a la base de datos interactiva, permitiendo inspeccionar fichas completas, metodología y procesos algorítmicos.
+   - **Selector de Modo de Vista**: Alterna con 1 clic entre modo lista editorial y cuadrícula visual (*Grid Gallery*), sincronizado tanto para proyectos como para el archivo.
+   - **Filtros por Taxonomía Algorítmica**: Filtros inmediatos por las 8 categorías del estudio:
+     - *Sistemas*
+     - *Algoritmos*
+     - *Tipografía*
+     - *Simulación*
+     - *Collage*
+     - *Patrones*
+     - *Procesos*
+     - *Interfaces*
+   - **Modal de Detalle Completo (*Slide-Over / Lightbox*)**: Muestra visualizaciones de alta fidelidad, metadatos estructurados (Cliente/Ámbito, Año, Categoría, Herramientas) y pestañas narrativas editoriales (*Concepto & Enfoque* vs *Proceso & Algoritmo*). Soporta navegación por teclado (`←`, `→`, `Esc`).
 
 2. **Estructura Móvil (Responsive Touch)**:
-   - Diseño colapsable de una sola columna optimizado para pantallas táctiles (sin desbordamientos horizontales).
-   - Al tocar cualquier proyecto, se expande la información contextual con enlace directo al modal de pantalla completa táctil.
-   - Tipografía adaptada con objetivos táctiles cómodos (mínimo 44px) y navegación rápida fija.
+   - Diseño adaptable de una sola columna optimizado para pantallas táctiles (sin desbordamientos horizontales).
+   - Al tocar cualquier proyecto o pieza de archivo, se despliega la información contextual con enlace directo a la ficha completa.
+   - Navegación táctil fluida con tiempos de respuesta instantáneos.
 
 3. **Diseño Visual Editorial**:
-   - Selector de modo Oscuro / Claro (*Dark Mode* / *Light Mode*) con memoria en `localStorage`.
-   - Reloj digital en vivo sincronizado con el huso horario del estudio (Barcelona).
-   - Secciones completas: **Proyectos**, **Archivo de exploraciones (12 ítems)**, **Información / Biografía**, y **Contacto directo con copia de email en 1 clic**.
+   - Selector de modo Oscuro / Claro (*Dark Mode* / *Light Mode*) con persistencia en `localStorage`.
+   - Reloj digital en vivo sincronizado con el huso horario de Barcelona.
+   - Secciones completas: **Proyectos**, **Archivo Activo**, **Información / Manifiesto**, y **Contacto directo con botón de copia de email en 1 clic**.
 
 ---
 
-## 🚀 Cómo Publicar en GitHub Pages (en 2 minutos)
+## 🚀 Despliegue en GitHub Pages (en 2 minutos)
 
-No necesitas instalar Node.js, Webpack ni dependencias. Todo funciona con estándares web puros.
+No se requiere instalar Node.js ni compilar dependencias. Todo funciona con estándares web puros.
 
 ### Paso 1: Crear el repositorio en GitHub
-1. Inicia sesión en [GitHub](https://github.com/) y haz clic en **New repository** (o visita [github.com/new](https://github.com/new)).
-2. Asigna un nombre al repositorio, por ejemplo: `portfolio` (o `<tu-usuario>.github.io` si quieres que sea tu web principal).
-3. Asegúrate de marcarlo como **Public** y haz clic en **Create repository**.
+1. Inicia sesión en [GitHub](https://github.com/) y crea un nuevo repositorio público (ej. `aisuni` o `<tu-usuario>.github.io`).
 
 ### Paso 2: Subir los archivos
 Sube todos los archivos de esta carpeta al repositorio:
 - `index.html`
-- Carpeta `assets/` (con todas las imágenes)
+- `style.css`
+- `data.js`
+- Carpeta `assets/` (con todas las imágenes en alta resolución)
 - `README.md`
 
-*(Puedes arrastrarlos directamente desde la web de GitHub en "Upload files" o usar `git clone` / `git push` desde tu terminal).*
-
 ### Paso 3: Activar GitHub Pages
-1. En tu repositorio de GitHub, haz clic en la pestaña **Settings** (Configuración).
-2. En el menú lateral izquierdo, haz clic en **Pages**.
-3. En la sección **Build and deployment**:
-   - **Source**: Selecciona `Deploy from a branch`.
-   - **Branch**: Selecciona `main` (o `master`) y la carpeta `/ (root)`.
-   - Haz clic en **Save**.
-4. Espera 1 minuto y recarga la página: verás un banner verde con tu enlace publicado:
-   `https://<tu-usuario>.github.io/portfolio/`
-
----
-
-## ✏️ Cómo Actualizar Proyectos y Fotografías Fácilmente
-
-Para añadir un nuevo proyecto o cambiar los existentes, no tienes que tocar código complejo:
-
-1. **Sube tu nueva fotografía** a la carpeta `assets/` (por ejemplo: `assets/mi-proyecto.jpg`).
-2. Abre el archivo `index.html` (puedes editarlo directamente en GitHub presionando la tecla `.` o el icono del lápiz ✏️).
-3. Busca la sección `const PROJECTS = [...]` (alrededor de la línea 320) y agrega o modifica el bloque:
-
-```javascript
-{
-  id: "mi-nuevo-trabajo",
-  num: "07",
-  title: "Nombre del Proyecto",
-  category: "Data viz",
-  categoryTag: "Visualización de Datos",
-  year: "2026",
-  client: "Nombre del Cliente",
-  image: "assets/mi-proyecto.jpg",
-  tools: "Illustrator, Processing",
-  concept: "Escribe aquí la explicación conceptual de tu obra...",
-  process: "Explica aquí tu metodología, materiales o bocetos...",
-  featured: true
-}
-```
-
-4. Haz clic en **Commit changes**. En cuestión de segundos, tu web en GitHub Pages se actualizará automáticamente con el nuevo proyecto, su vista previa flotante y su modal interactivo.
+1. En tu repositorio, entra a **Settings > Pages**.
+2. En *Build and deployment*, selecciona `Deploy from a branch`, rama `main` (o `master`) y carpeta `/ (root)`.
+3. Haz clic en **Save**. En un minuto tu sitio estará online.
 
 ---
 
 ## 📁 Estructura de Archivos
 
 ```
-├── index.html         # Archivo web principal (HTML5 + Tailwind CSS + JS)
-├── README.md          # Esta guía de uso y despliegue
-└── assets/            # Directorio de fotografías e ilustraciones
+├── index.html         # Archivo web principal (HTML5 + Tailwind CSS + JS interactivo)
+├── style.css          # Estilos complementarios y transiciones de cursor
+├── data.js            # Base de datos modular de proyectos y archivo
+├── README.md          # Documentación del proyecto y despliegue
+└── assets/            # Directorio de fotografías, tramas y simulaciones visuales
     ├── 01-give-it-a-shape.jpg
     ├── 02-2640-tangerine.jpg
     ├── 03-painting-with-sound.jpg
     ├── 04-oldest-tree.jpg
     ├── 05-elso-typeface.jpg
-    └── 06-mundano-oracle.jpg
+    ├── 06-mundano-oracle.jpg
+    ├── 07-interfaces-hud.jpg
+    ├── 08-simulation-fluid.jpg
+    ├── 09-typographic-matrix.jpg
+    └── 10-parametric-lattice.jpg
 ```
