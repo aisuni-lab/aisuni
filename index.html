@@ -2052,1016 +2052,126 @@ Metodología, fórmulas o algoritmos...</pre>
        ========================================================================== -->
      
   
-  <script>
-    // 🌟 CONEXIÓN AUTOMÁTICA A TUS ARCHIVOS MARKDOWN (.MD) 🌟
-    document.addEventListener("DOMContentLoaded", async () => {
-      try {
-        const response = await fetch('data.json');
-        if (response.ok) {
-          const freshData = await response.json();
-          if (freshData && freshData.length > 0) {
-            // Reemplaza los proyectos viejos fijos con los que lee de tus archivos .md
-            FALLBACK_DATA.proyectos = freshData;
-            console.log("🚀 ¡Web actualizada con tus archivos Markdown con éxito!");
-            
-            // Forzar a la interfaz a redibujarse con los nuevos títulos
-            if (typeof inicializarInterfaz === 'function') inicializarInterfaz();
-            if (typeof render === 'function') render();
-            if (typeof init === 'function') init();
-          }
-        }
-      } catch (e) { console.log("Usando datos locales", e); }
-    });
-    // 🌟 FIN DE LA CONEXIÓN AUTOMÁTICA 🌟
-
-    // Respaldo embebido completo por si se abre localmente sin servidor o en Canvas
+   <script>
+    // 🌟 MOTOR DE CONEXIÓN DINÁMICA A ARCHIVOS MARKDOWN (.MD) 🌟
     const FALLBACK_DATA = {
-  "studio": {
-    "name": "AISUNI",
-    "symbol": "✷",
-    "badge": "Archivo Activo",
-    "email": "contacto@aisuni.art",
-    "location": "Barcelona, ES",
-    "timezone": "Europe/Madrid",
-    "manifesto": "Investigación en artes visuales y sistemas generativos: un espacio de experimentación con tecnologías emergentes y herramientas algorítmicas para nuevas inteligencias visuales."
-  },
-  "proyectos": [
-    {
-      "id": "topologias-de-movilidad",
-      "slug": "topologias-de-movilidad",
-      "num": "01",
-      "title": "xxxxxxxxx Segmentos — Topologías de Movilidad Urbana",
-      "category": "Algoritmos",
-      "categoryTag": "Algoritmos & Visualización de Datos",
-      "year": "2026",
-      "client": "MIT Media Lab · Senseable Mobility",
-      "image": "assets/obra-01-flujos-portada.jpg",
-      "gallery": [
-        "assets/obra-02-sistemas-portada.jpg",
-        "assets/obra-01-flujos-detalle.svg",
-        "assets/obra-01-flujos-proceso.svg"
-      ],
-      "tools": "Python, GLSL Shaders, Processing, D3.js",
-      "status": "Comisionado · Publicado",
-      "rawMarkdown": "## Concepto\nInvestigación visual sobre la percepción de seguridad peatonal y los flujos de micro-movilidad en entornos metropolitanos densos. A partir de 2,640 segmentos vectoriales georreferenciados, la obra traduce variables intangibles —como iluminación nocturna, fricción modal y densidad de tránsito— en una cartografía generativa de alta precisión.\n\nEn lugar de representar la ciudad como una retícula estática de asfalto, el sistema modela el tejido urbano como un organismo termodinámico donde cada trayecto ciudadano deforma el campo de fuerzas local, revelando corredores de cohesión comunitaria y zonas de sombra infraestructural.\n\n## Proceso\nEl motor de simulación procesa matrices de origen-destino mediante un campo vectorial libre de divergencia (*Curl Noise 3D*) acoplado a integradores numéricos de cuarto orden (Runge-Kutta RK4):\n\n`v(x, y, t) = ∇ × ψ(x, y, t) + α · F_datamap(x, y)`\n`x_{k+1} = x_k + (Δt / 6) · (k_1 + 2k_2 + 2k_3 + k_4)`\n\nCada partícula hereda la velocidad media del tramo viario y modula su espesor caligráfico y temperatura cromática (`#FF5500` para arterias de alta fricción; `#F8F9FA` para flujos laminares) directamente en un fragment shader GLSL a 60 fotogramas por segundo.\n"
-    },
-    {
-      "id": "arquitectura-conectividad-giga",
-      "slug": "arquitectura-conectividad-giga",
-      "num": "02",
-      "title": "Giga Atlas — Sistema Editorial y Retícula de Conectividad",
-      "category": "Sistemas",
-      "categoryTag": "Sistemas Visuales & Diseño Editorial",
-      "year": "2026",
-      "client": "UNICEF Office of Innovation & ITU",
-      "image": "assets/obra-02-sistemas-portada.jpg",
-      "gallery": [
-        "assets/obra-02-sistemas-portada.jpg",
-        "assets/obra-02-sistemas-detalle.svg",
-        "assets/obra-02-sistemas-proceso.svg"
-      ],
-      "tools": "Python, DrawBot, OpenType, SVG Paramétrico",
-      "status": "Sistema en Producción",
-      "rawMarkdown": "## Concepto\nDiseño de un lenguaje gráfico modular y sistema editorial automatizado para la iniciativa global Giga (UNICEF + Unión Internacional de Telecomunicaciones), orientada a mapear la conectividad escolar en tiempo real en más de 140 países.\n\nInspirado en la Escuela de Basilea y el diseño editorial suizo de Karl Gerstner, el sistema transforma indicadores estadísticos complejos —latencia satelital, cobertura de fibra óptica y topografía rural— en una familia de pictogramas geométricos y composiciones modulares que comunican antes de ser leídas.\n\n## Proceso\nSe programó una gramática de formas (*Shape Grammar*) en Python y DrawBot que subdivide una retícula canónica de 12×8 módulos según los cuartiles de conectividad de cada región:\n\n`Grid(m, n) → Subdivide(Q_latency, Q_bandwidth, θ_terrain)`\n`Ratio_canónico = 1 : √2 (ISO 216) · Unidad base = 6pt`\n\nEl script compila automáticamente cientos de gráficos vectoriales listos para imprenta offset y visualización web interactiva, garantizando coherencia tipográfica absoluta entre los informes anuales y el pódcast *Connectivity Cast*.\n"
-    },
-    {
-      "id": "morfogenesis-coralina",
-      "slug": "morfogenesis-coralina",
-      "num": "03",
-      "title": "Morfogénesis Abisal — Simulación de Crecimiento Diferencial",
-      "category": "Simulación",
-      "categoryTag": "Simulación Biológica & Reacción-Difusión",
-      "year": "2026",
-      "client": "Instalación Comisionada · Sottotraccia",
-      "image": "assets/obra-03-morfogenesis-portada.jpg",
-      "gallery": [
-        "assets/obra-03-morfogenesis-portada.jpg",
-        "assets/obra-03-morfogenesis-detalle.svg",
-        "assets/obra-03-morfogenesis-proceso.svg"
-      ],
-      "tools": "Houdini VEX, C++, CUDA, Redshift",
-      "status": "Exposición Itinerante",
-      "rawMarkdown": "## Concepto\nExploración escultórica digital sobre los mecanismos matemáticos que rigen el plegamiento biológico en arrecifes coralinos, líquenes y estructuras corticales. Siguiendo las ecuaciones morfogenéticas propuestas por Alan Turing en 1952, la pieza investiga cómo la competencia entre dos sustancias químicas (activador e inhibidor) engendra geometrías hiperbólicas de máxima superficie con mínimo volumen.\n\nLas cavidades de obsidiana mate revelan luminiscencias internas en bermellón (`#FF5500`) y verde esmeralda (`#10B981`), funcionando como un indicador metabólico de la tensión superficial en la malla tridimensional.\n\n## Proceso\nEl núcleo computacional resuelve el sistema acoplado de ecuaciones diferenciales parciales de Gray-Scott sobre una malla geodésica adaptativa en Houdini VEX acelerada por GPU:\n\n`∂u/∂t = D_u ∇²u - u·v² + F(1 - u)`\n`∂v/∂t = D_v ∇²v + u·v² - (F + k)v`\n\nCuando la curvatura media `H` supera el umbral crítico (`F = 0.0545`, `k = 0.0620`), el algoritmo subdivide dinámicamente las aristas y aplica relajación por repulsión de radio corto, generando pliegues orgánicos libres de auto-intersección.\n"
-    },
-    {
-      "id": "herbario-cibernetico",
-      "slug": "herbario-cibernetico",
-      "num": "04",
-      "title": "Botánica Sintética — Collage Algorítmico y Fotogrametría",
-      "category": "Collage",
-      "categoryTag": "Collage Computacional & Fotogrametría",
-      "year": "2025",
-      "client": "Investigación Interna · Barcelona",
-      "image": "assets/obra-04-herbario-portada.jpg",
-      "gallery": [
-        "assets/obra-04-herbario-portada.jpg",
-        "assets/obra-04-herbario-detalle.svg",
-        "assets/obra-04-herbario-proceso.svg"
-      ],
-      "tools": "OpenCV, Python, TouchDesigner, Escáner LiDAR",
-      "status": "Serie Numerada · Archivo",
-      "rawMarkdown": "## Concepto\nDiálogo visual entre la fragilidad orgánica de especímenes botánicos recolectados en la cuenca mediterránea y la rigidez analítica de la visión artificial. La serie ensambla fragmentos de helechos, raíces y hojas de eucalipto prensadas a mano con mallas topográficas y nubes de puntos generadas mediante escaneo láser.\n\nEl collage deja de ser un ejercicio puramente manual de recorte para convertirse en una negociación algorítmica entre la textura biológica imperfecta y la geometría euclidiana que intenta clasificarla.\n\n## Proceso\nCada espécimen físico se digitaliza a 2400 ppp junto con su mapa de profundidad LiDAR. Un script en Python con OpenCV detecta los nervios foliares mediante el operador laplaciano de Gauss y construye una triangulación de Delaunay restringida:\n\n`T = Delaunay(V_contours ∪ V_stochastic)`\n`E_contour(z) = ∫ |∇I(x,y)|² dx dy`\n\nSobre las regiones de mayor gradiente orgánico se proyectan isolíneas vectoriales en color terracota (`#FF5500`), fusionando grabado naturalista clásico y telemetría espacial.\n"
-    },
-    {
-      "id": "elso-tipografia-variable",
-      "slug": "elso-tipografia-variable",
-      "num": "05",
-      "title": "Elso — Tipografía Cinética y Sistema de Identidad Variable",
-      "category": "Tipografía",
-      "categoryTag": "Tipografía Experimental & Sistemas",
-      "year": "2025",
-      "client": "Fundición Experimental · AISUNI Type",
-      "image": "assets/obra-05-tipografia-portada.svg",
-      "gallery": [
-        "assets/obra-05-tipografia-portada.svg",
-        "assets/obra-05-tipografia-detalle.svg",
-        "assets/obra-05-tipografia-proceso.svg"
-      ],
-      "tools": "Glyphs 3, Python, FontTools, WebGL",
-      "status": "Lanzamiento v2.4",
-      "rawMarkdown": "## Concepto\nDesarrollo de una familia tipográfica experimental de proporción neogrotesca suiza cuyos glifos responden en tiempo real a estímulos acústicos, velocidad de lectura y coordenadas del cursor. Concebida como una crítica a la letra impresa inmutable, *Elso* trata cada carácter como un sistema mecánico articulado por tensores elásticos.\n\nSu arquitectura combina la sobriedad funcional de las sin serifas helvéticas de posguerra con modulaciones geométricas extremas que permiten transitar desde un texto editorial ultra-legible hasta una escultura abstracta de curvas Bézier.\n\n## Proceso\nLa fuente se compiló como un archivo OpenType Variable Font con tres ejes paramétricos personalizados: Peso (`wght: 100–900`), Tensión Angular (`TNSN: 0–100`) y Frecuencia de Resonancia (`FREQ: 0–1000`):\n\n`B(t) = (1-t)³P_0 + 3(1-t)²t P_1(ω) + 3(1-t)t² P_2(ω) + t³P_3`\n\nLos puntos de control fuera de curva (`P_1`, `P_2`) se desplazan armónicamente según la transformada rápida de Fourier (FFT) de la señal de entrada, manteniendo invariantes las métricas verticales y el interletraje óptico.\n"
-    },
-    {
-      "id": "teselaciones-cuasicristalinas",
-      "slug": "teselaciones-cuasicristalinas",
-      "num": "06",
-      "title": "Give It a Shape — Patrones Aperiódicos y Geometría Cuasicristalina",
-      "category": "Patrones",
-      "categoryTag": "Patrones Matemáticos & Plotter",
-      "year": "2025",
-      "client": "Exposición Arteria & Colección Privada",
-      "image": "assets/obra-06-patrones-portada.svg",
-      "gallery": [
-        "assets/obra-06-patrones-portada.svg",
-        "assets/obra-06-patrones-detalle.svg",
-        "assets/obra-06-patrones-proceso.svg"
-      ],
-      "tools": "Python, Shapely, vpype, Plotter AxiDraw V3",
-      "status": "Obra Física & Digital",
-      "rawMarkdown": "## Concepto\nInspirada en la belleza silenciosa de las ecuaciones matemáticas y las teselaciones de Roger Penrose, esta investigación traduce sistemas algebraicos de simetría prohibida (órdenes rotacionales 5, 8 y 12) en grabados vectoriales de orden hipnótico.\n\nCada composición explora la paradoja del orden sin repetición periódica: el ojo humano percibe una estructura rigurosa y familiar, pero al recorrer el plano descubre que ninguna sub-región se repite jamás de manera idéntica.\n\n## Proceso\nSe implementó el método de multigrid dual de Nicolaas Govert de Bruijn en Python, proyectando retículas hiperdimensionales de 5 dimensiones sobre un subespacio euclidiano bidimensional:\n\n`x_∥ = ∑_{j=0}^{4} k_j · (cos(2πj/5), sin(2πj/5))`\n\nLas trayectorias resultantes se optimizan topológicamente mediante el algoritmo de relajación de Lloyd y `vpype` para minimizar los levantamientos de pluma antes de su trazado físico con tinta pigmentada sobre papel de algodón de 300 g/m².\n"
-    },
-    {
-      "id": "sincronia-kuramoto",
-      "slug": "sincronia-kuramoto",
-      "num": "07",
-      "title": "Manifiesto de Fase — Procesos de Sincronización Autónoma",
-      "category": "Procesos",
-      "categoryTag": "Procesos Sistémicos & Autómatas",
-      "year": "2026",
-      "client": "Mozilla Fest 2026 · Ponencia & Demo",
-      "image": "assets/obra-07-procesos-portada.svg",
-      "gallery": [
-        "assets/obra-07-procesos-portada.svg",
-        "assets/obra-07-procesos-detalle.svg",
-        "assets/obra-07-procesos-proceso.svg"
-      ],
-      "tools": "Rust, WebAssembly, Canvas 2D, OSC",
-      "status": "Investigación Activa",
-      "rawMarkdown": "## Concepto\n¿Cómo emerge el orden colectivo a partir del caos individual sin la intervención de un nodo central? Esta pieza procesual documenta 72 horas de ejecución ininterrumpida de una red de 4,096 osciladores autónomos acoplados, análogos al parpadeo simultáneo de las luciérnagas o la activación neuronal en el córtex visual.\n\nEl resultado es una partitura gráfica evolutiva donde el tiempo deja una huella estratigráfica, mostrando el instante exacto de transición de fase entre la entropía térmica y la resonancia absoluta.\n\n## Proceso\nEl motor matemático, escrito en Rust y compilado a WebAssembly, integra el modelo no lineal de Kuramoto con acoplamiento topológico de mundo pequeño (Watts-Strogatz):\n\n`dθ_i / dt = ω_i + (K / N) ∑_{j=1}^{N} A_{ij} sin(θ_j - θ_i)`\n`r · e^{iψ} = (1 / N) ∑_{j=1}^{N} e^{iθ_j}`\n\nCuando el parámetro de orden global `r` supera `0.85`, el sistema dispara un pulso de grabado vectorial y registra la matriz de covarianza como una lámina de archivo fechada.\n"
-    },
-    {
-      "id": "painting-with-sound",
-      "slug": "painting-with-sound",
-      "num": "08",
-      "title": "Painting with Sound — Interfaz Espectral y Sinestesia Acústica",
-      "category": "Interfaces",
-      "categoryTag": "Interfaces Sonoras & Visualización",
-      "year": "2026",
-      "client": "Sofiane Pamart · Destilo & Vibe Fridays (UNICEF)",
-      "image": "assets/obra-08-interfaces-portada.svg",
-      "gallery": [
-        "assets/obra-08-interfaces-portada.svg",
-        "assets/obra-08-interfaces-detalle.svg",
-        "assets/obra-08-interfaces-proceso.svg"
-      ],
-      "tools": "Web Audio API, GLSL, TouchDesigner, MIDI/OSC",
-      "status": "Exhibición Internacional",
-      "rawMarkdown": "## Concepto\nInterfaz performativa e instrumento de visualización acústica diseñado para traducir composiciones de piano neoclásico y síntesis modular en arquitecturas lumínicas de precisión suiza. Presentada en *Vibe Fridays at UNICEF*, *Destilo 4th Edition* y *Sottotraccia Festival*, la obra convierte el espectro armónico en una escultura radial viva.\n\nCada nota musical no se limita a activar un color, sino que construye una geometría persistente donde el timbre, el ataque percusivo y la reverberación del pedal quedan cincelados en el espacio digital.\n\n## Proceso\nLa señal de audio entrante se descompone mediante una banco de filtros de transformada de Fourier de tiempo corto (STFT) con ventana de Blackman-Harris de 2048 muestras y solapamiento del 75%:\n\n`X(m, ω) = ∑_{n=-∞}^{∞} x[n] · w[n - mR] · e^{-jωn}`\n`Centroid_f = (∑ f_k · |X(k)|) / (∑ |X(k)|)`\n\nEl centroide espectral gobierna el radio de curvatura y la dispersión angular de la interfaz, mientras los transitorios de fase generan anillos concéntricos de alta definición listos para proyección láser y grabado editorial.\n"
-    }
-  ],
-  "archivo": [
-    {
-      "id": "arc-01-palabras-cifradas",
-      "slug": "arc-01-palabras-cifradas",
-      "num": "ARC-01",
-      "title": "Encrypted Words — Sigilos Fonéticos y Criptografía Geométrica",
-      "category": "Tipografía",
-      "categoryTag": "Criptografía Visual & Tipografía",
-      "year": "2026",
-      "client": "Archivo Activo · Lab BCN",
-      "image": "assets/arc-01-portada.svg",
-      "gallery": [
-        "assets/arc-01-portada.svg",
-        "assets/arc-01-detalle.svg",
-        "assets/obra-05-tipografia-proceso.svg"
-      ],
-      "tools": "Python, SVG, Álgebra de Grafos",
-      "status": "Investigación activa",
-      "rawMarkdown": "## Concepto\nSistema de codificación metalingüística que transforma palabras y aforismos en sigilos geométricos únicos. Cada vocablo se mapea sobre una matriz fonética polar donde las consonantes definen vértices estructurales y las vocales determinan curvaturas y puntos de inflexión.\n\n## Proceso\nEl algoritmo elimina caracteres redundantes, calcula el vector de adyacencia fonética sobre un polígono de 27 nodos y traza una spline cúbica cerrada cuya firma topológica es biunívoca respecto a la cadena de entrada.\n"
-    },
-    {
-      "id": "arc-02-framora-system",
-      "slug": "arc-02-framora-system",
-      "num": "ARC-02",
-      "title": "Framora — Gramática de Ilustración Modular y Permutación",
-      "category": "Sistemas",
-      "categoryTag": "Sistemas de Ilustración",
-      "year": "2025",
-      "client": "Flexible Visual Systems · Feature",
-      "image": "assets/arc-02-portada.svg",
-      "gallery": [
-        "assets/arc-02-portada.svg",
-        "assets/arc-02-detalle.svg",
-        "assets/obra-02-sistemas-proceso.svg"
-      ],
-      "tools": "Processing, Illustrator Scripting, JSON",
-      "status": "Investigación activa",
-      "rawMarkdown": "## Concepto\nDiccionario visual finito de 16 primitivas geométricas capaz de generar más de 4,096 ilustraciones editoriales coherentes mediante reglas de simetría, anidamiento y balance de masa blanca/negra. Destacado en la revista especializada *Flexible Visual Systems*.\n\n## Proceso\nMediante matrices de transformación afín 2D y restricciones de contigüidad cromática, el generador evalúa el peso visual de cada celda antes de asignar el acento bermellón (`#FF5500`).\n"
-    },
-    {
-      "id": "arc-03-arbol-milenario",
-      "slug": "arc-03-arbol-milenario",
-      "num": "ARC-03",
-      "title": "The Oldest Tree — Dendrocronología de 4,853 Anillos Climáticos",
-      "category": "Algoritmos",
-      "categoryTag": "Visualización Científica & Datos",
-      "year": "2025",
-      "client": "Archivo Paleoclimático · Datos Abiertos",
-      "image": "assets/arc-03-portada.svg",
-      "gallery": [
-        "assets/arc-03-portada.svg",
-        "assets/arc-03-detalle.svg",
-        "assets/obra-01-flujos-detalle.svg"
-      ],
-      "tools": "Python, Cairo, NOAA Dataset, D3.js",
-      "status": "Archivo verificado",
-      "rawMarkdown": "## Concepto\nHomenaje gráfico a *Methuselah* (*Pinus longaeva*), traduciendo casi cinco milenios de registros paleoclimáticos en una sección transversal algorítmica donde cada anillo anual refleja las anomalías de temperatura y precipitación terrestre.\n\n## Proceso\nLos datos crudos de espesor celular (en micrómetros) modulan la amplitud armónica de 4,853 órbitas concéntricas mediante ruido Perlin coherente, revelando sequías históricas y erupciones volcánicas.\n"
-    },
-    {
-      "id": "arc-04-oraculo-mundano",
-      "slug": "arc-04-oraculo-mundano",
-      "num": "ARC-04",
-      "title": "Oráculo Mundano — Baraja Combinatoria de 64 Arquetipos",
-      "category": "Patrones",
-      "categoryTag": "Iconografía & Diseño de Producto",
-      "year": "2025",
-      "client": "Edición Limitada · AISUNI Press",
-      "image": "assets/arc-04-portada.svg",
-      "gallery": [
-        "assets/arc-04-portada.svg",
-        "assets/arc-04-detalle.svg",
-        "assets/obra-06-patrones-detalle.svg"
-      ],
-      "tools": "Python, SVG, Impresión Serigráfica",
-      "status": "Edición publicada",
-      "rawMarkdown": "## Concepto\nConjunto de 64 cartas de pensamiento lateral para diseñadores e investigadores, basadas en la combinatoria binaria de seis trazos (inspirada en el *I Ching* y la lógica booleana de Leibniz) cruzada con geometría constructivista.\n\n## Proceso\nCada carta corresponde a un entero de 6 bits (`000000` a `111111`) cuyos bits activos determinan la presencia de arcos tangentes, diagonales de tensión y puntos focales sobre proporción áurea.\n"
-    },
-    {
-      "id": "arc-05-entrelazo-topologico",
-      "slug": "arc-05-entrelazo-topologico",
-      "num": "ARC-05",
-      "title": "Entrelazo — Topología de Nudos y Relajación Elástica",
-      "category": "Simulación",
-      "categoryTag": "Simulación Física & Topología",
-      "year": "2026",
-      "client": "Investigación Activa · Lab BCN",
-      "image": "assets/arc-05-portada.svg",
-      "gallery": [
-        "assets/arc-05-portada.svg",
-        "assets/arc-05-detalle.svg",
-        "assets/obra-03-morfogenesis-detalle.svg"
-      ],
-      "tools": "C++, Verlet Physics, WebGL",
-      "status": "Investigación activa",
-      "rawMarkdown": "## Concepto\nEstudio sobre la teoría matemática de nudos y enlaces entrelazados sometidos a campos de repulsión electrostática. Las cuerdas virtuales buscan su configuración de mínima energía potencial sin romper su invariante topológico.\n\n## Proceso\nIntegración de Verlet con restricciones de distancia rígida y energía de Möbius (`E_knot`), renderizando los puntos de máxima torsión mecánica con indicadores cromáticos de estado.\n"
-    },
-    {
-      "id": "arc-06-pulso-barcelona",
-      "slug": "arc-06-pulso-barcelona",
-      "num": "ARC-06",
-      "title": "Pulso BCN — Cartografía Acústica e Interfaz de Telemetría",
-      "category": "Interfaces",
-      "categoryTag": "Interfaces Urbanas & Procesos",
-      "year": "2026",
-      "client": "Red Ciudadana de Sensores · Barcelona",
-      "image": "assets/arc-06-portada.svg",
-      "gallery": [
-        "assets/arc-06-portada.svg",
-        "assets/arc-06-detalle.svg",
-        "assets/obra-08-interfaces-proceso.svg"
-      ],
-      "tools": "WebSockets, Web Audio, Canvas API",
-      "status": "Investigación activa",
-      "rawMarkdown": "## Concepto\nMonitor experimental que captura el paisaje sonoro y ambiental de tres distritos de Barcelona (Poblenou, Eixample y Ciutat Vella), sintetizando decibelios, humedad relativa y flujo electromagnético en un dialecto gráfico minimalista.\n\n## Proceso\nMuestreo continuo en ventanas de 10 segundos transformado en vectores de densidad radial; las anomalías acústicas urbanas se archivan automáticamente como instantáneas SVG.\n"
-    }
-  ]
-};
+      "studio": {
+        "name": "AISUNI",
+        "symbol": "✷",
+        "badge": "Archivo Activo",
+        "email": "contacto@aisuni.art",
+        "location": "Barcelona, ES",
+        "timezone": "Europe/Madrid",
+        "manifesto": "Investigación en artes visuales y sistemas generativos: un espacio de experimentación con tecnologías emergentes y herramientas algorítmicas para nuevas inteligencias visuales."
+      },
+      "proyectos": [] // Se inicializa vacío para que la carga de archivos .md tome prioridad absoluta
+    };
 
-    const OFFICIAL_DISCIPLINES = [
-      "Todos",
-      "Sistemas",
-      "Algoritmos",
-      "Tipografía",
-      "Simulación",
-      "Collage",
-      "Patrones",
-      "Procesos",
-      "Interfaces"
+    // Almacén secundario de respaldo estático (fallback) si falla la conexión de red local
+    const LOCAL_ARCHIVE_DATA = [
+      {
+        "id": "topologias-de-movilidad",
+        "slug": "topologias-de-movilidad",
+        "num": "01",
+        "title": "Topologías de Movilidad Urbana",
+        "category": "Algoritmos",
+        "categoryTag": "Algoritmos & Visualización de Datos",
+        "year": "2026",
+        "client": "MIT Media Lab · Senseable Mobility",
+        "image": "assets/obra-01-flujos-portada.jpg",
+        "gallery": [
+          "assets/obra-02-sistemas-portada.jpg",
+          "assets/obra-01-flujos-detalle.svg",
+          "assets/obra-01-flujos-proceso.svg"
+        ],
+        "tools": "Python, GLSL Shaders, Processing, D3.js",
+        "status": "Comisionado · Publicado"
+      },
+      {
+        "id": "arquitectura-conectividad-giga",
+        "slug": "arquitectura-conectividad-giga",
+        "num": "02",
+        "title": "Giga Atlas — Sistema Editorial y Retícula de Conectividad",
+        "category": "Sistemas",
+        "categoryTag": "Sistemas Visuales & Diseño Editorial",
+        "year": "2026",
+        "client": "UNICEF Office of Innovation & ITU",
+        "image": "assets/obra-02-sistemas-portada.jpg",
+        "gallery": [
+          "assets/obra-02-sistemas-portada.jpg",
+          "assets/obra-02-sistemas-detalle.svg",
+          "assets/obra-02-sistemas-proceso.svg"
+        ],
+        "tools": "Python, DrawBot, OpenType, SVG Paramétrico",
+        "status": "Sistema en Producción"
+      },
+      {
+        "id": "morfogenesis-coralina",
+        "slug": "morfogenesis-coralina",
+        "num": "03",
+        "title": "Morfogénesis Abisal — Simulación de Crecimiento Diferencial",
+        "category": "Simulación",
+        "categoryTag": "Simulación Biológica & Reacción-Difusión",
+        "year": "2026",
+        "client": "Instalación Comisionada · Sottotraccia",
+        "image": "assets/obra-03-morfogenesis-portada.jpg",
+        "gallery": [
+          "assets/obra-03-morfogenesis-portada.jpg",
+          "assets/obra-03-morfogenesis-detalle.svg",
+          "assets/obra-03-morfogenesis-proceso.svg"
+        ],
+        "tools": "Houdini VEX, C++, CUDA, Redshift",
+        "status": "Exposición Itinerante"
+      },
+      {
+        "id": "herbario-cibernetico",
+        "slug": "herbario-cibernetico",
+        "num": "04",
+        "title": "Botánica Sintética — Collage Algorítmico y Fotogrametría",
+        "category": "Collage",
+        "categoryTag": "Collage Computacional & Fotogrametría",
+        "year": "2025",
+        "client": "Investigación Interna · Barcelona",
+        "image": "assets/obra-04-herbario-portada.jpg",
+        "gallery": [
+          "assets/obra-04-herbario-portada.jpg",
+          "assets/obra-04-herbario-detalle.svg",
+          "assets/obra-04-herbario-proceso.svg"
+        ],
+        "tools": "OpenCV, Python, TouchDesigner, Escáner LiDAR",
+        "status": "Serie Numerada · Archivo"
+      }
     ];
 
-    const state = {
-      proyectos: [],
-      archivo: [],
-      activeDiscipline: "Todos",
-      modalOpen: false,
-      currentList: [],
-      currentWorkIndex: 0,
-      currentImageIndex: 0,
-      activeTab: "concepto"
-    };
-
-    // 1. Persistencia de Tema Oscuro / Claro con localStorage seguro
-    function initTheme() {
-      let savedTheme = "dark";
+    // Función asíncrona encargada de solicitar los datos compilados por Jekyll sin bloquear el hilo principal
+    async function inicializarSincronizacionJekyll() {
       try {
-        const stored = window.localStorage.getItem("aisuni_theme");
-        if (stored === "light" || stored === "dark") {
-          savedTheme = stored;
+        // Buscamos data.json de forma relativa dentro del directorio del repositorio /aisuni/
+        const peticion = await fetch('data.json');
+        if (!peticion.ok) throw new Error("Archivo data.json ausente en el servidor.");
+        
+        const datosMarkdown = await peticion.json();
+        if (datosMarkdown && datosMarkdown.length > 0) {
+          FALLBACK_DATA.proyectos = datosMarkdown;
+          console.log("🚀 Sincronización exitosa: Cargados los datos reales desde archivos .md");
+        } else {
+          throw new Error("El archivo data.json se encuentra vacío.");
         }
-      } catch (e) {
-        savedTheme = "dark";
-      }
-      applyTheme(savedTheme);
-
-      const toggleBtn = document.getElementById("themeToggleBtn");
-      toggleBtn.addEventListener("click", function () {
-        const current = document.documentElement.getAttribute("data-theme") || "dark";
-        const next = current === "dark" ? "light" : "dark";
-        applyTheme(next);
-        try {
-          window.localStorage.setItem("aisuni_theme", next);
-        } catch (e) {}
-      });
-    }
-
-    function applyTheme(theme) {
-      document.documentElement.setAttribute("data-theme", theme);
-      const sun = document.getElementById("themeIconSun");
-      const moon = document.getElementById("themeIconMoon");
-      if (theme === "dark") {
-        sun.style.display = "block";
-        moon.style.display = "none";
-      } else {
-        sun.style.display = "none";
-        moon.style.display = "block";
+      } catch (error) {
+        console.warn("⚠️ Advertencia de red: Cargando base estática local de contingencia.", error);
+        FALLBACK_DATA.proyectos = LOCAL_ARCHIVE_DATA;
+      } finally {
+        // Ejecución e invocación automática de los controladores nativos de tu interfaz gráfica
+        if (typeof inicializarInterfaz === 'function') inicializarInterfaz();
+        if (typeof renderProjects === 'function') renderProjects();
+        if (typeof render === 'function') render();
+        if (typeof init === 'function') init();
       }
     }
 
-    // 2. Reloj en vivo sincronizado con Barcelona (Europe/Madrid)
-    function initBarcelonaClock() {
-      const clockEl = document.getElementById("bcnClock");
-      function updateClock() {
-        try {
-          const now = new Date();
-          const formatter = new Intl.DateTimeFormat("es-ES", {
-            timeZone: "Europe/Madrid",
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit",
-            hour12: false
-          });
-          clockEl.textContent = "BCN · " + formatter.format(now);
-        } catch (e) {
-          const d = new Date();
-          const hh = String(d.getHours()).padStart(2, "0");
-          const mm = String(d.getMinutes()).padStart(2, "0");
-          const ss = String(d.getSeconds()).padStart(2, "0");
-          clockEl.textContent = "BCN · " + hh + ":" + mm + ":" + ss;
-        }
-      }
-      updateClock();
-      setInterval(updateClock, 1000);
-    }
-
-    // 3. Parser de secciones Markdown (## Concepto y ## Proceso)
-    function parseMarkdownSections(rawMd) {
-      const text = String(rawMd || "")
-        .replace(/<[^>]+>/g, "") // limpia etiquetas HTML si Jekyll pre-renderizó
-        .trim();
-
-      let concepto = "";
-      let proceso = "";
-
-      const conceptoMatch = text.match(/##\s*Concepto\s*\n([\s\S]*?)(?=##\s*Proceso|$)/i);
-      const procesoMatch = text.match(/##\s*Proceso\s*\n([\s\S]*?)$/i);
-
-      if (conceptoMatch && conceptoMatch[1]) {
-        concepto = conceptoMatch[1].trim();
-      }
-      if (procesoMatch && procesoMatch[1]) {
-        proceso = procesoMatch[1].trim();
-      }
-      if (!concepto && !proceso) {
-        concepto = text;
-      }
-      return { concepto: concepto, proceso: proceso };
-    }
-
-    function formatMarkdownBlockToHTML(mdChunk) {
-      if (!mdChunk) {
-        return "<p>Documentación técnica en proceso de actualización dentro del archivo Markdown.</p>";
-      }
-      const paragraphs = mdChunk.split(/\n\s*\n/);
-      return paragraphs.map(function (para) {
-        const trimmed = para.trim();
-        // Si el párrafo está compuesto por fórmulas entre backticks en líneas
-        const lines = trimmed.split("\n");
-        const allCodeLines = lines.every(function (l) {
-          const t = l.trim();
-          return t.startsWith("`") && t.endsWith("`") && t.length > 2;
-        });
-        if (allCodeLines) {
-          const cleanCode = lines.map(function (l) {
-            return l.trim().slice(1, -1);
-          }).join("\n");
-          return '<pre class="formula-block">' + escapeHtml(cleanCode) + '</pre>';
-        }
-        // Formateo inline de cursivas (*texto*) y código (`código`)
-        let html = escapeHtml(trimmed);
-        html = html.replace(/`([^`]+)`/g, '<code class="mono" style="color:var(--accent); background:var(--code-bg); padding:0.1rem 0.35rem;">$1</code>');
-        html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
-        return "<p>" + html + "</p>";
-      }).join("");
-    }
-
-    function escapeHtml(str) {
-      return String(str)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;");
-    }
-
-    function buildRawMarkdownPreview(item) {
-      const galleryLines = (item.gallery || [item.image]).map(function (g) {
-        // Oculta cadenas data:base64 largas en la vista previa del código Markdown para mantener legibilidad
-        const cleanPath = String(g).startsWith("data:") ? "assets/" + item.id + "-vista.jpg" : g;
-        return '  - "' + cleanPath + '"';
-      }).join("\n");
-      const cleanCover = String(item.image).startsWith("data:") ? "assets/" + item.id + "-portada.jpg" : item.image;
-
-      return [
-        "---",
-        'id: "' + item.id + '"',
-        'num: "' + item.num + '"',
-        'title: "' + item.title + '"',
-        'category: "' + item.category + '"',
-        'categoryTag: "' + (item.categoryTag || item.category) + '"',
-        'year: "' + item.year + '"',
-        'client: "' + item.client + '"',
-        'image: "' + cleanCover + '"',
-        "gallery:",
-        galleryLines,
-        'tools: "' + item.tools + '"',
-        'status: "' + item.status + '"',
-        "---",
-        "",
-        (item.rawMarkdown || "").trim()
-      ].join("\n");
-    }
-
-    // 4. Carga desacoplada vía fetch('data.json') con fallback automático
-    async function loadPortfolioData() {
-      const indicator = document.getElementById("dataSourceIndicator");
-      try {
-        if (window.location.protocol === "http:" || window.location.protocol === "https:") {
-          const endpoint = ["data", "json"].join("."); const response = await fetch(endpoint, { cache: "no-store" });
-          if (response.ok) {
-            const text = await response.text();
-            // Verifica que no contenga etiquetas Liquid sin compilar
-            if (text.indexOf("{%") === -1) {
-              const parsed = JSON.parse(text);
-              if (parsed && Array.isArray(parsed.proyectos) && parsed.proyectos.length > 0) {
-                state.proyectos = parsed.proyectos;
-                state.archivo = parsed.archivo || [];
-                indicator.textContent = "data.json (Jekyll Live)";
-                renderAll();
-                return;
-              }
-            }
-          }
-        }
-      } catch (err) {
-        // Continúa silenciosamente al respaldo embebido cuando se abre en local o en Canvas
-      }
-      state.proyectos = FALLBACK_DATA.proyectos || [];
-      state.archivo = FALLBACK_DATA.archivo || [];
-      indicator.textContent = "Markdown Bundle (Activo)";
-      renderAll();
-    }
-
-    // 5. Renderizado de Cinta de Filtros, Índice de Proyectos y Archivo Activo
-    function renderAll() {
-      renderFilterRibbon();
-      renderProyectosList();
-      renderArchivoList();
-      updateFilterStatusReadout();
-    }
-
-    function countByDiscipline(discipline) {
-      const allItems = state.proyectos.concat(state.archivo);
-      if (discipline === "Todos") return allItems.length;
-      return allItems.filter(function (item) {
-        return item.category && item.category.toLowerCase() === discipline.toLowerCase();
-      }).length;
-    }
-
-    function matchesActiveDiscipline(item) {
-      if (state.activeDiscipline === "Todos") return true;
-      return item.category && item.category.toLowerCase() === state.activeDiscipline.toLowerCase();
-    }
-
-    function renderFilterRibbon() {
-      const container = document.getElementById("disciplineFilterList");
-      container.innerHTML = "";
-
-      OFFICIAL_DISCIPLINES.forEach(function (disc) {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "filter-btn" + (state.activeDiscipline === disc ? " active" : "");
-        const count = countByDiscipline(disc);
-        btn.innerHTML = '<span>' + escapeHtml(disc) + '</span><span class="filter-count">' + String(count).padStart(2, "0") + '</span>';
-        btn.addEventListener("click", function () {
-          state.activeDiscipline = disc;
-          renderAll();
-        });
-        container.appendChild(btn);
-      });
-    }
-
-    function renderProyectosList() {
-      const container = document.getElementById("proyectosListContainer");
-      container.innerHTML = "";
-
-      const filtered = state.proyectos.filter(matchesActiveDiscipline);
-      if (filtered.length === 0) {
-        container.innerHTML = '<div class="empty-filter-state">No hay proyectos en la disciplina "' + escapeHtml(state.activeDiscipline) + '".</div>';
-        return;
-      }
-
-      filtered.forEach(function (item) {
-        const row = document.createElement("button");
-        row.type = "button";
-        row.className = "project-row";
-        row.setAttribute("role", "listitem");
-        row.innerHTML =
-          '<span class="row-num">' + escapeHtml(item.num) + '</span>' +
-          '<span class="row-title-wrap">' +
-            '<span class="row-title">' + escapeHtml(item.title) + '</span>' +
-            '<span class="row-client-pill">— ' + escapeHtml(item.client) + '</span>' +
-          '</span>' +
-          '<span class="row-discipline">' + escapeHtml(item.categoryTag || item.category) + '</span>' +
-          '<span class="row-year"><span>' + escapeHtml(item.year) + '</span><span class="row-arrow" aria-hidden="true">↗</span></span>';
-
-        attachRowInteractions(row, item, filtered);
-        container.appendChild(row);
-      });
-    }
-
-    function renderArchivoList() {
-      const container = document.getElementById("archivoListContainer");
-      container.innerHTML = "";
-
-      const filtered = state.archivo.filter(matchesActiveDiscipline);
-      if (filtered.length === 0) {
-        container.innerHTML = '<div class="empty-filter-state">No hay piezas de archivo en la disciplina "' + escapeHtml(state.activeDiscipline) + '".</div>';
-        return;
-      }
-
-      filtered.forEach(function (item) {
-        const isActiveResearch = String(item.status || "").toLowerCase().indexOf("activa") !== -1;
-        const row = document.createElement("button");
-        row.type = "button";
-        row.className = "project-row archive-row";
-        row.setAttribute("role", "listitem");
-        row.innerHTML =
-          '<span class="row-num">' + escapeHtml(item.num) + '</span>' +
-          '<span class="row-title-wrap">' +
-            '<span class="row-title">' + escapeHtml(item.title) + '</span>' +
-            '<span class="row-client-pill">· ' + escapeHtml(item.year) + '</span>' +
-          '</span>' +
-          '<span class="row-discipline">' + escapeHtml(item.categoryTag || item.category) + '</span>' +
-          '<span class="status-pill">' +
-            '<span class="status-dot' + (isActiveResearch ? "" : " amber") + '"></span>' +
-            '<span>' + escapeHtml(item.status) + '</span>' +
-          '</span>';
-
-        attachRowInteractions(row, item, filtered);
-        container.appendChild(row);
-      });
-    }
-
-    function updateFilterStatusReadout() {
-      const pCount = state.proyectos.filter(matchesActiveDiscipline).length;
-      const aCount = state.archivo.filter(matchesActiveDiscipline).length;
-      const total = pCount + aCount;
-      const readout = document.getElementById("filterStatusReadout");
-      readout.textContent =
-        "FILTRO: " + state.activeDiscipline.toUpperCase() +
-        " · " + total + (total === 1 ? " OBRA (" : " OBRAS (") +
-        pCount + " PROY / " + aCount + " ARC)";
-    }
-
-    // 6. Vista previa flotante al cursor con interpolación suave (Desktop)
-    const cursorState = {
-      active: false,
-      targetX: 0,
-      targetY: 0,
-      currentX: 0,
-      currentY: 0,
-      rafId: null
-    };
-
-    function initCursorPreview() {
-      const card = document.getElementById("cursorPreviewCard");
-
-      window.addEventListener("mousemove", function (e) {
-        cursorState.targetX = e.clientX;
-        cursorState.targetY = e.clientY;
-        if (!cursorState.active) {
-          cursorState.currentX = e.clientX;
-          cursorState.currentY = e.clientY;
-        }
-      }, { passive: true });
-
-      function animateCursorCard() {
-        if (cursorState.active) {
-          cursorState.currentX += (cursorState.targetX - cursorState.currentX) * 0.18;
-          cursorState.currentY += (cursorState.targetY - cursorState.currentY) * 0.18;
-
-          const cardW = 340;
-          const cardH = 260;
-          let x = cursorState.currentX + 24;
-          let y = cursorState.currentY - cardH * 0.5;
-
-          if (x + cardW > window.innerWidth - 16) {
-            x = cursorState.currentX - cardW - 24;
-          }
-          if (y < 80) y = 80;
-          if (y + cardH > window.innerHeight - 16) {
-            y = window.innerHeight - cardH - 16;
-          }
-
-          card.style.transform = "translate3d(" + x.toFixed(1) + "px, " + y.toFixed(1) + "px, 0) scale(1)";
-        }
-        cursorState.rafId = requestAnimationFrame(animateCursorCard);
-      }
-
-      cursorState.rafId = requestAnimationFrame(animateCursorCard);
-    }
-
-    function attachRowInteractions(rowEl, item, listContext) {
-      const card = document.getElementById("cursorPreviewCard");
-      const imgEl = document.getElementById("cursorPreviewImg");
-      const codeEl = document.getElementById("cursorPreviewCode");
-      const toolsEl = document.getElementById("cursorPreviewTools");
-
-      rowEl.addEventListener("mouseenter", function () {
-        if (state.modalOpen) return;
-        imgEl.src = item.image;
-        imgEl.alt = item.title;
-        codeEl.textContent = item.num + " // " + (item.category || "").toUpperCase();
-        toolsEl.textContent = item.tools || "";
-        cursorState.active = true;
-        card.classList.add("visible");
-      });
-
-      rowEl.addEventListener("mouseleave", function () {
-        cursorState.active = false;
-        card.classList.remove("visible");
-      });
-
-      rowEl.addEventListener("click", function () {
-        cursorState.active = false;
-        card.classList.remove("visible");
-        openInspectionModal(item, listContext);
-      });
-    }
-
-    // 7. Modal de Inspección en Alta Resolución + Tira de Miniaturas + Teclado
-    function openInspectionModal(item, listContext) {
-      const combinedList = state.proyectos.filter(matchesActiveDiscipline).concat(
-        state.archivo.filter(matchesActiveDiscipline)
-      );
-      state.currentList = combinedList.length > 0 ? combinedList : (listContext || [item]);
-      const idx = state.currentList.findIndex(function (x) { return x.id === item.id; });
-      state.currentWorkIndex = idx >= 0 ? idx : 0;
-      state.currentImageIndex = 0;
-      state.modalOpen = true;
-
-      renderModalContent();
-
-      const backdrop = document.getElementById("inspectionModalBackdrop");
-      backdrop.classList.add("open");
-      document.body.classList.add("modal-open");
-    }
-
-    function closeInspectionModal() {
-      state.modalOpen = false;
-      const backdrop = document.getElementById("inspectionModalBackdrop");
-      backdrop.classList.remove("open");
-      document.body.classList.remove("modal-open");
-    }
-
-    function renderModalContent() {
-      const item = state.currentList[state.currentWorkIndex];
-      if (!item) return;
-
-      const isArchive = String(item.num || "").indexOf("ARC") === 0;
-      document.getElementById("modalCollectionBadge").textContent =
-        (isArchive ? "ARCHIVO ACTIVO // " : "PROYECTO // ") + item.num;
-      document.getElementById("modalStatusPill").textContent = "● " + (item.status || "Publicado");
-      document.getElementById("modalWorkTitle").textContent = item.title;
-      document.getElementById("modalMetaClient").textContent = item.client || "Investigación AISUNI";
-      document.getElementById("modalMetaYear").textContent = item.year || "2026";
-      document.getElementById("modalMetaDiscipline").textContent = item.categoryTag || item.category || "Sistemas";
-      document.getElementById("modalMetaTools").textContent = item.tools || "Python, GLSL";
-
-      // Parsear Concepto y Proceso desde Markdown
-      const sections = parseMarkdownSections(item.rawMarkdown);
-      document.getElementById("tabPanelConcepto").innerHTML = formatMarkdownBlockToHTML(sections.concepto);
-      document.getElementById("tabPanelProceso").innerHTML = formatMarkdownBlockToHTML(sections.proceso);
-
-      // Fuente Markdown desacoplado
-      document.getElementById("modalMdSourcePre").textContent = buildRawMarkdownPreview(item);
-
-      // Galería y tira de miniaturas
-      renderModalGallery(item);
-    }
-
-    function renderModalGallery(item) {
-      const gallery = Array.isArray(item.gallery) && item.gallery.length > 0
-        ? item.gallery
-        : [item.image];
-
-      if (state.currentImageIndex >= gallery.length) {
-        state.currentImageIndex = 0;
-      }
-      if (state.currentImageIndex < 0) {
-        state.currentImageIndex = gallery.length - 1;
-      }
-
-      const mainImg = document.getElementById("modalMainImage");
-      mainImg.src = gallery[state.currentImageIndex];
-      mainImg.alt = item.title + " — Vista " + (state.currentImageIndex + 1);
-
-      const counterEl = document.getElementById("modalImageCounter");
-      counterEl.textContent =
-        "LÁMINA " + String(state.currentImageIndex + 1).padStart(2, "0") +
-        " / " + String(gallery.length).padStart(2, "0");
-
-      document.getElementById("modalGalleryHint").textContent =
-        gallery.length + (gallery.length === 1 ? " VISTA DISPONIBLE" : " VISTAS DISPONIBLES");
-
-      const strip = document.getElementById("modalThumbnailStrip");
-      strip.innerHTML = "";
-
-      const viewLabels = ["Portada", "Detalle", "Proceso"];
-      gallery.forEach(function (imgSrc, idx) {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "thumb-btn" + (idx === state.currentImageIndex ? " active" : "");
-        const label = viewLabels[idx] || ("Vista " + (idx + 1));
-        btn.setAttribute("aria-label", "Ver " + label + " (" + (idx + 1) + " de " + gallery.length + ")");
-        btn.innerHTML =
-          '<img src="' + imgSrc + '" alt="' + escapeHtml(item.title + " miniatura " + (idx + 1)) + '" />' +
-          '<span class="thumb-index-tag">' + String(idx + 1).padStart(2, "0") + " · " + label + '</span>';
-
-        btn.addEventListener("click", function () {
-          state.currentImageIndex = idx;
-          renderModalGallery(item);
-        });
-        strip.appendChild(btn);
-      });
-    }
-
-    function setModalTab(tabName) {
-      state.activeTab = tabName;
-      const btnC = document.getElementById("tabBtnConcepto");
-      const btnP = document.getElementById("tabBtnProceso");
-      const panelC = document.getElementById("tabPanelConcepto");
-      const panelP = document.getElementById("tabPanelProceso");
-
-      if (tabName === "concepto") {
-        btnC.classList.add("active");
-        btnC.setAttribute("aria-selected", "true");
-        btnP.classList.remove("active");
-        btnP.setAttribute("aria-selected", "false");
-        panelC.classList.add("active");
-        panelP.classList.remove("active");
-      } else {
-        btnP.classList.add("active");
-        btnP.setAttribute("aria-selected", "true");
-        btnC.classList.remove("active");
-        btnC.setAttribute("aria-selected", "false");
-        panelP.classList.add("active");
-        panelC.classList.remove("active");
-      }
-    }
-
-    function initModalListeners() {
-      document.getElementById("modalCloseBtn").addEventListener("click", closeInspectionModal);
-
-      document.getElementById("inspectionModalBackdrop").addEventListener("click", function (e) {
-        if (e.target === this) {
-          closeInspectionModal();
-        }
-      });
-
-      document.getElementById("modalPrevImgBtn").addEventListener("click", function () {
-        const item = state.currentList[state.currentWorkIndex];
-        if (!item) return;
-        state.currentImageIndex -= 1;
-        renderModalGallery(item);
-      });
-
-      document.getElementById("modalNextImgBtn").addEventListener("click", function () {
-        const item = state.currentList[state.currentWorkIndex];
-        if (!item) return;
-        state.currentImageIndex += 1;
-        renderModalGallery(item);
-      });
-
-      document.getElementById("modalPrevWorkBtn").addEventListener("click", function () {
-        if (state.currentList.length === 0) return;
-        state.currentWorkIndex = (state.currentWorkIndex - 1 + state.currentList.length) % state.currentList.length;
-        state.currentImageIndex = 0;
-        renderModalContent();
-      });
-
-      document.getElementById("modalNextWorkBtn").addEventListener("click", function () {
-        if (state.currentList.length === 0) return;
-        state.currentWorkIndex = (state.currentWorkIndex + 1) % state.currentList.length;
-        state.currentImageIndex = 0;
-        renderModalContent();
-      });
-
-      document.getElementById("tabBtnConcepto").addEventListener("click", function () {
-        setModalTab("concepto");
-      });
-
-      document.getElementById("tabBtnProceso").addEventListener("click", function () {
-        setModalTab("proceso");
-      });
-
-      document.getElementById("toggleMdSourceBtn").addEventListener("click", function () {
-        const pre = document.getElementById("modalMdSourcePre");
-        const isOpen = pre.classList.toggle("open");
-        this.innerHTML = '<span>' + (isOpen ? "▾ Ocultar fuente Markdown (.md)" : "▸ Inspeccionar fuente Markdown desacoplado (.md)") + '</span>';
-      });
-
-      // Navegación por teclado: Flecha izquierda (←), Flecha derecha (→) y Escape (Esc)
-      window.addEventListener("keydown", function (e) {
-        if (!state.modalOpen) return;
-        const item = state.currentList[state.currentWorkIndex];
-        if (e.key === "Escape") {
-          e.preventDefault();
-          closeInspectionModal();
-        } else if (e.key === "ArrowLeft") {
-          e.preventDefault();
-          if (item) {
-            state.currentImageIndex -= 1;
-            renderModalGallery(item);
-          }
-        } else if (e.key === "ArrowRight") {
-          e.preventDefault();
-          if (item) {
-            state.currentImageIndex += 1;
-            renderModalGallery(item);
-          }
-        }
-      });
-    }
-
-    // 8. Copiar Email y Plantilla Markdown al Portapapeles + Formulario y Menú Móvil
-    function copyTextWithFallback(text) {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        return navigator.clipboard.writeText(text).catch(function () {
-          return fallbackCopyText(text);
-        });
-      }
-      return Promise.resolve(fallbackCopyText(text));
-    }
-
-    function fallbackCopyText(text) {
-      const ta = document.createElement("textarea");
-      ta.value = text;
-      ta.style.position = "fixed";
-      ta.style.left = "-9999px";
-      document.body.appendChild(ta);
-      ta.select();
-      try {
-        document.execCommand("copy");
-      } catch (e) {}
-      document.body.removeChild(ta);
-    }
-
-    function initContactAndNavigation() {
-      const copyEmailBtn = document.getElementById("copyEmailBtn");
-      const copyEmailBtnText = document.getElementById("copyEmailBtnText");
-
-      copyEmailBtn.addEventListener("click", function () {
-        copyTextWithFallback("contacto@aisuni.art").then(function () {
-          copyEmailBtn.classList.add("copied");
-          copyEmailBtnText.textContent = "¡Copiado! (contacto@aisuni.art)";
-          setTimeout(function () {
-            copyEmailBtn.classList.remove("copied");
-            copyEmailBtnText.textContent = "Copiar dirección de email";
-          }, 2600);
-        });
-      });
-
-      const copyMdBtn = document.getElementById("copyMdTemplateBtn");
-      copyMdBtn.addEventListener("click", function () {
-        const templateMd = [
-          "---",
-          'id: "identificador-slug"',
-          'num: "09"',
-          'title: "Título de la Obra"',
-          'category: "Algoritmos"',
-          'categoryTag: "Algoritmos & Simulación"',
-          'year: "2026"',
-          'client: "Cliente o Ámbito"',
-          'image: "assets/foto-portada.jpg"',
-          "gallery:",
-          '  - "assets/foto-portada.jpg"',
-          '  - "assets/foto-detalle.jpg"',
-          '  - "assets/foto-proceso.jpg"',
-          'tools: "Python, GLSL, Processing"',
-          'status: "Investigación activa"',
-          "---",
-          "",
-          "## Concepto",
-          "Texto descriptivo del concepto...",
-          "",
-          "## Proceso",
-          "Metodología, fórmulas o algoritmos utilizados..."
-        ].join("\n");
-
-        copyTextWithFallback(templateMd).then(function () {
-          const orig = copyMdBtn.textContent;
-          copyMdBtn.textContent = "✓ ¡Plantilla .md copiada al portapapeles!";
-          setTimeout(function () {
-            copyMdBtn.textContent = orig;
-          }, 2600);
-        });
-      });
-
-      // Formulario de contacto interactivo
-      const form = document.getElementById("studioContactForm");
-      const statusMsg = document.getElementById("formStatusMsg");
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const name = document.getElementById("contactName").value.trim();
-        const email = document.getElementById("contactEmail").value.trim();
-        const discipline = document.getElementById("contactDiscipline").value;
-        const message = document.getElementById("contactMessage").value.trim();
-
-        if (!name || !email || !message) {
-          statusMsg.style.color = "var(--accent)";
-          statusMsg.textContent = "Por favor, completa nombre, email y mensaje.";
-          return;
-        }
-        statusMsg.style.color = "var(--status-emerald)";
-        statusMsg.textContent = "✓ Propuesta registrada (" + discipline + "). Responderemos desde contacto@aisuni.art.";
-        form.reset();
-      });
-
-      // Menú móvil
-      const mobileBtn = document.getElementById("mobileMenuBtn");
-      const mobileDrawer = document.getElementById("mobileNavDrawer");
-      mobileBtn.addEventListener("click", function () {
-        const isOpen = mobileDrawer.classList.toggle("open");
-        mobileBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      });
-
-      document.querySelectorAll(".mobile-nav-link").forEach(function (link) {
-        link.addEventListener("click", function () {
-          mobileDrawer.classList.remove("open");
-          mobileBtn.setAttribute("aria-expanded", "false");
-        });
-      });
-    }
-
-    // Inicialización general
-    window.addEventListener("DOMContentLoaded", function () {
-      initTheme();
-      initBarcelonaClock();
-      initCursorPreview();
-      initModalListeners();
-      initContactAndNavigation();
-      loadPortfolioData();
-    });
-  </script>
+    // Disparador del ciclo de vida del DOM
+    document.addEventListener("DOMContentLoaded", inicializarSincronizacionJekyll);
+    // 🌟 FIN DEL MOTOR DE CONEXIÓN DINÁMICA 🌟
+   </script>
 </body>
 </html>
