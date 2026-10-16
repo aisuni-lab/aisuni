@@ -2050,6 +2050,28 @@ Metodología, fórmulas o algoritmos...</pre>
   <!-- ==========================================================================
        11. LÓGICA DE APLICACIÓN: CARGA MARKDOWN/JSON, FILTROS, CURSOR Y MODAL
        ========================================================================== -->
+     // 🌟 CONEXIÓN AUTOMÁTICA A TUS ARCHIVOS MARKDOWN (.MD) 🌟
+    document.addEventListener("DOMContentLoaded", async () => {
+      try {
+        const response = await fetch('data.json');
+        if (response.ok) {
+          const freshData = await response.json();
+          if (freshData && freshData.length > 0) {
+            // Reemplaza los proyectos viejos fijos con los que lee de tus archivos .md
+            FALLBACK_DATA.proyectos = freshData;
+            console.log("🚀 ¡Web actualizada con tus archivos Markdown con éxito!");
+            
+            // Forzar a la interfaz a redibujarse con los nuevos títulos
+            if (typeof inicializarInterfaz === 'function') inicializarInterfaz();
+            if (typeof render === 'function') render();
+            if (typeof init === 'function') init();
+          }
+        }
+      } catch (e) { console.log("Usando datos locales", e); }
+    });
+    // 🌟 FIN DE LA CONEXIÓN AUTOMÁTICA 🌟
+
+  
   <script>
     // Respaldo embebido completo por si se abre localmente sin servidor o en Canvas
     const FALLBACK_DATA = {
