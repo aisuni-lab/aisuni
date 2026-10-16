@@ -1,7 +1,7 @@
 ---
 id: "topologias-de-movilidad"
 num: "01"
-title: "2640 Segmentos — Topologías de Movilidad Urbana"
+title: "WISDOM Segmentos — Topologías de Movilidad Urbana"
 category: "Algoritmos"
 categoryTag: "Algoritmos & Visualización de Datos"
 year: "2026"
