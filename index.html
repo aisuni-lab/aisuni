@@ -2052,8 +2052,9 @@ Metodología, fórmulas o algoritmos...</pre>
        ========================================================================== -->
      
   
- <script>
-    // 🌟 MOTOR DE CONEXIÓN DINÁMICA A ARCHIVOS MARKDOWN (.MD) 🌟
+  <script>
+    // 🌟 MOTOR DE CONEXIÓN DINÁMICA DE ARQUITECTURA DESACOPLADA — AISUNI ✷ 🌟
+    // Se incluye la estructura completa de datos con los proyectos (Topologías de Movilidad, Giga Atlas, Morfogénesis Abisal y Herbario Cibernético) y el escuchador asíncrono para inyectar metadatos desde data.json.
     const FALLBACK_DATA = {
       "studio": {
         "name": "AISUNI",
@@ -2062,17 +2063,13 @@ Metodología, fórmulas o algoritmos...</pre>
         "email": "contacto@aisuni.art",
         "location": "Barcelona, ES",
         "timezone": "Europe/Madrid",
-        "manifesto": "Investigación en artes visuales y sistemas generativos."
+        "manifesto": "Investigación en artes visuales y sistemas generativos..."
       },
       "proyectos": [
-        {
-          "id": "topologias-de-movilidad",
-          "title": "Topologías de Movilidad Urbana",
-          "category": "Algoritmos",
-          "year": "2026",
-          "tools": "Python, GLSL Shaders, Processing, D3.js"
-        }
-        // ... (el código completo incluye los demás proyectos detallados de tu respaldo original)
+        { "id": "topologias-de-movilidad", "title": "Topologías de Movilidad Urbana", "category": "Algoritmos", "year": "2026" },
+        { "id": "arquitectura-conectividad-giga", "title": "Giga Atlas — Sistema Editorial y Retícula de Conectividad", "category": "Sistemas", "year": "2026" },
+        { "id": "morfogenesis-coralina", "title": "Morfogénesis Abisal — Simulación de Crecimiento Diferencial", "category": "Simulación", "year": "2026" },
+        { "id": "herbario-cibernetico", "title": "Botánica Sintética — Collage Algorítmico y Fotogrametría", "category": "Collage", "year": "2025" }
       ]
     };
 
@@ -2085,12 +2082,15 @@ Metodología, fórmulas o algoritmos...</pre>
             FALLBACK_DATA.proyectos = proyectosMarkdown;
             if (typeof inicializarInterfaz === 'function') inicializarInterfaz();
             if (typeof renderProjects === 'function') renderProjects();
+            if (typeof render === 'function') render();
+            if (typeof init === 'function') init();
           }
         }
-      } catch (e) {
-        console.log("Manteniendo datos estáticos de respaldo", e);
+      } catch (error) {
+        console.log("Cargando matriz estática local de contingencia:", error);
       }
     });
   </script>
+
 </body>
 </html>
