@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <pattern id="swissGrid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#FFFFFF" stroke-width="0.6" stroke-opacity="0.06"/>
+    </pattern>
+    <pattern id="subGrid" width="12" height="12" patternUnits="userSpaceOnUse">
+      <path d="M 12 0 L 0 0 0 12" fill="none" stroke="#FFFFFF" stroke-width="0.4" stroke-opacity="0.025"/>
+    </pattern>
+    <radialGradient id="glowOrange" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF5500" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#FF5500" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowEmerald" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="750" fill="#090A0B"/>
+  <rect x="48" y="48" width="1104" height="654" fill="url(#subGrid)"/>
+  <rect x="48" y="48" width="1104" height="654" fill="url(#swissGrid)" stroke="#FFFFFF" stroke-opacity="0.14" stroke-width="1"/>
+  <!-- Top editorial bar -->
+  <line x1="48" y1="96" x2="1152" y2="96" stroke="#FFFFFF" stroke-opacity="0.14" stroke-width="1"/>
+  <text x="68" y="77" fill="#FF5500" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="600" letter-spacing="2">AISUNI ✷ ARCHIVO ACTIVO // PROY-01 // ARQUITECTURA GLSL</text>
+  <text x="1132" y="77" fill="#A1A1AA" font-family="'JetBrains Mono', monospace" font-size="12" text-anchor="end" letter-spacing="1.5">PIPELINE DE SIMULACIÓN</text>
+  <!-- Main artwork canvas -->
+  <g>
+    <rect x="110" y="160" width="260" height="420" fill="#0F1113" stroke="#FFFFFF" stroke-opacity="0.2"/>
+<text x="135" y="198" fill="#FF5500" font-family="monospace" font-size="13" font-weight="bold">01 // TENSOR DE ENTRADA</text>
+<text x="135" y="230" fill="#A1A1AA" font-family="monospace" font-size="11">∇ × ψ(x,y,t) = curlNoise3D()</text>
+<text x="135" y="255" fill="#A1A1AA" font-family="monospace" font-size="11">octaves: 6 | lacunarity: 2.14</text>
+<text x="135" y="280" fill="#10B981" font-family="monospace" font-size="11">dt = 0.0083s (120 Hz sync)</text>
+<rect x="135" y="320" width="120" height="12" fill="#FF5500" fill-opacity="0.25"/>
+<rect x="135" y="348" width="186" height="12" fill="#FF5500" fill-opacity="0.5"/>
+<rect x="135" y="376" width="202" height="12" fill="#FF5500" fill-opacity="0.75"/>
+<rect x="135" y="404" width="156" height="12" fill="#FF5500" fill-opacity="0.25"/>
+<rect x="135" y="432" width="157" height="12" fill="#FF5500" fill-opacity="0.5"/>
+<rect x="135" y="460" width="203" height="12" fill="#FF5500" fill-opacity="0.75"/>
+<rect x="135" y="488" width="185" height="12" fill="#FF5500" fill-opacity="0.25"/>
+<rect x="135" y="516" width="121" height="12" fill="#FF5500" fill-opacity="0.5"/>
+<rect x="450" y="160" width="300" height="420" fill="#0F1113" stroke="#FF5500" stroke-opacity="0.6"/>
+<text x="475" y="198" fill="#F8F9FA" font-family="monospace" font-size="13" font-weight="bold">02 // NÚCLEO RUNGE-KUTTA RK4</text>
+<line x1="600" y1="390" x2="695.0" y2="390.0" stroke="#FF5500" stroke-opacity="0.4"/>
+<circle cx="695.0" cy="390.0" r="5" fill="#10B981"/>
+<line x1="600" y1="390" x2="689.3" y2="422.5" stroke="#FF5500" stroke-opacity="0.4"/>
+<circle cx="689.3" cy="422.5" r="5" fill="#10B981"/>
+<line x1="600" y1="390" x2="672.8" y2="451.1" stroke="#FF5500" stroke-opacity="0.4"/>
+<circle cx="672.8" cy="451.1" r="5" fill="#10B981"/>
+<line x1="600" y1="390" x2="647.5" y2="472.3" stroke="#FF5500" stroke-opacity="0.4"/>
+<circle cx="647.5" cy="472.3" r="5" fill="#10B981"/>
+<line x1="600" y1="390" x2="616.5" y2="483.6" stroke="#FF5500" stroke-opacity="0.4"/>
+<circle cx="616.5" cy="483.6" r="5" fill="#10B981"/>
+<line x1="600" y1="390" x2="583.5" y2="483.6" stroke="#FF5500" stroke-opacity="0.4"/>
+<circle cx="583.5" cy="483.6" r="5" fill="#10B981"/>
+<line x1="600" y1="390" x2="552.5" y2="472.3" stroke="#FF5500" stroke-opacity="0.4"/>
+<circle cx="552.5" cy="472.3" r="5" fill="#10B981"/>
+<line x1="600" y1="390" x2="527.2" y2="451.1" stroke="#FF5500" stroke-opacity="0.4"/>
+<circle cx="527.2" cy="451.1" r="5" fill="#10B981"/>
+<line x1="600" y1="390" x2="510.7" y2="422.5" stroke="#FF5500" stroke-opacity="0.4"/>
+<circle cx="510.7" cy="422.5" r="5" fill="#10B981"/>
+<line x1="600" y1="390" x2="505.0" y2="390.0" stroke="#FF5500" stroke-opacity="0.4"/>
+<circle cx="505.0" cy="390.0" r="5" fill="#10B981"/>
+<line x1="600" y1="390" x2="510.7" y2="357.5" stroke="#FF5500" stroke-opacity="0.4"/>
+<circle cx="510.7" cy="357.5" r="5" fill="#10B981"/>
+<line x1="600" y1="390" x2="527.2" y2="328.9" stroke="#FF5500" stroke-opacity="0.4"/>
+<circle cx="527.2" cy="328.9" r="5" fill="#10B981"/>
+<line x1="600" y1="390" x2="552.5" y2="307.7" stroke="#FF5500" stroke-opacity="0.4"/>
+<circle cx="552.5" cy="307.7" r="5" fill="#10B981"/>
+<line x1="600" y1="390" x2="583.5" y2="296.4" stroke="#FF5500" stroke-opacity="0.4"/>
+<circle cx="583.5" cy="296.4" r="5" fill="#10B981"/>
+<line x1="600" y1="390" x2="616.5" y2="296.4" stroke="#FF5500" stroke-opacity="0.4"/>
+<circle cx="616.5" cy="296.4" r="5" fill="#10B981"/>
+<line x1="600" y1="390" x2="647.5" y2="307.7" stroke="#FF5500" stroke-opacity="0.4"/>
+<circle cx="647.5" cy="307.7" r="5" fill="#10B981"/>
+<line x1="600" y1="390" x2="672.8" y2="328.9" stroke="#FF5500" stroke-opacity="0.4"/>
+<circle cx="672.8" cy="328.9" r="5" fill="#10B981"/>
+<line x1="600" y1="390" x2="689.3" y2="357.5" stroke="#FF5500" stroke-opacity="0.4"/>
+<circle cx="689.3" cy="357.5" r="5" fill="#10B981"/>
+<circle cx="600" cy="390" r="42" fill="#090A0B" stroke="#FF5500" stroke-width="2"/>
+<text x="600" y="395" fill="#F8F9FA" font-family="monospace" font-size="13" text-anchor="middle">RK4</text>
+<rect x="830" y="160" width="260" height="420" fill="#0F1113" stroke="#FFFFFF" stroke-opacity="0.2"/>
+<text x="855" y="198" fill="#10B981" font-family="monospace" font-size="13" font-weight="bold">03 // SALIDA VECTORIAL</text>
+<polyline points="855,480 865,449 875,424 885,408 895,405 905,415 915,435 925,460 935,484 945,504 955,513 965,510 975,494 985,469 995,437 1005,406 1015,381 1025,366 1035,363 1045,374 1055,394 1065,419" fill="none" stroke="#FF5500" stroke-width="2.5"/>
+<line x1="370" y1="370" x2="450" y2="370" stroke="#FF5500" stroke-width="2" stroke-dasharray="4 4"/>
+<line x1="750" y1="370" x2="830" y2="370" stroke="#10B981" stroke-width="2" stroke-dasharray="4 4"/>
+  </g>
+  <!-- Bottom technical spec bar -->
+  <line x1="48" y1="654" x2="1152" y2="654" stroke="#FFFFFF" stroke-opacity="0.14" stroke-width="1"/>
+  <text x="68" y="683" fill="#E4E4E7" font-family="'JetBrains Mono', monospace" font-size="12" letter-spacing="1">INTEGRACIÓN: RUNGE-KUTTA 4º ORDEN</text>
+  <text x="1132" y="683" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="12" text-anchor="end" letter-spacing="1">GPU SHADER: FRAGMENT v4.2</text>
+  <!-- Corner registration crosshairs -->
+  <path d="M40 48 H56 M48 40 V56 M1144 48 H1160 M1152 40 V56 M40 702 H56 M48 694 V710 M1144 702 H1160 M1152 694 V710" stroke="#FF5500" stroke-width="1.2"/>
+</svg>

@@ -1,3 +1,6 @@
+---
+layout: null
+---
 <!DOCTYPE html>
 <html lang="es" data-theme="dark">
 <head>
@@ -1512,7 +1515,7 @@
           <span>AISUNI</span>
           <span class="brand-symbol" aria-hidden="true">✷</span>
         </a>
-        <div class="active-badge" title="Colección Jekyll + Markdown sincronizada">
+        <div class="active-badge" id="syncStatusBadge" title="Colección Jekyll + Markdown sincronizada">
           <span class="pulse-dot" aria-hidden="true"></span>
           <span>Archivo Activo</span>
         </div>
@@ -1971,8 +1974,132 @@
   <!-- ==========================================================================
        11. LÓGICA DE APLICACIÓN: CARGA DESACOPLADA, FILTROS, CURSOR Y MODAL
        ========================================================================== -->
+  <!-- BLOQUE LIQUID NATIVO DE JEKYLL (Compilado automáticamente por GitHub Pages en cada commit) -->
+  <script id="jekyll-collections-data" type="application/json">
+{
+  "jekyllCompiled": true,
+  "generatedAt": {{ site.time | date_to_xmlschema | jsonify }},
+  "studio": {
+    "name": "AISUNI",
+    "symbol": "✷",
+    "badge": "Archivo Activo",
+    "email": "contacto@aisuni.art",
+    "location": "New York · Barcelona",
+    "timezone": "America/New_York"
+  },
+  "proyectos": [
+    {% assign first_p = true %}
+    {% for item in site.proyectos %}
+      {% unless first_p %},{% endunless %}{% assign first_p = false %}
+      {
+        "id": {{ item.slug | default: item.id | split: "/" | last | jsonify }},
+        "path": {{ item.path | jsonify }},
+        "num": {{ item.num | jsonify }},
+        "title": {{ item.title | default: item.slug | jsonify }},
+        "category": {{ item.category | jsonify }},
+        "categoryTag": {{ item.categoryTag | jsonify }},
+        "year": {{ item.year | jsonify }},
+        "client": {{ item.client | jsonify }},
+        "image": {{ item.image | jsonify }},
+        "gallery": {{ item.gallery | jsonify }},
+        "tools": {{ item.tools | jsonify }},
+        "status": {{ item.status | jsonify }},
+        "concepto": {{ item.concepto | jsonify }},
+        "proceso": {{ item.proceso | jsonify }},
+        "content": {{ item.content | jsonify }},
+        "rawContent": {{ item.raw_content | jsonify }}
+      }
+    {% endfor %}
+    {% for item in site.pages %}
+      {% if item.path contains "proyectos/" and item.name contains ".md" %}
+        {% unless first_p %},{% endunless %}{% assign first_p = false %}
+        {
+          "id": {{ item.name | replace: ".md", "" | jsonify }},
+          "path": {{ item.path | jsonify }},
+          "num": {{ item.num | jsonify }},
+          "title": {{ item.title | default: item.name | replace: ".md", "" | jsonify }},
+          "category": {{ item.category | jsonify }},
+          "categoryTag": {{ item.categoryTag | jsonify }},
+          "year": {{ item.year | jsonify }},
+          "client": {{ item.client | jsonify }},
+          "image": {{ item.image | jsonify }},
+          "gallery": {{ item.gallery | jsonify }},
+          "tools": {{ item.tools | jsonify }},
+          "status": {{ item.status | jsonify }},
+          "concepto": {{ item.concepto | jsonify }},
+          "proceso": {{ item.proceso | jsonify }},
+          "content": {{ item.content | jsonify }},
+          "rawContent": {{ item.raw_content | jsonify }}
+        }
+      {% endif %}
+    {% endfor %}
+  ],
+  "archivo": [
+    {% assign first_a = true %}
+    {% for item in site.archivo %}
+      {% unless first_a %},{% endunless %}{% assign first_a = false %}
+      {
+        "id": {{ item.slug | default: item.id | split: "/" | last | jsonify }},
+        "path": {{ item.path | jsonify }},
+        "num": {{ item.num | jsonify }},
+        "title": {{ item.title | default: item.slug | jsonify }},
+        "category": {{ item.category | jsonify }},
+        "categoryTag": {{ item.categoryTag | jsonify }},
+        "year": {{ item.year | jsonify }},
+        "client": {{ item.client | jsonify }},
+        "image": {{ item.image | jsonify }},
+        "gallery": {{ item.gallery | jsonify }},
+        "tools": {{ item.tools | jsonify }},
+        "status": {{ item.status | jsonify }},
+        "concepto": {{ item.concepto | jsonify }},
+        "proceso": {{ item.proceso | jsonify }},
+        "content": {{ item.content | jsonify }},
+        "rawContent": {{ item.raw_content | jsonify }}
+      }
+    {% endfor %}
+    {% for item in site.pages %}
+      {% if item.path contains "archivo/" and item.name contains ".md" %}
+        {% unless first_a %},{% endunless %}{% assign first_a = false %}
+        {
+          "id": {{ item.name | replace: ".md", "" | jsonify }},
+          "path": {{ item.path | jsonify }},
+          "num": {{ item.num | jsonify }},
+          "title": {{ item.title | default: item.name | replace: ".md", "" | jsonify }},
+          "category": {{ item.category | jsonify }},
+          "categoryTag": {{ item.categoryTag | jsonify }},
+          "year": {{ item.year | jsonify }},
+          "client": {{ item.client | jsonify }},
+          "image": {{ item.image | jsonify }},
+          "gallery": {{ item.gallery | jsonify }},
+          "tools": {{ item.tools | jsonify }},
+          "status": {{ item.status | jsonify }},
+          "concepto": {{ item.concepto | jsonify }},
+          "proceso": {{ item.proceso | jsonify }},
+          "content": {{ item.content | jsonify }},
+          "rawContent": {{ item.raw_content | jsonify }}
+        }
+      {% endif %}
+    {% endfor %}
+  ],
+  "staticMdFiles": [
+    {% assign first_s = true %}
+    {% for f in site.static_files %}
+      {% if f.extname == ".md" %}
+        {% if f.path contains "proyectos/" or f.path contains "archivo/" %}
+          {% unless first_s %},{% endunless %}{% assign first_s = false %}
+          {
+            "path": {{ f.path | jsonify }},
+            "name": {{ f.name | jsonify }}
+          }
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  ]
+}
+  </script>
+
   <script>
-    // Respaldo embebido completo (se sincroniza con los archivos .md)
+    // Respaldo embebido completo (sincronizado con los archivos .md)
     const FALLBACK_DATA = {
   "studio": {
     "name": "AISUNI",
@@ -1986,6 +2113,7 @@
   "proyectos": [
     {
       "id": "topologias-de-movilidad",
+      "path": "_proyectos/01-topologias-de-movilidad.md",
       "num": "01",
       "title": "2640 Segmentos — Topologías de Movilidad Urbana",
       "category": "Algoritmos",
@@ -2000,11 +2128,12 @@
       ],
       "tools": "Python, GLSL Shaders, Processing, D3.js",
       "status": "Comisionado · Publicado",
-      "concepto": "Investigación visual sobre la percepción de seguridad peatonal y los flujos de micro-movilidad en entornos metropolitanos densos. A partir de 2,640 segmentos vectoriales georreferenciados, la obra traduce variables intangibles —como iluminación nocturna, fricción modal y densidad de tránsito— en una cartografía generativa de alta precisión.",
-      "proceso": "El motor de simulación procesa matrices de origen-destino mediante un campo vectorial libre de divergencia (*Curl Noise 3D*) acoplado a integradores numéricos de cuarto orden (Runge-Kutta RK4):"
+      "concepto": "Investigación visual sobre la percepción de seguridad peatonal y los flujos de micro-movilidad en entornos metropolitanos densos. A partir de 2,640 segmentos vectoriales georreferenciados, la obra traduce variables intangibles —como iluminación nocturna, fricción modal y densidad de tránsito— en una cartografía generativa de alta precisión.\n\nEn lugar de representar la ciudad como una retícula estática de asfalto, el sistema modela el tejido urbano como un organismo termodinámico donde cada trayecto ciudadano deforma el campo de fuerzas local, revelando corredores de cohesión comunitaria y zonas de sombra infraestructural.",
+      "proceso": "El motor de simulación procesa matrices de origen-destino mediante un campo vectorial libre de divergencia (*Curl Noise 3D*) acoplado a integradores numéricos de cuarto orden (Runge-Kutta RK4):\n\n`v(x, y, t) = ∇ × ψ(x, y, t) + α · F_datamap(x, y)`\n`x_{k+1} = x_k + (Δt / 6) · (k_1 + 2k_2 + 2k_3 + k_4)`\n\nCada partícula hereda la velocidad media del tramo viario y modula su espesor caligráfico y temperatura cromática (`#FF5500` para arterias de alta fricción; `#F8F9FA` para flujos laminares) directamente en un fragment shader GLSL a 60 fotogramas por segundo."
     },
     {
       "id": "arquitectura-conectividad-giga",
+      "path": "_proyectos/02-arquitectura-conectividad-giga.md",
       "num": "02",
       "title": "Giga Atlas — Sistema Editorial y Retícula de Conectividad",
       "category": "Sistemas",
@@ -2019,12 +2148,12 @@
       ],
       "tools": "Python, DrawBot, OpenType, SVG Paramétrico",
       "status": "Sistema en Producción",
-      "concepto": "Diseño de un lenguaje gráfico modular y sistema editorial automatizado para la iniciativa global Giga (UNICEF + Unión Internacional de Telecomunicaciones), orientada a mapear la conectividad escolar en tiempo real en más de 140 países.",
-      "proceso": "Se programó una gramática de formas (*Shape Grammar*) en Python y DrawBot que subdivide una retícula canónica de 12×8 módulos según los cuartiles de conectividad de cada región:",
-      "`Ratio_canónico = 1": "√2 (ISO 216) · Unidad base = 6pt`"
+      "concepto": "Diseño de un lenguaje gráfico modular y sistema editorial automatizado para la iniciativa global Giga (UNICEF + Unión Internacional de Telecomunicaciones), orientada a mapear la conectividad escolar en tiempo real en más de 140 países.\n\nInspirado en la Escuela de Basilea y el diseño editorial suizo de Karl Gerstner, el sistema transforma indicadores estadísticos complejos —latencia satelital, cobertura de fibra óptica y topografía rural— en una familia de pictogramas geométricos y composiciones modulares que comunican antes de ser leídas.",
+      "proceso": "Se programó una gramática de formas (*Shape Grammar*) en Python y DrawBot que subdivide una retícula canónica de 12×8 módulos según los cuartiles de conectividad de cada región:\n\n`Grid(m, n) → Subdivide(Q_latency, Q_bandwidth, θ_terrain)`\n`Ratio_canónico = 1 : √2 (ISO 216) · Unidad base = 6pt`\n\nEl script compila automáticamente cientos de gráficos vectoriales listos para imprenta offset y visualización web interactiva, garantizando coherencia tipográfica absoluta entre los informes anuales y el pódcast *Connectivity Cast*."
     },
     {
       "id": "morfogenesis-coralina",
+      "path": "_proyectos/03-morfogenesis-coralina.md",
       "num": "03",
       "title": "Morfogénesis Abisal — Simulación de Crecimiento Diferencial",
       "category": "Simulación",
@@ -2039,11 +2168,12 @@
       ],
       "tools": "Houdini VEX, C++, CUDA, Redshift",
       "status": "Exposición Itinerante",
-      "concepto": "Exploración escultórica digital sobre los mecanismos matemáticos que rigen el plegamiento biológico en arrecifes coralinos, líquenes y estructuras corticales. Siguiendo las ecuaciones morfogenéticas propuestas por Alan Turing en 1952, la pieza investiga cómo la competencia entre dos sustancias químicas (activador e inhibidor) engendra geometrías hiperbólicas de máxima superficie con mínimo volumen.",
-      "proceso": "El núcleo computacional resuelve el sistema acoplado de ecuaciones diferenciales parciales de Gray-Scott sobre una malla geodésica adaptativa en Houdini VEX acelerada por GPU:"
+      "concepto": "Exploración escultórica digital sobre los mecanismos matemáticos que rigen el plegamiento biológico en arrecifes coralinos, líquenes y estructuras corticales. Siguiendo las ecuaciones morfogenéticas propuestas por Alan Turing en 1952, la pieza investiga cómo la competencia entre dos sustancias químicas (activador e inhibidor) engendra geometrías hiperbólicas de máxima superficie con mínimo volumen.\n\nLas cavidades de obsidiana mate revelan luminiscencias internas en bermellón (`#FF5500`) y verde esmeralda (`#10B981`), funcionando como un indicador metabólico de la tensión superficial en la malla tridimensional.",
+      "proceso": "El núcleo computacional resuelve el sistema acoplado de ecuaciones diferenciales parciales de Gray-Scott sobre una malla geodésica adaptativa en Houdini VEX acelerada por GPU:\n\n`∂u/∂t = D_u ∇²u - u·v² + F(1 - u)`\n`∂v/∂t = D_v ∇²v + u·v² - (F + k)v`\n\nCuando la curvatura media `H` supera el umbral crítico (`F = 0.0545`, `k = 0.0620`), el algoritmo subdivide dinámicamente las aristas y aplica relajación por repulsión de radio corto, generando pliegues orgánicos libres de auto-intersección."
     },
     {
       "id": "herbario-cibernetico",
+      "path": "_proyectos/04-herbario-cibernetico.md",
       "num": "04",
       "title": "Botánica Sintética — Collage Algorítmico y Fotogrametría",
       "category": "Collage",
@@ -2058,11 +2188,12 @@
       ],
       "tools": "OpenCV, Python, TouchDesigner, Escáner LiDAR",
       "status": "Serie Numerada · Archivo",
-      "concepto": "Diálogo visual entre la fragilidad orgánica de especímenes botánicos recolectados en la cuenca mediterránea y la rigidez analítica de la visión artificial. La serie ensambla fragmentos de helechos, raíces y hojas de eucalipto prensadas a mano con mallas topográficas y nubes de puntos generadas mediante escaneo láser.",
-      "proceso": "Cada espécimen físico se digitaliza a 2400 ppp junto con su mapa de profundidad LiDAR. Un script en Python con OpenCV detecta los nervios foliares mediante el operador laplaciano de Gauss y construye una triangulación de Delaunay restringida:"
+      "concepto": "Diálogo visual entre la fragilidad orgánica de especímenes botánicos recolectados en la cuenca mediterránea y la rigidez analítica de la visión artificial. La serie ensambla fragmentos de helechos, raíces y hojas de eucalipto prensadas a mano con mallas topográficas y nubes de puntos generadas mediante escaneo láser.\n\nEl collage deja de ser un ejercicio puramente manual de recorte para convertirse en una negociación algorítmica entre la textura biológica imperfecta y la geometría euclidiana que intenta clasificarla.",
+      "proceso": "Cada espécimen físico se digitaliza a 2400 ppp junto con su mapa de profundidad LiDAR. Un script en Python con OpenCV detecta los nervios foliares mediante el operador laplaciano de Gauss y construye una triangulación de Delaunay restringida:\n\n`T = Delaunay(V_contours ∪ V_stochastic)`\n`E_contour(z) = ∫ |∇I(x,y)|² dx dy`\n\nSobre las regiones de mayor gradiente orgánico se proyectan isolíneas vectoriales en color terracota (`#FF5500`), fusionando grabado naturalista clásico y telemetría espacial."
     },
     {
       "id": "elso-tipografia-variable",
+      "path": "_proyectos/05-elso-tipografia-variable.md",
       "num": "05",
       "title": "Elso — Tipografía Cinética y Sistema de Identidad Variable",
       "category": "Tipografía",
@@ -2077,11 +2208,12 @@
       ],
       "tools": "Glyphs 3, Python, FontTools, WebGL",
       "status": "Lanzamiento v2.4",
-      "concepto": "Desarrollo de una familia tipográfica experimental de proporción neogrotesca suiza cuyos glifos responden en tiempo real a estímulos acústicos, velocidad de lectura y coordenadas del cursor. Concebida como una crítica a la letra impresa inmutable, *Elso* trata cada carácter como un sistema mecánico articulado por tensores elásticos.",
-      "proceso": "La fuente se compiló como un archivo OpenType Variable Font con tres ejes paramétricos personalizados: Peso (`wght: 100–900`), Tensión Angular (`TNSN: 0–100`) y Frecuencia de Resonancia (`FREQ: 0–1000`):"
+      "concepto": "Desarrollo de una familia tipográfica experimental de proporción neogrotesca suiza cuyos glifos responden en tiempo real a estímulos acústicos, velocidad de lectura y coordenadas del cursor. Concebida como una crítica a la letra impresa inmutable, *Elso* trata cada carácter como un sistema mecánico articulado por tensores elásticos.\n\nSu arquitectura combina la sobriedad funcional de las sin serifas helvéticas de posguerra con modulaciones geométricas extremas que permiten transitar desde un texto editorial ultra-legible hasta una escultura abstracta de curvas Bézier.",
+      "proceso": "La fuente se compiló como un archivo OpenType Variable Font con tres ejes paramétricos personalizados: Peso (`wght: 100–900`), Tensión Angular (`TNSN: 0–100`) y Frecuencia de Resonancia (`FREQ: 0–1000`):\n\n`P_node(t) = P_base + sin(ω·t + φ) · (TNSN / 100) · N_normal`\n\nEn la implementación web, un motor WebGL recalcula los puntos de control a 60 fps mediante transformadas afines directas en la CPU acopladas a audio reactivo."
     },
     {
       "id": "teselaciones-cuasicristalinas",
+      "path": "_proyectos/06-teselaciones-cuasicristalinas.md",
       "num": "06",
       "title": "Give It a Shape — Patrones Aperiódicos y Geometría Cuasicristalina",
       "category": "Patrones",
@@ -2096,12 +2228,12 @@
       ],
       "tools": "Python, Shapely, vpype, Plotter AxiDraw V3",
       "status": "Obra Física & Digital",
-      "concepto": "Inspirada en la belleza silenciosa de las ecuaciones matemáticas y las teselaciones de Roger Penrose, esta investigación traduce sistemas algebraicos de simetría prohibida (órdenes rotacionales 5, 8 y 12) en grabados vectoriales de orden hipnótico.",
-      "Cada composición explora la paradoja del orden sin repetición periódica": "el ojo humano percibe una estructura rigurosa y familiar, pero al recorrer el plano descubre que ninguna sub-región se repite jamás de manera idéntica.",
-      "proceso": "Se implementó el método de multigrid dual de Nicolaas Govert de Bruijn en Python, proyectando retículas hiperdimensionales de 5 dimensiones sobre un subespacio euclidiano bidimensional:"
+      "concepto": "Inspirada en la belleza silenciosa de las ecuaciones matemáticas y las teselaciones de Roger Penrose, esta investigación traduce sistemas algebraicos de simetría prohibida (órdenes rotacionales 5, 8 y 12) en grabados vectoriales de orden hipnótico.\n\nCada composición explora la paradoja del orden sin repetición periódica: el ojo humano percibe una estructura rigurosa y familiar, pero al recorrer el plano descubre que ninguna sub-región se repite jamás de manera idéntica.",
+      "proceso": "Se implementó el método de multigrid dual de Nicolaas Govert de Bruijn en Python, proyectando retículas hiperdimensionales de 5 dimensiones sobre un subespacio euclidiano bidimensional:\n\n`x(n) = ∑_{k=0}^{4} e_k · ⌊n · e_k + γ_k⌋`\n`θ_k = 2πk / 5, \\quad γ_k \\in [0, 1)`\n\nLos archivos generados se optimizan topológicamente con la librería *vpype* para minimizar las trayectorias de pluma levantada antes de ser trazados físicamente con plumillas técnicas de 0.2 mm sobre papel japonés Awagami de 90 g/m²."
     },
     {
       "id": "sincronia-kuramoto",
+      "path": "_proyectos/07-sincronia-kuramoto.md",
       "num": "07",
       "title": "Manifiesto de Fase — Procesos de Sincronización Autónoma",
       "category": "Procesos",
@@ -2116,11 +2248,12 @@
       ],
       "tools": "Rust, WebAssembly, Canvas 2D, OSC",
       "status": "Investigación Activa",
-      "concepto": "¿Cómo emerge el orden colectivo a partir del caos individual sin la intervención de un nodo central? Esta pieza procesual documenta 72 horas de ejecución ininterrumpida de una red de 4,096 osciladores autónomos acoplados, análogos al parpadeo simultáneo de las luciérnagas o la activación neuronal en el córtex visual.",
-      "proceso": "El motor matemático, escrito en Rust y compilado a WebAssembly, integra el modelo no lineal de Kuramoto con acoplamiento topológico de mundo pequeño (Watts-Strogatz):"
+      "concepto": "¿Cómo emerge el orden colectivo a partir del caos individual sin la intervención de un nodo central? Esta pieza procesual documenta 72 horas de ejecución ininterrumpida de una red de 4,096 osciladores autónomos acoplados, análogos al parpadeo simultáneo de las luciérnagas o la activación neuronal en el córtex visual.\n\nEl resultado es una partitura gráfica evolutiva donde el tiempo deja una huella estratigráfica, mostrando el instante exacto de transición de fase entre la entropía térmica y la resonancia absoluta.",
+      "proceso": "El motor matemático, escrito en Rust y compilado a WebAssembly, integra el modelo no lineal de Kuramoto con acoplamiento topológico de mundo pequeño (Watts-Strogatz):\n\n`dθ_i / dt = ω_i + (K / N) ∑_{j=1}^{N} sin(θ_j - θ_i)`\n`r · e^{iψ} = (1 / N) ∑_{j=1}^{N} e^{iθ_j}`\n\nEl parámetro de orden macroscópico `r(t) ∈ [0, 1]` modula el grosor de los anillos orbitales concéntricos y emite paquetes de control Open Sound Control (OSC) hacia sintetizadores analógicos modulares."
     },
     {
       "id": "painting-with-sound",
+      "path": "_proyectos/08-painting-with-sound.md",
       "num": "08",
       "title": "Painting with Sound — Interfaz Espectral y Sinestesia Acústica",
       "category": "Interfaces",
@@ -2135,13 +2268,14 @@
       ],
       "tools": "Web Audio API, GLSL, TouchDesigner, MIDI/OSC",
       "status": "Exhibición Internacional",
-      "concepto": "Interfaz performativa e instrumento de visualización acústica diseñado para traducir composiciones de piano neoclásico y síntesis modular en arquitecturas lumínicas de precisión suiza. Presentada en *Vibe Fridays at UNICEF*, *Destilo 4th Edition* y *Sottotraccia Festival*, la obra convierte el espectro armónico en una escultura radial viva.",
-      "proceso": "La señal de audio entrante se descompone mediante una banco de filtros de transformada de Fourier de tiempo corto (STFT) con ventana de Blackman-Harris de 2048 muestras y solapamiento del 75%:"
+      "concepto": "Interfaz performativa e instrumento de visualización acústica diseñado para traducir composiciones de piano neoclásico y síntesis modular en arquitecturas lumínicas de precisión suiza. Presentada en *Vibe Fridays at UNICEF*, *Destilo 4th Edition* y *Sottotraccia Festival*, la obra convierte el espectro armónico en una escultura radial viva.\n\nCada nota musical no se limita a activar un color, sino que construye una geometría persistente donde el timbre, el ataque percusivo y la reverberación del pedal quedan cincelados en el espacio digital.",
+      "proceso": "La señal de audio entrante se descompone mediante una banco de filtros de transformada de Fourier de tiempo corto (STFT) con ventana de Blackman-Harris de 2048 muestras y solapamiento del 75%:\n\n`X(k, m) = ∑_{n=0}^{N-1} x(n + mH) · w(n) · e^{-i 2π k n / N}`\n`Energy(band) = ∫ |X(f)|² df`\n\nLos coeficientes de energía espectral modulan campos de distorsión no lineal en GLSL sobre un círculo unitario subdividido en 1,024 filamentos independientes."
     }
   ],
   "archivo": [
     {
       "id": "arc-01-palabras-cifradas",
+      "path": "_archivo/arc-01-palabras-cifradas.md",
       "num": "ARC-01",
       "title": "Encrypted Words — Sigilos Fonéticos y Criptografía Geométrica",
       "category": "Tipografía",
@@ -2161,6 +2295,7 @@
     },
     {
       "id": "arc-02-framora-system",
+      "path": "_archivo/arc-02-framora-system.md",
       "num": "ARC-02",
       "title": "Framora — Gramática de Ilustración Modular y Permutación",
       "category": "Sistemas",
@@ -2180,6 +2315,7 @@
     },
     {
       "id": "arc-03-arbol-milenario",
+      "path": "_archivo/arc-03-arbol-milenario.md",
       "num": "ARC-03",
       "title": "The Oldest Tree — Dendrocronología de 4,853 Anillos Climáticos",
       "category": "Algoritmos",
@@ -2199,6 +2335,7 @@
     },
     {
       "id": "arc-04-oraculo-mundano",
+      "path": "_archivo/arc-04-oraculo-mundano.md",
       "num": "ARC-04",
       "title": "Oráculo Mundano — Baraja Combinatoria de 64 Arquetipos",
       "category": "Patrones",
@@ -2218,6 +2355,7 @@
     },
     {
       "id": "arc-05-entrelazo-topologico",
+      "path": "_archivo/arc-05-entrelazo-topologico.md",
       "num": "ARC-05",
       "title": "Entrelazo — Topología de Nudos y Relajación Elástica",
       "category": "Simulación",
@@ -2237,6 +2375,7 @@
     },
     {
       "id": "arc-06-pulso-barcelona",
+      "path": "_archivo/arc-06-pulso-barcelona.md",
       "num": "ARC-06",
       "title": "Pulso BCN — Cartografía Acústica e Interfaz de Telemetría",
       "category": "Interfaces",
@@ -2256,6 +2395,10 @@
     }
   ]
 };
+
+    // Rutas conocidas por defecto de archivos .md (además del auto-descubrimiento de nuevos .md)
+    const DEFAULT_PROYECTOS_MD = ["_proyectos/01-topologias-de-movilidad.md", "_proyectos/02-arquitectura-conectividad-giga.md", "_proyectos/03-morfogenesis-coralina.md", "_proyectos/04-herbario-cibernetico.md", "_proyectos/05-elso-tipografia-variable.md", "_proyectos/06-teselaciones-cuasicristalinas.md", "_proyectos/07-sincronia-kuramoto.md", "_proyectos/08-painting-with-sound.md"];
+    const DEFAULT_ARCHIVO_MD = ["_archivo/arc-01-palabras-cifradas.md", "_archivo/arc-02-framora-system.md", "_archivo/arc-03-arbol-milenario.md", "_archivo/arc-04-oraculo-mundano.md", "_archivo/arc-05-entrelazo-topologico.md", "_archivo/arc-06-pulso-barcelona.md"];
 
     const OFFICIAL_DISCIPLINES = [
       "Todos",
@@ -2277,8 +2420,47 @@
       currentList: [],
       currentWorkIndex: 0,
       currentImageIndex: 0,
-      activeTab: "concepto"
+      activeTab: "concepto",
+      syncSource: "init"
     };
+
+    // Mapa opcional de assets en base64 (utilizado en el entregable Canvas autónomo)
+    const EMBEDDED_ASSET_MAP = window.__AISUNI_EMBEDDED_ASSETS__ || {};
+
+    function resolveAssetUrl(url, itemFallbackInfo) {
+      if (!url || typeof url !== "string") {
+        return generateSwissSvgDataUri(itemFallbackInfo || {});
+      }
+      const clean = url.trim().replace(/^\.\//, "");
+      if (EMBEDDED_ASSET_MAP[clean]) {
+        return EMBEDDED_ASSET_MAP[clean];
+      }
+      if (url.startsWith("data:") || url.startsWith("http://") || url.startsWith("https://")) {
+        return url;
+      }
+      return url;
+    }
+
+    // Generador automático de portada vectorial Suiza (SVG Data URI) para nuevos .md sin imagen definida
+    function generateSwissSvgDataUri(item) {
+      const num = String(item.num || "00").replace(/[<>&"']/g, "");
+      const title = String(item.title || "Nueva Obra AISUNI").replace(/[<>&"']/g, "").slice(0, 48);
+      const cat = String(item.categoryTag || item.category || "Sistemas Generativos").replace(/[<>&"']/g, "").toUpperCase();
+      const year = String(item.year || "2026").replace(/[<>&"']/g, "");
+      const svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">' +
+        '<rect width="1200" height="750" fill="#08090A"/>' +
+        '<g stroke="rgba(248,249,250,0.08)" stroke-width="1">' +
+          '<line x1="80" y1="0" x2="80" y2="750"/><line x1="600" y1="0" x2="600" y2="750"/><line x1="1120" y1="0" x2="1120" y2="750"/>' +
+          '<line x1="0" y1="90" x2="1200" y2="90"/><line x1="0" y1="375" x2="1200" y2="375"/><line x1="0" y1="660" x2="1200" y2="660"/>' +
+        '</g>' +
+        '<circle cx="600" cy="375" r="190" fill="none" stroke="#FF5500" stroke-width="2" stroke-dasharray="6 6"/>' +
+        '<circle cx="600" cy="375" r="95" fill="rgba(255,85,0,0.12)" stroke="#FF5500" stroke-width="1.5"/>' +
+        '<text x="110" y="145" fill="#FF5500" font-family="monospace" font-size="22" font-weight="600">AISUNI ✷ // ' + num + ' · ' + cat + '</text>' +
+        '<text x="110" y="610" fill="#F8F9FA" font-family="sans-serif" font-size="36" font-weight="600">' + title + '</text>' +
+        '<text x="110" y="645" fill="#A1A6B0" font-family="monospace" font-size="18">ARCHIVO ACTIVO · ' + year + '</text>' +
+      '</svg>';
+      return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+    }
 
     // 1. Persistencia de Tema Oscuro / Claro con localStorage seguro
     function initTheme() {
@@ -2346,49 +2528,266 @@
       setInterval(updateClock, 1000);
     }
 
-    // 3. Extracción robusta de Concepto y Proceso (compatible con Markdown y HTML de Jekyll)
-    function getWorkDescriptions(item) {
-      let concepto = item.concepto || "";
-      let proceso = item.proceso || "";
+    // 3. Parser directo de archivos Markdown (.md) y normalizador de obras (soporta cualquier .md nuevo)
+    function stripQuotes(str) {
+      const s = String(str || "").trim();
+      if ((s.startsWith('"') && s.endsWith('"')) || (s.startsWith("'") && s.endsWith("'"))) {
+        return s.slice(1, -1);
+      }
+      return s;
+    }
 
-      // Si no vienen en propiedades directas, extraer de content o rawMarkdown
-      if (!concepto || !proceso) {
-        const text = String(item.content || item.rawMarkdown || "");
+    function humanizeFilename(fname) {
+      return String(fname || "nueva-obra")
+        .replace(/\.md$/i, "")
+        .replace(/^(?:arc-)?\d+[-_]?/i, "")
+        .replace(/[-_]+/g, " ")
+        .replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+    }
 
-        // 1. Coincidencia con encabezados Markdown ## Concepto y ## Proceso
-        const mdConcepto = text.match(/##\s*Concepto\s*[\r\n]+([\s\S]*?)(?=##\s*Proceso|$)/i);
-        const mdProceso = text.match(/##\s*Proceso\s*[\r\n]+([\s\S]*?)$/i);
-        if (mdConcepto && mdConcepto[1]) concepto = concepto || mdConcepto[1].trim();
-        if (mdProceso && mdProceso[1]) proceso = proceso || mdProceso[1].trim();
+    function parseMarkdownWork(rawMd, filePath, collectionType) {
+      if (!rawMd || typeof rawMd !== "string") return null;
+      const fname = String(filePath || "").split("/").pop() || "obra.md";
+      const meta = {};
+      let body = rawMd;
 
-        // 2. Coincidencia con etiquetas HTML generadas por Jekyll (<h2>Concepto</h2>)
-        if (!concepto || !proceso) {
-          const htmlConcepto = text.match(/<h2[^>]*>\s*Concepto\s*<\/h2>([\s\S]*?)(?=<h2[^>]*>\s*Proceso\s*<\/h2>|$)/i);
-          const htmlProceso = text.match(/<h2[^>]*>\s*Proceso\s*<\/h2>([\s\S]*?)$/i);
-          if (htmlConcepto && htmlConcepto[1]) concepto = concepto || htmlConcepto[1].trim();
-          if (htmlProceso && htmlProceso[1]) proceso = proceso || htmlProceso[1].trim();
-        }
+      // Extraer YAML Front Matter si existe
+      const fmMatch = rawMd.match(/^---\s*[\r\n]+([\s\S]*?)[\r\n]+---\s*[\r\n]*([\s\S]*)$/);
+      if (fmMatch) {
+        const fmLines = fmMatch[1].split(/\r?\n/);
+        body = fmMatch[2] || "";
+        let currentKey = null;
+        let inList = false;
 
-        // Si todavía no hay concepto, usar el texto completo
-        if (!concepto && !proceso) {
-          concepto = text;
+        for (let i = 0; i < fmLines.length; i++) {
+          const line = fmLines[i];
+          const trimmed = line.trim();
+          if (!trimmed || trimmed.startsWith("#")) continue;
+
+          if (trimmed.startsWith("- ") && currentKey && inList) {
+            if (!Array.isArray(meta[currentKey])) meta[currentKey] = [];
+            meta[currentKey].push(stripQuotes(trimmed.slice(2)));
+            continue;
+          }
+
+          const colonIdx = trimmed.indexOf(":");
+          if (colonIdx !== -1 && !trimmed.startsWith("`")) {
+            const key = trimmed.slice(0, colonIdx).trim();
+            const valRaw = trimmed.slice(colonIdx + 1).trim();
+            if (!valRaw) {
+              meta[key] = [];
+              currentKey = key;
+              inList = true;
+            } else if (valRaw.startsWith("[") && valRaw.endsWith("]")) {
+              meta[key] = valRaw.slice(1, -1).split(",").map(function (x) { return stripQuotes(x); }).filter(Boolean);
+              currentKey = key;
+              inList = false;
+            } else {
+              meta[key] = stripQuotes(valRaw);
+              currentKey = key;
+              inList = false;
+            }
+          }
         }
       }
 
+      // Si no hay title en Front Matter, buscar # Título en el cuerpo o usar el nombre del archivo
+      if (!meta.title) {
+        const h1Match = body.match(/^#\s+(.+)$/m);
+        if (h1Match && h1Match[1]) {
+          meta.title = stripQuotes(h1Match[1]);
+        } else {
+          meta.title = humanizeFilename(fname);
+        }
+      }
+
+      // Extraer ## Concepto y ## Proceso del cuerpo Markdown
+      const cMatch = body.match(/##\s*Concepto\s*[\r\n]+([\s\S]*?)(?=##\s*Proceso|$)/i);
+      const pMatch = body.match(/##\s*Proceso\s*[\r\n]+([\s\S]*?)$/i);
+
+      const bodyConcepto = cMatch && cMatch[1] ? cMatch[1].trim() : "";
+      const bodyProceso = pMatch && pMatch[1] ? pMatch[1].trim() : "";
+
+      // Si el usuario escribió texto libre sin encabezados ## Concepto / ## Proceso
+      let freeBody = "";
+      if (!bodyConcepto && !bodyProceso && body.trim()) {
+        freeBody = body.replace(/^#\s+.+$/m, "").trim();
+      }
+
       return {
-        concepto: concepto || "Descripción conceptual documentada en los archivos del estudio.",
-        proceso: proceso || "Metodología y algoritmos documentados en el laboratorio de AISUNI."
+        id: meta.id || fname.replace(/\.md$/i, ""),
+        path: filePath,
+        num: meta.num || "",
+        title: meta.title,
+        category: meta.category || "",
+        categoryTag: meta.categoryTag || "",
+        year: meta.year || "",
+        client: meta.client || "",
+        image: meta.image || "",
+        gallery: Array.isArray(meta.gallery) && meta.gallery.length > 0 ? meta.gallery : (meta.image ? [meta.image] : []),
+        tools: meta.tools || "",
+        status: meta.status || "",
+        concepto: bodyConcepto || meta.concepto || freeBody || "",
+        proceso: bodyProceso || meta.proceso || "",
+        rawContent: body
       };
+    }
+
+    function getWorkDescriptions(item) {
+      let concepto = "";
+      let proceso = "";
+
+      // 1. Intentar extraer desde content (HTML de Jekyll) o rawContent / rawMarkdown (.md cuerpo)
+      const text = String(item.rawContent || item.rawMarkdown || item.content || "");
+      if (text) {
+        const mdConcepto = text.match(/##\s*Concepto\s*[\r\n]+([\s\S]*?)(?=##\s*Proceso|$)/i);
+        const mdProceso = text.match(/##\s*Proceso\s*[\r\n]+([\s\S]*?)$/i);
+        if (mdConcepto && mdConcepto[1]) concepto = mdConcepto[1].trim();
+        if (mdProceso && mdProceso[1]) proceso = mdProceso[1].trim();
+
+        if (!concepto && !proceso) {
+          const htmlConcepto = text.match(/<h2[^>]*>\s*Concepto\s*<\/h2>([\s\S]*?)(?=<h2[^>]*>\s*Proceso\s*<\/h2>|$)/i);
+          const htmlProceso = text.match(/<h2[^>]*>\s*Proceso\s*<\/h2>([\s\S]*?)$/i);
+          if (htmlConcepto && htmlConcepto[1]) concepto = htmlConcepto[1].trim();
+          if (htmlProceso && htmlProceso[1]) proceso = htmlProceso[1].trim();
+        }
+      }
+
+      // 2. Respaldo desde propiedades directas concepto / proceso
+      if (!concepto && item.concepto) concepto = String(item.concepto).trim();
+      if (!proceso && item.proceso) proceso = String(item.proceso).trim();
+
+      // 3. Si es un archivo .md nuevo con texto libre sin encabezados ## Concepto
+      if (!concepto && text) {
+        concepto = text.replace(/<[^>]+>/g, "").trim();
+      }
+
+      return {
+        concepto: concepto || "Investigación visual y conceptual documentada en el archivo activo de AISUNI.",
+        proceso: proceso || "Desarrollo algorítmico y sistematización formal ejecutada en el estudio."
+      };
+    }
+
+    function normalizeWorkList(rawList, collectionType) {
+      if (!Array.isArray(rawList)) return [];
+      const isArchive = collectionType === "archivo";
+
+      // Primero extraer número implícito del nombre de archivo si no se definió num en el .md
+      const prepared = rawList.filter(Boolean).map(function (item, idx) {
+        const fname = String(item.path || item.id || "").split("/").pop().replace(/\.md$/i, "");
+        let num = String(item.num || "").trim();
+
+        if (!num || num === "null" || num === "undefined") {
+          const arcMatch = fname.match(/^(arc[-_]?\d+)/i);
+          const numMatch = fname.match(/^(\d+)/);
+          if (isArchive && arcMatch) {
+            num = arcMatch[1].toUpperCase().replace("_", "-");
+          } else if (!isArchive && numMatch) {
+            num = numMatch[1].padStart(2, "0");
+          } else {
+            num = "";
+          }
+        }
+
+        return {
+          raw: item,
+          fname: fname,
+          explicitNum: num,
+          origIdx: idx
+        };
+      });
+
+      // Ordenar: primero los que tienen número explícito en orden natural, luego los nuevos al final
+      prepared.sort(function (a, b) {
+        if (a.explicitNum && b.explicitNum) {
+          return a.explicitNum.localeCompare(b.explicitNum, undefined, { numeric: true, sensitivity: "base" });
+        }
+        if (a.explicitNum && !b.explicitNum) return -1;
+        if (!a.explicitNum && b.explicitNum) return 1;
+        return a.fname.localeCompare(b.fname, undefined, { numeric: true, sensitivity: "base" });
+      });
+
+      // Asignar números automáticos correlativos a los nuevos .md que no tengan num
+      let maxNum = 0;
+      prepared.forEach(function (entry) {
+        const m = entry.explicitNum.match(/(\d+)/);
+        if (m) {
+          const n = parseInt(m[1], 10);
+          if (n > maxNum) maxNum = n;
+        }
+      });
+
+      return prepared.map(function (entry, idx) {
+        const item = entry.raw;
+        let finalNum = entry.explicitNum;
+        if (!finalNum) {
+          maxNum += 1;
+          finalNum = isArchive
+            ? ("ARC-" + String(maxNum).padStart(2, "0"))
+            : String(maxNum).padStart(2, "0");
+        }
+
+        const id = String(item.id || item.slug || entry.fname || ("obra-" + (idx + 1))).trim();
+        const title = String(item.title || humanizeFilename(entry.fname)).trim();
+        const category = String(item.category || "Sistemas").trim();
+        const categoryTag = String(item.categoryTag || item.category || (isArchive ? "Investigación Activa" : "Sistemas Generativos")).trim();
+        const year = String(item.year || "2026").trim();
+        const client = String(item.client || (isArchive ? "Archivo Activo · Lab BCN" : "Investigación AISUNI")).trim();
+        const tools = String(item.tools || "Python, GLSL, Sistemas Generativos").trim();
+        const status = String(item.status || (isArchive ? "Investigación activa" : "Comisionado · Publicado")).trim();
+
+        const fallbackInfo = { num: finalNum, title: title, category: category, categoryTag: categoryTag, year: year };
+        const primaryImg = resolveAssetUrl(item.image, fallbackInfo);
+        let gallery = [];
+        if (Array.isArray(item.gallery) && item.gallery.length > 0) {
+          gallery = item.gallery.filter(Boolean).map(function (g) { return resolveAssetUrl(g, fallbackInfo); });
+        }
+        if (gallery.length === 0) {
+          gallery = [primaryImg];
+        }
+
+        const descs = getWorkDescriptions(item);
+
+        return {
+          id: id,
+          path: item.path || "",
+          num: finalNum,
+          title: title,
+          category: category,
+          categoryTag: categoryTag,
+          year: year,
+          client: client,
+          image: primaryImg,
+          gallery: gallery,
+          tools: tools,
+          status: status,
+          concepto: descs.concepto,
+          proceso: descs.proceso,
+          content: item.content || "",
+          rawContent: item.rawContent || ""
+        };
+      });
     }
 
     function formatDescriptionToHTML(textChunk) {
       if (!textChunk) {
         return "<p>Documentación técnica en proceso de actualización dentro del archivo.</p>";
       }
-      
-      // Si ya viene pre-renderizado con etiquetas HTML seguras de Jekyll
+
+      // Si viene pre-renderizado con HTML de Jekyll (kramdown), estilizar bloques de fórmulas <code>
       if (textChunk.indexOf("<p>") !== -1 || textChunk.indexOf("<pre>") !== -1) {
-        return textChunk;
+        return textChunk.replace(/<p>\s*(<code>[\s\S]*?<\/code>\s*)+<\/p>/gi, function (match) {
+          const codes = [];
+          const re = /<code>([\s\S]*?)<\/code>/gi;
+          let m;
+          while ((m = re.exec(match)) !== null) {
+            codes.push(m[1]);
+          }
+          if (codes.length > 0) {
+            return '<pre class="formula-block">' + codes.join("\n") + '</pre>';
+          }
+          return match;
+        });
       }
 
       const paragraphs = textChunk.split(/\n\s*\n/);
@@ -2396,7 +2795,6 @@
         const trimmed = para.trim();
         if (!trimmed) return "";
 
-        // Si el párrafo son líneas de fórmulas entre backticks
         const lines = trimmed.split("\n");
         const allCodeLines = lines.every(function (l) {
           const t = l.trim();
@@ -2410,7 +2808,6 @@
           return '<pre class="formula-block">' + escapeHtml(cleanCode) + '</pre>';
         }
 
-        // Formato inline de cursivas y código
         let html = escapeHtml(trimmed);
         html = html.replace(/`([^`]+)`/g, '<code class="mono" style="color:var(--accent); background:var(--code-bg); padding:0.1rem 0.35rem;">$1</code>');
         html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
@@ -2419,43 +2816,251 @@
     }
 
     function escapeHtml(str) {
-      return String(str)
+      return String(str || "")
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;");
     }
 
-    // 4. Carga desacoplada con actualización en caliente desde data.json y fallback seguro
-    async function loadPortfolioData() {
-      try {
-        if (window.location.protocol === "http:" || window.location.protocol === "https:") {
-          // Buscamos data.json con parámetro de timestamp para evitar cualquier caché
-          const endpoint = "./data.json?t=" + Date.now();
-          const response = await fetch(endpoint, { cache: "no-store" });
-          if (response.ok) {
-            const text = await response.text();
-            // Verifica que sea JSON procesado (sin etiquetas Liquid sin compilar)
-            if (text.indexOf("{%") === -1) {
-              const parsed = JSON.parse(text);
-              if (parsed && Array.isArray(parsed.proyectos) && parsed.proyectos.length > 0) {
-                state.proyectos = parsed.proyectos;
-                state.archivo = parsed.archivo || [];
-                renderAll();
-                console.log("✓ Obras cargadas dinámicamente desde data.json de Jekyll:", state.proyectos.length, "proyectos,", state.archivo.length, "archivos");
-                return;
+    function updateSyncBadge(sourceLabel) {
+      state.syncSource = sourceLabel;
+      const badge = document.getElementById("syncStatusBadge");
+      if (badge) {
+        const total = state.proyectos.length + state.archivo.length;
+        badge.setAttribute("title", "Sincronizado (" + sourceLabel + ") · " + total + " obras activas");
+      }
+    }
+
+    // 4. Motor de Sincronización Multicapa (Jekyll Inline + data.json + Auto-descubrimiento directo de .md en carpetas / GitHub API)
+    async function fetchStaticMdFilesList(staticFilesArray) {
+      if (!Array.isArray(staticFilesArray) || staticFilesArray.length === 0) return { proyectos: [], archivo: [] };
+      const extraProyectos = [];
+      const extraArchivo = [];
+
+      await Promise.all(staticFilesArray.map(async function (fObj) {
+        const relPath = String(fObj.path || "").replace(/^\/+/, "");
+        if (!relPath.endsWith(".md")) return;
+        try {
+          const baseRel = ".";
+          const res = await fetch(baseRel + "/" + relPath + "?t=" + Date.now(), { cache: "no-store" });
+          if (!res.ok) return;
+          const rawMd = await res.text();
+          const isArch = relPath.indexOf("archivo/") !== -1;
+          const parsed = parseMarkdownWork(rawMd, relPath, isArch ? "archivo" : "proyectos");
+          if (parsed) {
+            if (isArch) extraArchivo.push(parsed);
+            else extraProyectos.push(parsed);
+          }
+        } catch (e) {}
+      }));
+
+      return { proyectos: extraProyectos, archivo: extraArchivo };
+    }
+
+    // Escanea directorios locales (_proyectos/, proyectos/, _archivo/, archivo/) o la API de GitHub si está en *.github.io
+    async function discoverAndFetchDirectMarkdown() {
+      if (window.location.protocol !== "http:" && window.location.protocol !== "https:") {
+        return null;
+      }
+
+      const discoveredProyectosPaths = new Set(DEFAULT_PROYECTOS_MD);
+      const discoveredArchivoPaths = new Set(DEFAULT_ARCHIVO_MD);
+
+      // A. Si está alojado en GitHub Pages (*.github.io), consultar la API del repositorio para detectar nuevos .md al instante
+      const host = window.location.hostname;
+      if (host.endsWith(".github.io")) {
+        const owner = host.replace(".github.io", "");
+        const pathParts = window.location.pathname.split("/").filter(Boolean);
+        const repoCandidates = [];
+        if (pathParts.length > 0) repoCandidates.push(pathParts[0]);
+        repoCandidates.push(owner + ".github.io");
+
+        for (let r = 0; r < repoCandidates.length; r++) {
+          const repoName = repoCandidates[r];
+          const foldersToScan = [
+            { dir: "_proyectos", target: discoveredProyectosPaths },
+            { dir: "proyectos", target: discoveredProyectosPaths },
+            { dir: "_archivo", target: discoveredArchivoPaths },
+            { dir: "archivo", target: discoveredArchivoPaths }
+          ];
+          try {
+            await Promise.all(foldersToScan.map(async function (fInfo) {
+              const apiUrl = "https://api.github.com/repos/" + owner + "/" + repoName + "/contents/" + fInfo.dir + "?t=" + Date.now();
+              const resp = await fetch(apiUrl, { cache: "no-store" });
+              if (resp.ok) {
+                const items = await resp.json();
+                if (Array.isArray(items)) {
+                  items.forEach(function (entry) {
+                    if (entry && entry.name && entry.name.endsWith(".md")) {
+                      fInfo.target.add(fInfo.dir + "/" + entry.name);
+                      if (entry.download_url) {
+                        fInfo.target.add(entry.download_url);
+                      }
+                    }
+                  });
+                }
+              }
+            }));
+          } catch (e) {}
+        }
+      }
+
+      // B. Escanear índices de directorios locales (Live Server, python -m http.server, etc.) para detectar cualquier nuevo .md
+      const localDirs = [
+        { dir: "_proyectos", target: discoveredProyectosPaths },
+        { dir: "proyectos", target: discoveredProyectosPaths },
+        { dir: "_archivo", target: discoveredArchivoPaths },
+        { dir: "archivo", target: discoveredArchivoPaths }
+      ];
+
+      await Promise.all(localDirs.map(async function (dInfo) {
+        try {
+          const resp = await fetch([".", dInfo.dir, ""].join("/") + "/?t=" + Date.now(), { cache: "no-store" });
+          if (resp.ok) {
+            const htmlText = await resp.text();
+            const hrefRegex = /href=["']([^"']+\.md)["']/gi;
+            let m;
+            while ((m = hrefRegex.exec(htmlText)) !== null) {
+              const fname = decodeURIComponent(m[1]).split("/").pop();
+              if (fname && fname.endsWith(".md")) {
+                dInfo.target.add(dInfo.dir + "/" + fname);
               }
             }
           }
-        }
-      } catch (err) {
-        console.warn("Cargando desde colección estática:", err);
+        } catch (e) {}
+      }));
+
+      // C. Hacer fetch directo de los archivos .md descubiertos y parsearlos en vivo
+      async function fetchCollectionMdSet(pathSet, collectionType) {
+        const resultsById = new Map();
+        const paths = Array.from(pathSet);
+        await Promise.all(paths.map(async function (p) {
+          try {
+            const url = p.startsWith("http") ? (p + (p.indexOf("?") === -1 ? "?t=" : "&t=") + Date.now()) : ([".", p].join("/") + "?t=" + Date.now());
+            const resp = await fetch(url, { cache: "no-store" });
+            if (!resp.ok) return;
+            const text = await resp.text();
+            // Evitar páginas HTML de error 404 devueltas como 200
+            if (text.trim().startsWith("<!DOCTYPE") || text.trim().startsWith("<html")) return;
+            const parsed = parseMarkdownWork(text, p, collectionType);
+            if (parsed && parsed.title) {
+              const key = String(parsed.id || p.split("/").pop().replace(/\.md$/i, "")).toLowerCase();
+              resultsById.set(key, parsed);
+            }
+          } catch (e) {}
+        }));
+        return Array.from(resultsById.values());
       }
-      
-      // Fallback a los datos sincronizados del paquete
-      state.proyectos = FALLBACK_DATA.proyectos || [];
-      state.archivo = FALLBACK_DATA.archivo || [];
+
+      const liveProyectos = await fetchCollectionMdSet(discoveredProyectosPaths, "proyectos");
+      const liveArchivo = await fetchCollectionMdSet(discoveredArchivoPaths, "archivo");
+
+      if (liveProyectos.length > 0 || liveArchivo.length > 0) {
+        return {
+          proyectos: liveProyectos,
+          archivo: liveArchivo
+        };
+      }
+      return null;
+    }
+
+    function mergeWorkCollections(primaryList, secondaryList) {
+      const map = new Map();
+      (primaryList || []).forEach(function (item) {
+        if (!item) return;
+        const key = String(item.id || item.path || item.title).toLowerCase().replace(/\.md$/i, "");
+        map.set(key, item);
+      });
+      // secondaryList (por ejemplo, lectura directa de .md o staticMdFiles) actualiza o agrega obras nuevas
+      (secondaryList || []).forEach(function (item) {
+        if (!item) return;
+        const key = String(item.id || item.path || item.title).toLowerCase().replace(/\.md$/i, "");
+        map.set(key, item);
+      });
+      return Array.from(map.values());
+    }
+
+    async function loadPortfolioData() {
+      // Render inicial inmediato con FALLBACK_DATA para evitar parpadeos
+      state.proyectos = normalizeWorkList(FALLBACK_DATA.proyectos || [], "proyectos");
+      state.archivo = normalizeWorkList(FALLBACK_DATA.archivo || [], "archivo");
       renderAll();
+
+      let jekyllLoaded = false;
+      let currentProyectos = [];
+      let currentArchivo = [];
+
+      // CAPA 1: Revisar bloque Liquid inline (#jekyll-collections-data) compilado directamente en index.html por Jekyll
+      try {
+        const inlineEl = document.getElementById("jekyll-collections-data");
+        if (inlineEl && inlineEl.textContent && inlineEl.textContent.indexOf("{%") === -1) {
+          const parsedInline = JSON.parse(inlineEl.textContent);
+          if (parsedInline && (Array.isArray(parsedInline.proyectos) || Array.isArray(parsedInline.archivo))) {
+            currentProyectos = parsedInline.proyectos || [];
+            currentArchivo = parsedInline.archivo || [];
+            if (Array.isArray(parsedInline.staticMdFiles) && parsedInline.staticMdFiles.length > 0) {
+              const extra = await fetchStaticMdFilesList(parsedInline.staticMdFiles);
+              currentProyectos = mergeWorkCollections(currentProyectos, extra.proyectos);
+              currentArchivo = mergeWorkCollections(currentArchivo, extra.archivo);
+            }
+            if (currentProyectos.length > 0 || currentArchivo.length > 0) {
+              state.proyectos = normalizeWorkList(currentProyectos, "proyectos");
+              state.archivo = normalizeWorkList(currentArchivo, "archivo");
+              renderAll();
+              updateSyncBadge("Jekyll Inline Live");
+              jekyllLoaded = true;
+            }
+          }
+        }
+      } catch (e) {}
+
+      // CAPA 2: Fetch a ./data.json compilado por Jekyll (sin caché)
+      if (window.location.protocol === "http:" || window.location.protocol === "https:") {
+        try {
+          const endpoint = [".", "data.json"].join("/") + "?t=" + Date.now();
+          const response = await fetch(endpoint, { cache: "no-store" });
+          if (response.ok) {
+            const text = await response.text();
+            if (text.indexOf("{%") === -1) {
+              const parsedJson = JSON.parse(text);
+              if (parsedJson && (Array.isArray(parsedJson.proyectos) || Array.isArray(parsedJson.archivo))) {
+                let pList = parsedJson.proyectos || [];
+                let aList = parsedJson.archivo || [];
+                if (Array.isArray(parsedJson.staticMdFiles) && parsedJson.staticMdFiles.length > 0) {
+                  const extra = await fetchStaticMdFilesList(parsedJson.staticMdFiles);
+                  pList = mergeWorkCollections(pList, extra.proyectos);
+                  aList = mergeWorkCollections(aList, extra.archivo);
+                }
+                if (pList.length > 0 || aList.length > 0) {
+                  currentProyectos = pList;
+                  currentArchivo = aList;
+                  state.proyectos = normalizeWorkList(currentProyectos, "proyectos");
+                  state.archivo = normalizeWorkList(currentArchivo, "archivo");
+                  renderAll();
+                  updateSyncBadge("Jekyll data.json Live");
+                  jekyllLoaded = true;
+                }
+              }
+            }
+          }
+        } catch (err) {}
+
+        // CAPA 3: Lectura directa de archivos .md y auto-descubrimiento (carpetas _proyectos/, _archivo/, proyectos/, archivo/ y GitHub API)
+        try {
+          const directMd = await discoverAndFetchDirectMarkdown();
+          if (directMd) {
+            const baseP = jekyllLoaded ? currentProyectos : (FALLBACK_DATA.proyectos || []);
+            const baseA = jekyllLoaded ? currentArchivo : (FALLBACK_DATA.archivo || []);
+            const mergedP = directMd.proyectos.length > 0 ? mergeWorkCollections(baseP, directMd.proyectos) : baseP;
+            const mergedA = directMd.archivo.length > 0 ? mergeWorkCollections(baseA, directMd.archivo) : baseA;
+            state.proyectos = normalizeWorkList(mergedP, "proyectos");
+            state.archivo = normalizeWorkList(mergedA, "archivo");
+            renderAll();
+            updateSyncBadge(jekyllLoaded ? "Jekyll + .md Directo" : "Markdown .md en Vivo");
+          }
+        } catch (err) {}
+      }
     }
 
     // 5. Renderizado de Cinta de Filtros, Índice de Proyectos y Archivo Activo
@@ -2626,7 +3231,8 @@
 
       rowEl.addEventListener("mouseenter", function () {
         if (state.modalOpen) return;
-        imgEl.src = item.image;
+        imgEl.onerror = function () { this.onerror = null; this.src = generateSwissSvgDataUri(item); };
+        imgEl.src = resolveAssetUrl(item.image, item);
         imgEl.alt = item.title;
         codeEl.textContent = item.num + " // " + (item.category || "").toUpperCase();
         toolsEl.textContent = item.tools || "";
@@ -2707,7 +3313,8 @@
       }
 
       const mainImg = document.getElementById("modalMainImage");
-      mainImg.src = gallery[state.currentImageIndex];
+      mainImg.onerror = function () { this.onerror = null; this.src = generateSwissSvgDataUri(item); };
+      mainImg.src = resolveAssetUrl(gallery[state.currentImageIndex], item);
       mainImg.alt = item.title + " — Vista " + (state.currentImageIndex + 1);
 
       const counterEl = document.getElementById("modalImageCounter");
