@@ -1,7 +1,7 @@
 ---
 id: "topologias-de-movilidad"
 num: "01"
-title: "xxxxx2640 Segmentos — Topologías de Movilidad Urbana"
+title: "I'm talking to you Segmentos — Topologías de Movilidad Urbana"
 category: "Algoritmos"
 categoryTag: "Algoritmos & Visualización de Datos"
 year: "2026"
