@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <pattern id="swissGrid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#FFFFFF" stroke-width="0.6" stroke-opacity="0.06"/>
+    </pattern>
+    <pattern id="subGrid" width="12" height="12" patternUnits="userSpaceOnUse">
+      <path d="M 12 0 L 0 0 0 12" fill="none" stroke="#FFFFFF" stroke-width="0.4" stroke-opacity="0.025"/>
+    </pattern>
+    <radialGradient id="glowOrange" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF5500" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#FF5500" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowEmerald" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="750" fill="#090A0B"/>
+  <rect x="48" y="48" width="1104" height="654" fill="url(#subGrid)"/>
+  <rect x="48" y="48" width="1104" height="654" fill="url(#swissGrid)" stroke="#FFFFFF" stroke-opacity="0.14" stroke-width="1"/>
+  <!-- Top editorial bar -->
+  <line x1="48" y1="96" x2="1152" y2="96" stroke="#FFFFFF" stroke-opacity="0.14" stroke-width="1"/>
+  <text x="68" y="77" fill="#FF5500" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="600" letter-spacing="2">AISUNI ✷ ARCHIVO ACTIVO // PROY-08 // MAPEO DE GESTOS</text>
+  <text x="1132" y="77" fill="#A1A1AA" font-family="'JetBrains Mono', monospace" font-size="12" text-anchor="end" letter-spacing="1.5">CONTROL TÁCTIL Y OSC</text>
+  <!-- Main artwork canvas -->
+  <g>
+    <rect x="108" y="130" width="320" height="220" fill="#FF5500" fill-opacity="0.9" stroke="#FFFFFF" stroke-opacity="0.2"/>
+<rect x="448" y="130" width="210" height="220" fill="#F8F9FA" fill-opacity="0.08" stroke="#FFFFFF" stroke-opacity="0.2"/>
+<rect x="678" y="130" width="414" height="484" fill="#0F1113" fill-opacity="0.95" stroke="#FFFFFF" stroke-opacity="0.2"/>
+<rect x="108" y="370" width="550" height="244" fill="#141619" fill-opacity="0.95" stroke="#FFFFFF" stroke-opacity="0.2"/>
+<text x="135" y="215" fill="#090A0B" font-family="Inter, sans-serif" font-size="64" font-weight="800" letter-spacing="-3">SYS—02</text>
+<text x="135" y="255" fill="#090A0B" font-family="monospace" font-size="14" font-weight="600">RETÍCULA PARAMÉTRICA 12×8</text>
+<circle cx="885" cy="372" r="30" fill="none" stroke="#FF5500" stroke-width="1.8" stroke-opacity="0.78"/>
+<circle cx="885" cy="372" r="18.0" fill="none" stroke="#10B981" stroke-width="1" stroke-dasharray="5 5"/>
+<circle cx="885" cy="372" r="52" fill="none" stroke="#FF5500" stroke-width="1.8" stroke-opacity="0.68"/>
+<circle cx="885" cy="372" r="31.2" fill="none" stroke="#10B981" stroke-width="1" stroke-dasharray="5 5"/>
+<circle cx="885" cy="372" r="74" fill="none" stroke="#FF5500" stroke-width="1.8" stroke-opacity="0.59"/>
+<circle cx="885" cy="372" r="44.4" fill="none" stroke="#10B981" stroke-width="1" stroke-dasharray="5 5"/>
+<circle cx="885" cy="372" r="96" fill="none" stroke="#FF5500" stroke-width="1.8" stroke-opacity="0.50"/>
+<circle cx="885" cy="372" r="57.6" fill="none" stroke="#10B981" stroke-width="1" stroke-dasharray="5 5"/>
+<circle cx="885" cy="372" r="118" fill="none" stroke="#FF5500" stroke-width="1.8" stroke-opacity="0.41"/>
+<circle cx="885" cy="372" r="70.8" fill="none" stroke="#10B981" stroke-width="1" stroke-dasharray="5 5"/>
+<circle cx="885" cy="372" r="140" fill="none" stroke="#FF5500" stroke-width="1.8" stroke-opacity="0.32"/>
+<circle cx="885" cy="372" r="84.0" fill="none" stroke="#10B981" stroke-width="1" stroke-dasharray="5 5"/>
+<circle cx="885" cy="372" r="162" fill="none" stroke="#FF5500" stroke-width="1.8" stroke-opacity="0.22"/>
+<circle cx="885" cy="372" r="97.2" fill="none" stroke="#10B981" stroke-width="1" stroke-dasharray="5 5"/>
+<circle cx="885" cy="372" r="184" fill="none" stroke="#FF5500" stroke-width="1.8" stroke-opacity="0.13"/>
+<circle cx="885" cy="372" r="110.4" fill="none" stroke="#10B981" stroke-width="1" stroke-dasharray="5 5"/>
+<rect x="135" y="405" width="18" height="180" fill="#FF5500" fill-opacity="0.95"/>
+<rect x="166" y="415" width="18" height="170" fill="#F8F9FA" fill-opacity="0.65"/>
+<rect x="197" y="444" width="18" height="141" fill="#F8F9FA" fill-opacity="0.65"/>
+<rect x="228" y="487" width="18" height="98" fill="#F8F9FA" fill-opacity="0.65"/>
+<rect x="259" y="538" width="18" height="47" fill="#FF5500" fill-opacity="0.95"/>
+<rect x="290" y="500" width="18" height="85" fill="#F8F9FA" fill-opacity="0.65"/>
+<rect x="321" y="454" width="18" height="131" fill="#F8F9FA" fill-opacity="0.65"/>
+<rect x="352" y="421" width="18" height="164" fill="#F8F9FA" fill-opacity="0.65"/>
+<rect x="383" y="406" width="18" height="179" fill="#FF5500" fill-opacity="0.95"/>
+<rect x="414" y="411" width="18" height="174" fill="#F8F9FA" fill-opacity="0.65"/>
+<rect x="445" y="435" width="18" height="150" fill="#F8F9FA" fill-opacity="0.65"/>
+<rect x="476" y="474" width="18" height="111" fill="#F8F9FA" fill-opacity="0.65"/>
+<rect x="507" y="524" width="18" height="61" fill="#FF5500" fill-opacity="0.95"/>
+<rect x="538" y="514" width="18" height="71" fill="#F8F9FA" fill-opacity="0.65"/>
+<rect x="569" y="466" width="18" height="119" fill="#F8F9FA" fill-opacity="0.65"/>
+<rect x="600" y="429" width="18" height="156" fill="#F8F9FA" fill-opacity="0.65"/>
+  </g>
+  <!-- Bottom technical spec bar -->
+  <line x1="48" y1="654" x2="1152" y2="654" stroke="#FFFFFF" stroke-opacity="0.14" stroke-width="1"/>
+  <text x="68" y="683" fill="#E4E4E7" font-family="'JetBrains Mono', monospace" font-size="12" letter-spacing="1">PROTOCOLO: OPEN SOUND CONTROL</text>
+  <text x="1132" y="683" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="12" text-anchor="end" letter-spacing="1">RESOLUCIÓN: 4K PROJECTION</text>
+  <!-- Corner registration crosshairs -->
+  <path d="M40 48 H56 M48 40 V56 M1144 48 H1160 M1152 40 V56 M40 702 H56 M48 694 V710 M1144 702 H1160 M1152 694 V710" stroke="#FF5500" stroke-width="1.2"/>
+</svg>
