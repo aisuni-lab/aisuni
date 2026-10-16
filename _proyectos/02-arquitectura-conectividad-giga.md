@@ -1,5 +1,5 @@
 ---
-id: "arquitectura-conectividad-giga"
+id: "arquitectura-conectividad"
 num: "02"
 title: "Super Atlas — Sistema Editorial y Retícula de Conectividad"
 category: "Sistemas"
