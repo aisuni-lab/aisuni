@@ -1,5 +1,4 @@
 ---
-id: "arc-06-pulso-barcelona"
 num: "ARC-06"
 title: "Pulso BCN — Cartografía Acústica e Interfaz de Telemetría"
 category: "Interfaces"

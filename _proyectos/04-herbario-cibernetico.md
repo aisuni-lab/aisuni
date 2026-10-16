@@ -1,5 +1,4 @@
 ---
-id: "herbario-cibernetico"
 num: "04"
 title: "Botánica Sintética — Collage Algorítmico y Fotogrametría"
 category: "Collage"

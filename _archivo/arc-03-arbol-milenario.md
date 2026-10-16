@@ -1,5 +1,4 @@
 ---
-id: "arc-03-arbol-milenario"
 num: "ARC-03"
 title: "The Oldest Tree — Dendrocronología de 4,853 Anillos Climáticos"
 category: "Algoritmos"

@@ -1,5 +1,4 @@
 ---
-id: "arc-02-framora-system"
 num: "ARC-02"
 title: "Framora — Gramática de Ilustración Modular y Permutación"
 category: "Sistemas"

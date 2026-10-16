@@ -1,5 +1,4 @@
 ---
-id: "arc-04-oraculo-mundano"
 num: "ARC-04"
 title: "Oráculo Mundano — Baraja Combinatoria de 64 Arquetipos"
 category: "Patrones"

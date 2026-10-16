@@ -1,5 +1,4 @@
 ---
-id: "elso-tipografia-variable"
 num: "05"
 title: "Elso — Tipografía Cinética y Sistema de Identidad Variable"
 category: "Tipografía"

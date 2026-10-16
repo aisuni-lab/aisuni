@@ -1,5 +1,4 @@
 ---
-id: "teselaciones-cuasicristalinas"
 num: "06"
 title: "Give It a Shape — Patrones Aperiódicos y Geometría Cuasicristalina"
 category: "Patrones"

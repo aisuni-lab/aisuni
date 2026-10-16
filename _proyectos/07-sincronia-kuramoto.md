@@ -1,5 +1,4 @@
 ---
-id: "sincronia-kuramoto"
 num: "07"
 title: "Manifiesto de Fase — Procesos de Sincronización Autónoma"
 category: "Procesos"

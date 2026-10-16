@@ -1,5 +1,4 @@
 ---
-id: "arc-01-palabras-cifradas"
 num: "ARC-01"
 title: "Encrypted Words — Sigilos Fonéticos y Criptografía Geométrica"
 category: "Tipografía"

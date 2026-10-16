@@ -7,13 +7,17 @@ timezone: "America/New_York"
 markdown: kramdown
 
 # Colecciones de contenido (.md)
-# Cualquier archivo .md editado o nuevo dentro de _proyectos/ o _archivo/
-# es compilado automáticamente por Jekyll en cada commit.
 collections:
   proyectos:
     output: true
   archivo:
     output: true
+
+include:
+  - _proyectos
+  - _archivo
+  - proyectos
+  - archivo
 
 defaults:
   - scope:
@@ -31,6 +35,5 @@ exclude:
   - README.md
   - LICENSE
   - .gitignore
-  - sync_markdown.py
-  - build_site.py
+  - actualizar_sitio.py
   - .github

@@ -17,7 +17,7 @@ layout: null
     {% for item in site.proyectos %}
       {% unless first_p %},{% endunless %}{% assign first_p = false %}
       {
-        "id": {{ item.slug | default: item.id | split: "/" | last | jsonify }},
+        "id": {{ item.path | split: "/" | last | replace: ".md", "" | jsonify }},
         "path": {{ item.path | jsonify }},
         "num": {{ item.num | jsonify }},
         "title": {{ item.title | default: item.slug | jsonify }},
@@ -64,7 +64,7 @@ layout: null
     {% for item in site.archivo %}
       {% unless first_a %},{% endunless %}{% assign first_a = false %}
       {
-        "id": {{ item.slug | default: item.id | split: "/" | last | jsonify }},
+        "id": {{ item.path | split: "/" | last | replace: ".md", "" | jsonify }},
         "path": {{ item.path | jsonify }},
         "num": {{ item.num | jsonify }},
         "title": {{ item.title | default: item.slug | jsonify }},

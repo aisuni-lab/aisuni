@@ -1,5 +1,4 @@
 ---
-id: "painting-with-sound"
 num: "08"
 title: "Painting with Sound — Interfaz Espectral y Sinestesia Acústica"
 category: "Interfaces"

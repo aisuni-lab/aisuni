@@ -1,5 +1,4 @@
 ---
-id: "morfogenesis-coralina"
 num: "03"
 title: "Morfogénesis Abisal — Simulación de Crecimiento Diferencial"
 category: "Simulación"

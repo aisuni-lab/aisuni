@@ -1,5 +1,4 @@
 ---
-id: "arc-05-entrelazo-topologico"
 num: "ARC-05"
 title: "Entrelazo — Topología de Nudos y Relajación Elástica"
 category: "Simulación"
