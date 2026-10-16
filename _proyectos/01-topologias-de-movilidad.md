@@ -1,6 +1,6 @@
 ---
 num: "01"
-title: "2640 Segmentos — Topologías de Movilidad Urbana"
+title: "YYYY VIDA — Topologías de Movilidad Urbana"
 category: "Algoritmos"
 categoryTag: "Algoritmos & Visualización de Datos"
 year: "2026"
