@@ -1,7 +1,7 @@
 ---
 id: "arc-01-palabras-cifradas"
 num: "ARC-01"
-title: "Encrypted Words — Sigilos Fonéticos y Criptografía Geométrica"
+title: "PRUEBA Words — Sigilos Fonéticos y Criptografía Geométrica"
 category: "Tipografía"
 categoryTag: "Criptografía Visual & Tipografía"
 year: "2026"
