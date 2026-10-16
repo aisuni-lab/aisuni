@@ -1,0 +1,283 @@
+{
+  "studio": {
+    "name": "AISUNI",
+    "symbol": "✷",
+    "badge": "Archivo Activo",
+    "email": "contacto@aisuni.art",
+    "location": "New York · Barcelona",
+    "timezone": "America/New_York",
+    "manifesto": "Investigación en artes visuales y sistemas generativos: un espacio de experimentación con tecnologías emergentes y herramientas algorítmicas para nuevas inteligencias visuales."
+  },
+  "proyectos": [
+    {
+      "id": "topologias-de-movilidad",
+      "num": "01",
+      "title": "2640 Segmentos — Topologías de Movilidad Urbana",
+      "category": "Algoritmos",
+      "categoryTag": "Algoritmos & Visualización de Datos",
+      "year": "2026",
+      "client": "MIT Media Lab · Senseable Mobility",
+      "image": "assets/obra-01-flujos-portada.jpg",
+      "gallery": [
+        "assets/obra-01-flujos-portada.jpg",
+        "assets/obra-01-flujos-detalle.svg",
+        "assets/obra-01-flujos-proceso.svg"
+      ],
+      "tools": "Python, GLSL Shaders, Processing, D3.js",
+      "status": "Comisionado · Publicado",
+      "concepto": "Investigación visual sobre la percepción de seguridad peatonal y los flujos de micro-movilidad en entornos metropolitanos densos. A partir de 2,640 segmentos vectoriales georreferenciados, la obra traduce variables intangibles —como iluminación nocturna, fricción modal y densidad de tránsito— en una cartografía generativa de alta precisión.",
+      "proceso": "El motor de simulación procesa matrices de origen-destino mediante un campo vectorial libre de divergencia (*Curl Noise 3D*) acoplado a integradores numéricos de cuarto orden (Runge-Kutta RK4):"
+    },
+    {
+      "id": "arquitectura-conectividad-giga",
+      "num": "02",
+      "title": "Giga Atlas — Sistema Editorial y Retícula de Conectividad",
+      "category": "Sistemas",
+      "categoryTag": "Sistemas Visuales & Diseño Editorial",
+      "year": "2026",
+      "client": "UNICEF Office of Innovation & ITU",
+      "image": "assets/obra-02-sistemas-portada.jpg",
+      "gallery": [
+        "assets/obra-02-sistemas-portada.jpg",
+        "assets/obra-02-sistemas-detalle.svg",
+        "assets/obra-02-sistemas-proceso.svg"
+      ],
+      "tools": "Python, DrawBot, OpenType, SVG Paramétrico",
+      "status": "Sistema en Producción",
+      "concepto": "Diseño de un lenguaje gráfico modular y sistema editorial automatizado para la iniciativa global Giga (UNICEF + Unión Internacional de Telecomunicaciones), orientada a mapear la conectividad escolar en tiempo real en más de 140 países.",
+      "proceso": "Se programó una gramática de formas (*Shape Grammar*) en Python y DrawBot que subdivide una retícula canónica de 12×8 módulos según los cuartiles de conectividad de cada región:",
+      "`Ratio_canónico = 1": "√2 (ISO 216) · Unidad base = 6pt`"
+    },
+    {
+      "id": "morfogenesis-coralina",
+      "num": "03",
+      "title": "Morfogénesis Abisal — Simulación de Crecimiento Diferencial",
+      "category": "Simulación",
+      "categoryTag": "Simulación Biológica & Reacción-Difusión",
+      "year": "2026",
+      "client": "Instalación Comisionada · Sottotraccia",
+      "image": "assets/obra-03-morfogenesis-portada.jpg",
+      "gallery": [
+        "assets/obra-03-morfogenesis-portada.jpg",
+        "assets/obra-03-morfogenesis-detalle.svg",
+        "assets/obra-03-morfogenesis-proceso.svg"
+      ],
+      "tools": "Houdini VEX, C++, CUDA, Redshift",
+      "status": "Exposición Itinerante",
+      "concepto": "Exploración escultórica digital sobre los mecanismos matemáticos que rigen el plegamiento biológico en arrecifes coralinos, líquenes y estructuras corticales. Siguiendo las ecuaciones morfogenéticas propuestas por Alan Turing en 1952, la pieza investiga cómo la competencia entre dos sustancias químicas (activador e inhibidor) engendra geometrías hiperbólicas de máxima superficie con mínimo volumen.",
+      "proceso": "El núcleo computacional resuelve el sistema acoplado de ecuaciones diferenciales parciales de Gray-Scott sobre una malla geodésica adaptativa en Houdini VEX acelerada por GPU:"
+    },
+    {
+      "id": "herbario-cibernetico",
+      "num": "04",
+      "title": "Botánica Sintética — Collage Algorítmico y Fotogrametría",
+      "category": "Collage",
+      "categoryTag": "Collage Computacional & Fotogrametría",
+      "year": "2025",
+      "client": "Investigación Interna · Barcelona",
+      "image": "assets/obra-04-herbario-portada.jpg",
+      "gallery": [
+        "assets/obra-04-herbario-portada.jpg",
+        "assets/obra-04-herbario-detalle.svg",
+        "assets/obra-04-herbario-proceso.svg"
+      ],
+      "tools": "OpenCV, Python, TouchDesigner, Escáner LiDAR",
+      "status": "Serie Numerada · Archivo",
+      "concepto": "Diálogo visual entre la fragilidad orgánica de especímenes botánicos recolectados en la cuenca mediterránea y la rigidez analítica de la visión artificial. La serie ensambla fragmentos de helechos, raíces y hojas de eucalipto prensadas a mano con mallas topográficas y nubes de puntos generadas mediante escaneo láser.",
+      "proceso": "Cada espécimen físico se digitaliza a 2400 ppp junto con su mapa de profundidad LiDAR. Un script en Python con OpenCV detecta los nervios foliares mediante el operador laplaciano de Gauss y construye una triangulación de Delaunay restringida:"
+    },
+    {
+      "id": "elso-tipografia-variable",
+      "num": "05",
+      "title": "Elso — Tipografía Cinética y Sistema de Identidad Variable",
+      "category": "Tipografía",
+      "categoryTag": "Tipografía Experimental & Sistemas",
+      "year": "2025",
+      "client": "Fundición Experimental · AISUNI Type",
+      "image": "assets/obra-05-tipografia-portada.svg",
+      "gallery": [
+        "assets/obra-05-tipografia-portada.svg",
+        "assets/obra-05-tipografia-detalle.svg",
+        "assets/obra-05-tipografia-proceso.svg"
+      ],
+      "tools": "Glyphs 3, Python, FontTools, WebGL",
+      "status": "Lanzamiento v2.4",
+      "concepto": "Desarrollo de una familia tipográfica experimental de proporción neogrotesca suiza cuyos glifos responden en tiempo real a estímulos acústicos, velocidad de lectura y coordenadas del cursor. Concebida como una crítica a la letra impresa inmutable, *Elso* trata cada carácter como un sistema mecánico articulado por tensores elásticos.",
+      "proceso": "La fuente se compiló como un archivo OpenType Variable Font con tres ejes paramétricos personalizados: Peso (`wght: 100–900`), Tensión Angular (`TNSN: 0–100`) y Frecuencia de Resonancia (`FREQ: 0–1000`):"
+    },
+    {
+      "id": "teselaciones-cuasicristalinas",
+      "num": "06",
+      "title": "Give It a Shape — Patrones Aperiódicos y Geometría Cuasicristalina",
+      "category": "Patrones",
+      "categoryTag": "Patrones Matemáticos & Plotter",
+      "year": "2025",
+      "client": "Exposición Arteria & Colección Privada",
+      "image": "assets/obra-06-patrones-portada.svg",
+      "gallery": [
+        "assets/obra-06-patrones-portada.svg",
+        "assets/obra-06-patrones-detalle.svg",
+        "assets/obra-06-patrones-proceso.svg"
+      ],
+      "tools": "Python, Shapely, vpype, Plotter AxiDraw V3",
+      "status": "Obra Física & Digital",
+      "concepto": "Inspirada en la belleza silenciosa de las ecuaciones matemáticas y las teselaciones de Roger Penrose, esta investigación traduce sistemas algebraicos de simetría prohibida (órdenes rotacionales 5, 8 y 12) en grabados vectoriales de orden hipnótico.",
+      "Cada composición explora la paradoja del orden sin repetición periódica": "el ojo humano percibe una estructura rigurosa y familiar, pero al recorrer el plano descubre que ninguna sub-región se repite jamás de manera idéntica.",
+      "proceso": "Se implementó el método de multigrid dual de Nicolaas Govert de Bruijn en Python, proyectando retículas hiperdimensionales de 5 dimensiones sobre un subespacio euclidiano bidimensional:"
+    },
+    {
+      "id": "sincronia-kuramoto",
+      "num": "07",
+      "title": "Manifiesto de Fase — Procesos de Sincronización Autónoma",
+      "category": "Procesos",
+      "categoryTag": "Procesos Sistémicos & Autómatas",
+      "year": "2026",
+      "client": "Mozilla Fest 2026 · Ponencia & Demo",
+      "image": "assets/obra-07-procesos-portada.svg",
+      "gallery": [
+        "assets/obra-07-procesos-portada.svg",
+        "assets/obra-07-procesos-detalle.svg",
+        "assets/obra-07-procesos-proceso.svg"
+      ],
+      "tools": "Rust, WebAssembly, Canvas 2D, OSC",
+      "status": "Investigación Activa",
+      "concepto": "¿Cómo emerge el orden colectivo a partir del caos individual sin la intervención de un nodo central? Esta pieza procesual documenta 72 horas de ejecución ininterrumpida de una red de 4,096 osciladores autónomos acoplados, análogos al parpadeo simultáneo de las luciérnagas o la activación neuronal en el córtex visual.",
+      "proceso": "El motor matemático, escrito en Rust y compilado a WebAssembly, integra el modelo no lineal de Kuramoto con acoplamiento topológico de mundo pequeño (Watts-Strogatz):"
+    },
+    {
+      "id": "painting-with-sound",
+      "num": "08",
+      "title": "Painting with Sound — Interfaz Espectral y Sinestesia Acústica",
+      "category": "Interfaces",
+      "categoryTag": "Interfaces Sonoras & Visualización",
+      "year": "2026",
+      "client": "Sofiane Pamart · Destilo & Vibe Fridays (UNICEF)",
+      "image": "assets/obra-08-interfaces-portada.svg",
+      "gallery": [
+        "assets/obra-08-interfaces-portada.svg",
+        "assets/obra-08-interfaces-detalle.svg",
+        "assets/obra-08-interfaces-proceso.svg"
+      ],
+      "tools": "Web Audio API, GLSL, TouchDesigner, MIDI/OSC",
+      "status": "Exhibición Internacional",
+      "concepto": "Interfaz performativa e instrumento de visualización acústica diseñado para traducir composiciones de piano neoclásico y síntesis modular en arquitecturas lumínicas de precisión suiza. Presentada en *Vibe Fridays at UNICEF*, *Destilo 4th Edition* y *Sottotraccia Festival*, la obra convierte el espectro armónico en una escultura radial viva.",
+      "proceso": "La señal de audio entrante se descompone mediante una banco de filtros de transformada de Fourier de tiempo corto (STFT) con ventana de Blackman-Harris de 2048 muestras y solapamiento del 75%:"
+    }
+  ],
+  "archivo": [
+    {
+      "id": "arc-01-palabras-cifradas",
+      "num": "ARC-01",
+      "title": "Encrypted Words — Sigilos Fonéticos y Criptografía Geométrica",
+      "category": "Tipografía",
+      "categoryTag": "Criptografía Visual & Tipografía",
+      "year": "2026",
+      "client": "Archivo Activo · Lab BCN",
+      "image": "assets/arc-01-portada.svg",
+      "gallery": [
+        "assets/arc-01-portada.svg",
+        "assets/arc-01-detalle.svg",
+        "assets/obra-05-tipografia-proceso.svg"
+      ],
+      "tools": "Python, SVG, Álgebra de Grafos",
+      "status": "Investigación activa",
+      "concepto": "Sistema de codificación metalingüística que transforma palabras y aforismos en sigilos geométricos únicos. Cada vocablo se mapea sobre una matriz fonética polar donde las consonantes definen vértices estructurales y las vocales determinan curvaturas y puntos de inflexión.",
+      "proceso": "El algoritmo elimina caracteres redundantes, calcula el vector de adyacencia fonética sobre un polígono de 27 nodos y traza una spline cúbica cerrada cuya firma topológica es biunívoca respecto a la cadena de entrada."
+    },
+    {
+      "id": "arc-02-framora-system",
+      "num": "ARC-02",
+      "title": "Framora — Gramática de Ilustración Modular y Permutación",
+      "category": "Sistemas",
+      "categoryTag": "Sistemas de Ilustración",
+      "year": "2025",
+      "client": "Flexible Visual Systems · Feature",
+      "image": "assets/arc-02-portada.svg",
+      "gallery": [
+        "assets/arc-02-portada.svg",
+        "assets/arc-02-detalle.svg",
+        "assets/obra-02-sistemas-proceso.svg"
+      ],
+      "tools": "Processing, Illustrator Scripting, JSON",
+      "status": "Investigación activa",
+      "concepto": "Diccionario visual finito de 16 primitivas geométricas capaz de generar más de 4,096 ilustraciones editoriales coherentes mediante reglas de simetría, anidamiento y balance de masa blanca/negra. Destacado en la revista especializada *Flexible Visual Systems*.",
+      "proceso": "Mediante matrices de transformación afín 2D y restricciones de contigüidad cromática, el generador evalúa el peso visual de cada celda antes de asignar el acento bermellón (`#FF5500`)."
+    },
+    {
+      "id": "arc-03-arbol-milenario",
+      "num": "ARC-03",
+      "title": "The Oldest Tree — Dendrocronología de 4,853 Anillos Climáticos",
+      "category": "Algoritmos",
+      "categoryTag": "Visualización Científica & Datos",
+      "year": "2025",
+      "client": "Archivo Paleoclimático · Datos Abiertos",
+      "image": "assets/arc-03-portada.svg",
+      "gallery": [
+        "assets/arc-03-portada.svg",
+        "assets/arc-03-detalle.svg",
+        "assets/obra-01-flujos-detalle.svg"
+      ],
+      "tools": "Python, Cairo, NOAA Dataset, D3.js",
+      "status": "Archivo verificado",
+      "concepto": "Homenaje gráfico a *Methuselah* (*Pinus longaeva*), traduciendo casi cinco milenios de registros paleoclimáticos en una sección transversal algorítmica donde cada anillo anual refleja las anomalías de temperatura y precipitación terrestre.",
+      "proceso": "Los datos crudos de espesor celular (en micrómetros) modulan la amplitud armónica de 4,853 órbitas concéntricas mediante ruido Perlin coherente, revelando sequías históricas y erupciones volcánicas."
+    },
+    {
+      "id": "arc-04-oraculo-mundano",
+      "num": "ARC-04",
+      "title": "Oráculo Mundano — Baraja Combinatoria de 64 Arquetipos",
+      "category": "Patrones",
+      "categoryTag": "Iconografía & Diseño de Producto",
+      "year": "2025",
+      "client": "Edición Limitada · AISUNI Press",
+      "image": "assets/arc-04-portada.svg",
+      "gallery": [
+        "assets/arc-04-portada.svg",
+        "assets/arc-04-detalle.svg",
+        "assets/obra-06-patrones-detalle.svg"
+      ],
+      "tools": "Python, SVG, Impresión Serigráfica",
+      "status": "Edición publicada",
+      "concepto": "Conjunto de 64 cartas de pensamiento lateral para diseñadores e investigadores, basadas en la combinatoria binaria de seis trazos (inspirada en el *I Ching* y la lógica booleana de Leibniz) cruzada con geometría constructivista.",
+      "proceso": "Cada carta corresponde a un entero de 6 bits (`000000` a `111111`) cuyos bits activos determinan la presencia de arcos tangentes, diagonales de tensión y puntos focales sobre proporción áurea."
+    },
+    {
+      "id": "arc-05-entrelazo-topologico",
+      "num": "ARC-05",
+      "title": "Entrelazo — Topología de Nudos y Relajación Elástica",
+      "category": "Simulación",
+      "categoryTag": "Simulación Física & Topología",
+      "year": "2026",
+      "client": "Investigación Activa · Lab BCN",
+      "image": "assets/arc-05-portada.svg",
+      "gallery": [
+        "assets/arc-05-portada.svg",
+        "assets/arc-05-detalle.svg",
+        "assets/obra-03-morfogenesis-detalle.svg"
+      ],
+      "tools": "C++, Verlet Physics, WebGL",
+      "status": "Investigación activa",
+      "concepto": "Estudio sobre la teoría matemática de nudos y enlaces entrelazados sometidos a campos de repulsión electrostática. Las cuerdas virtuales buscan su configuración de mínima energía potencial sin romper su invariante topológico.",
+      "proceso": "Integración de Verlet con restricciones de distancia rígida y energía de Möbius (`E_knot`), renderizando los puntos de máxima torsión mecánica con indicadores cromáticos de estado."
+    },
+    {
+      "id": "arc-06-pulso-barcelona",
+      "num": "ARC-06",
+      "title": "Pulso BCN — Cartografía Acústica e Interfaz de Telemetría",
+      "category": "Interfaces",
+      "categoryTag": "Interfaces Urbanas & Procesos",
+      "year": "2026",
+      "client": "Red Ciudadana de Sensores · Barcelona",
+      "image": "assets/arc-06-portada.svg",
+      "gallery": [
+        "assets/arc-06-portada.svg",
+        "assets/arc-06-detalle.svg",
+        "assets/obra-08-interfaces-proceso.svg"
+      ],
+      "tools": "WebSockets, Web Audio, Canvas API",
+      "status": "Investigación activa",
+      "concepto": "Monitor experimental que captura el paisaje sonoro y ambiental de tres distritos de Barcelona (Poblenou, Eixample y Ciutat Vella), sintetizando decibelios, humedad relativa y flujo electromagnético en un dialecto gráfico minimalista.",
+      "proceso": "Muestreo continuo en ventanas de 10 segundos transformado en vectores de densidad radial; las anomalías acústicas urbanas se archivan automáticamente como instantáneas SVG."
+    }
+  ]
+}

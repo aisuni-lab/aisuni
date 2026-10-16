@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <pattern id="swissGrid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#FFFFFF" stroke-width="0.6" stroke-opacity="0.06"/>
+    </pattern>
+    <pattern id="subGrid" width="12" height="12" patternUnits="userSpaceOnUse">
+      <path d="M 12 0 L 0 0 0 12" fill="none" stroke="#FFFFFF" stroke-width="0.4" stroke-opacity="0.025"/>
+    </pattern>
+    <radialGradient id="glowOrange" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF5500" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#FF5500" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowEmerald" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="750" fill="#090A0B"/>
+  <rect x="48" y="48" width="1104" height="654" fill="url(#subGrid)"/>
+  <rect x="48" y="48" width="1104" height="654" fill="url(#swissGrid)" stroke="#FFFFFF" stroke-opacity="0.14" stroke-width="1"/>
+  <!-- Top editorial bar -->
+  <line x1="48" y1="96" x2="1152" y2="96" stroke="#FFFFFF" stroke-opacity="0.14" stroke-width="1"/>
+  <text x="68" y="77" fill="#FF5500" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="600" letter-spacing="2">AISUNI ✷ ARCHIVO ACTIVO // PROY-08 // FLUJO DE SEÑAL</text>
+  <text x="1132" y="77" fill="#A1A1AA" font-family="'JetBrains Mono', monospace" font-size="12" text-anchor="end" letter-spacing="1.5"> SÍNTESIS GRANULAR + GLSL</text>
+  <!-- Main artwork canvas -->
+  <g>
+    <circle cx="360" cy="375" r="195" fill="none" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="1"/>
+<polyline points="424.3,375.0 439.8,398.0 454.4,420.5 468.1,442.1 480.5,462.4 491.6,481.1 501.3,497.6 509.4,511.8 515.9,523.3 520.7,531.9 523.7,537.5 525.0,539.9 524.4,539.1 522.0,535.1 517.9,528.0 512.0,517.9 504.4,505.0 495.3,489.6 484.7,472.0 472.7,452.5 459.5,431.4 445.2,409.3 429.9,386.5 413.9,363.5 397.3,340.7 380.3,318.6 363.1,297.5 345.9,278.0 328.7,260.4 312.0,245.0 295.7,232.1 280.2,222.0 265.6,214.9 251.9,210.9 239.5,210.1 228.4,212.5 218.7,218.1 210.6,226.7 204.1,238.2 199.3,252.4 196.3,268.9 195.0,287.6 195.6,307.9 198.0,329.5 202.1,352.0 208.0,375.0 215.6,398.0 224.7,420.5 235.3,442.1 247.3,462.4 260.5,481.1 274.8,497.6 290.1,511.8 306.1,523.3 322.7,531.9 339.7,537.5 356.9,539.9 374.1,539.1 391.3,535.1 408.0,528.0 424.3,517.9 439.8,505.0 454.4,489.6 468.1,472.0 480.5,452.5 491.6,431.4 501.3,409.3 509.4,386.5 515.9,363.5 520.7,340.7 523.7,318.6 525.0,297.5 524.4,278.0 522.0,260.4 517.9,245.0 512.0,232.1 504.4,222.0 495.3,214.9 484.7,210.9 472.7,210.1 459.5,212.5 445.2,218.1 429.9,226.7 413.9,238.2 397.3,252.4 380.3,268.9 363.1,287.6 345.9,307.9 328.7,329.5 312.0,352.0 295.7,375.0 280.2,398.0 265.6,420.5 251.9,442.1 239.5,462.4 228.4,481.1 218.7,497.6 210.6,511.8 204.1,523.3 199.3,531.9 196.3,537.5 195.0,539.9 195.6,539.1 198.0,535.1 202.1,528.0 208.0,517.9 215.6,505.0 224.7,489.6 235.3,472.0 247.3,452.5 260.5,431.4 274.8,409.3 290.1,386.5 306.1,363.5 322.7,340.7 339.7,318.6 356.9,297.5 374.1,278.0 391.3,260.4 408.0,245.0 424.3,232.1 439.8,222.0 454.4,214.9 468.1,210.9 480.5,210.1 491.6,212.5 501.3,218.1 509.4,226.7 515.9,238.2 520.7,252.4 523.7,268.9 525.0,287.6 524.4,307.9 522.0,329.5 517.9,352.0 512.0,375.0 504.4,398.0 495.3,420.5 484.7,442.1 472.7,462.4 459.5,481.1 445.2,497.6 429.9,511.8 413.9,523.3 397.3,531.9 380.3,537.5 363.1,539.9 345.9,539.1 328.7,535.1 312.0,528.0 295.7,517.9 280.2,505.0 265.6,489.6 251.9,472.0 239.5,452.5 228.4,431.4 218.7,409.3 210.6,386.5 204.1,363.5 199.3,340.7 196.3,318.6 195.0,297.5 195.6,278.0 198.0,260.4 202.1,245.0 208.0,232.1 215.6,222.0 224.7,214.9 235.3,210.9 247.3,210.1 260.5,212.5 274.8,218.1 290.1,226.7 306.1,238.2 322.7,252.4 339.7,268.9 356.9,287.6 374.1,307.9 391.3,329.5 408.0,352.0 424.3,375.0 439.8,398.0 454.4,420.5 468.1,442.1 480.5,462.4 491.6,481.1 501.3,497.6 509.4,511.8 515.9,523.3 520.7,531.9 523.7,537.5 525.0,539.9 524.4,539.1 522.0,535.1 517.9,528.0 512.0,517.9 504.4,505.0 495.3,489.6 484.7,472.0 472.7,452.5 459.5,431.4 445.2,409.3 429.9,386.5 413.9,363.5 397.3,340.7 380.3,318.6 363.1,297.5 345.9,278.0 328.7,260.4 312.0,245.0 295.7,232.1 280.2,222.0 265.6,214.9 251.9,210.9 239.5,210.1 228.4,212.5 218.7,218.1 210.6,226.7 204.1,238.2 199.3,252.4 196.3,268.9 195.0,287.6 195.6,307.9 198.0,329.5 202.1,352.0 208.0,375.0 215.6,398.0 224.7,420.5 235.3,442.1 247.3,462.4 260.5,481.1 274.8,497.6 290.1,511.8 306.1,523.3 322.7,531.9 339.7,537.5 356.9,539.9 374.1,539.1 391.3,535.1 408.0,528.0 424.3,517.9 439.8,505.0 454.4,489.6 468.1,472.0 480.5,452.5 491.6,431.4 501.3,409.3 509.4,386.5 515.9,363.5 520.7,340.7 523.7,318.6 525.0,297.5 524.4,278.0 522.0,260.4 517.9,245.0 512.0,232.1 504.4,222.0 495.3,214.9 484.7,210.9 472.7,210.1 459.5,212.5 445.2,218.1 429.9,226.7 413.9,238.2 397.3,252.4 380.3,268.9 363.1,287.6 345.9,307.9 328.7,329.5 312.0,352.0 295.7,375.0 280.2,398.0 265.6,420.5 251.9,442.1 239.5,462.4 228.4,481.1 218.7,497.6 210.6,511.8 204.1,523.3 199.3,531.9 196.3,537.5 195.0,539.9 195.6,539.1 198.0,535.1 202.1,528.0 208.0,517.9 215.6,505.0 224.7,489.6 235.3,472.0 247.3,452.5 260.5,431.4 274.8,409.3 290.1,386.5 306.1,363.5 322.7,340.7 339.7,318.6 356.9,297.5 374.1,278.0 391.3,260.4 408.0,245.0 424.3,232.1 439.8,222.0 454.4,214.9 468.1,210.9 480.5,210.1 491.6,212.5 501.3,218.1 509.4,226.7 515.9,238.2 520.7,252.4 523.7,268.9 525.0,287.6 524.4,307.9 522.0,329.5 517.9,352.0 512.0,375.0 504.4,398.0 495.3,420.5 484.7,442.1 472.7,462.4 459.5,481.1 445.2,497.6 429.9,511.8 413.9,523.3 397.3,531.9 380.3,537.5 363.1,539.9 345.9,539.1 328.7,535.1 312.0,528.0 295.7,517.9 280.2,505.0 265.6,489.6 251.9,472.0 239.5,452.5 228.4,431.4 218.7,409.3 210.6,386.5 204.1,363.5 199.3,340.7 196.3,318.6 195.0,297.5 195.6,278.0 198.0,260.4 202.1,245.0 208.0,232.1 215.6,222.0 224.7,214.9 235.3,210.9 247.3,210.1 260.5,212.5 274.8,218.1 290.1,226.7 306.1,238.2 322.7,252.4 339.7,268.9 356.9,287.6 374.1,307.9 391.3,329.5 408.0,352.0" fill="none" stroke="#FF5500" stroke-width="2.2" stroke-opacity="0.9"/>
+<rect x="640" y="145" width="80" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="728" y="145" width="135" height="8" fill="#10B981" fill-opacity="0.85"/>
+<rect x="640" y="162" width="174" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="822" y="162" width="106" height="8" fill="#FF5500" fill-opacity="0.85"/>
+<rect x="640" y="179" width="240" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="888" y="179" width="42" height="8" fill="#FF5500" fill-opacity="0.85"/>
+<rect x="640" y="196" width="259" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="907" y="196" width="110" height="8" fill="#10B981" fill-opacity="0.85"/>
+<rect x="640" y="213" width="225" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="873" y="213" width="134" height="8" fill="#FF5500" fill-opacity="0.85"/>
+<rect x="640" y="230" width="148" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="796" y="230" width="102" height="8" fill="#FF5500" fill-opacity="0.85"/>
+<rect x="640" y="247" width="108" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="756" y="247" width="48" height="8" fill="#10B981" fill-opacity="0.85"/>
+<rect x="640" y="264" width="197" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="845" y="264" width="113" height="8" fill="#FF5500" fill-opacity="0.85"/>
+<rect x="640" y="281" width="251" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="899" y="281" width="134" height="8" fill="#FF5500" fill-opacity="0.85"/>
+<rect x="640" y="298" width="254" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="902" y="298" width="97" height="8" fill="#10B981" fill-opacity="0.85"/>
+<rect x="640" y="315" width="206" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="854" y="315" width="53" height="8" fill="#FF5500" fill-opacity="0.85"/>
+<rect x="640" y="332" width="121" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="769" y="332" width="117" height="8" fill="#FF5500" fill-opacity="0.85"/>
+<rect x="640" y="349" width="136" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="784" y="349" width="133" height="8" fill="#10B981" fill-opacity="0.85"/>
+<rect x="640" y="366" width="217" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="865" y="366" width="93" height="8" fill="#FF5500" fill-opacity="0.85"/>
+<rect x="640" y="383" width="257" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="905" y="383" width="59" height="8" fill="#FF5500" fill-opacity="0.85"/>
+<rect x="640" y="400" width="246" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="894" y="400" width="120" height="8" fill="#10B981" fill-opacity="0.85"/>
+<rect x="640" y="417" width="185" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="833" y="417" width="132" height="8" fill="#FF5500" fill-opacity="0.85"/>
+<rect x="640" y="434" width="93" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="741" y="434" width="88" height="8" fill="#FF5500" fill-opacity="0.85"/>
+<rect x="640" y="451" width="162" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="810" y="451" width="64" height="8" fill="#10B981" fill-opacity="0.85"/>
+<rect x="640" y="468" width="233" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="881" y="468" width="123" height="8" fill="#FF5500" fill-opacity="0.85"/>
+<rect x="640" y="485" width="259" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="907" y="485" width="130" height="8" fill="#FF5500" fill-opacity="0.85"/>
+<rect x="640" y="502" width="233" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="881" y="502" width="83" height="8" fill="#10B981" fill-opacity="0.85"/>
+<rect x="640" y="519" width="160" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="808" y="519" width="69" height="8" fill="#FF5500" fill-opacity="0.85"/>
+<rect x="640" y="536" width="95" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="743" y="536" width="125" height="8" fill="#FF5500" fill-opacity="0.85"/>
+<rect x="640" y="553" width="186" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="834" y="553" width="129" height="8" fill="#10B981" fill-opacity="0.85"/>
+<rect x="640" y="570" width="246" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="894" y="570" width="78" height="8" fill="#FF5500" fill-opacity="0.85"/>
+<rect x="640" y="587" width="257" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="905" y="587" width="75" height="8" fill="#FF5500" fill-opacity="0.85"/>
+<rect x="640" y="604" width="216" height="8" fill="#F8F9FA" fill-opacity="0.3"/>
+<rect x="864" y="604" width="127" height="8" fill="#10B981" fill-opacity="0.85"/>
+  </g>
+  <!-- Bottom technical spec bar -->
+  <line x1="48" y1="654" x2="1152" y2="654" stroke="#FFFFFF" stroke-opacity="0.14" stroke-width="1"/>
+  <text x="68" y="683" fill="#E4E4E7" font-family="'JetBrains Mono', monospace" font-size="12" letter-spacing="1">BUFFER: 2048 MUESTRAS HANNING</text>
+  <text x="1132" y="683" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="12" text-anchor="end" letter-spacing="1">EXHIBICIÓN: SOTTOTRACCIA & DESTILO</text>
+  <!-- Corner registration crosshairs -->
+  <path d="M40 48 H56 M48 40 V56 M1144 48 H1160 M1152 40 V56 M40 702 H56 M48 694 V710 M1144 702 H1160 M1152 694 V710" stroke="#FF5500" stroke-width="1.2"/>
+</svg>
