@@ -5,7 +5,7 @@ category: "Algoritmos"
 categoryTag: "Algoritmos & Visualización de Datos"
 year: "2026"
 client: "MIT Media Lab · Senseable Mobility"
-image: "assets/obra-01-flujos-portada.jpg"
+image: "assets/obra-02-flujos-portada.jpg"
 gallery:
   - "assets/obra-02-flujos-portada.jpg"
   - "assets/obra-01-flujos-detalle.svg"
