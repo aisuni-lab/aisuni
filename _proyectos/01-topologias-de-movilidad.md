@@ -1,7 +1,7 @@
 ---
 id: "topologias-de-movilidad"
 num: "01"
-title: "I'm talking to you Segmentos — Topologías de Movilidad Urbana"
+title: "DepecheMODE Segmentos — Topologías de Movilidad Urbana"
 category: "Algoritmos"
 categoryTag: "Algoritmos & Visualización de Datos"
 year: "2026"
