@@ -1,7 +1,7 @@
 ---
 id: "arquitectura-conectividad-giga"
 num: "02"
-title: "Giga Atlas — Sistema Editorial y Retícula de Conectividad"
+title: "Super Atlas — Sistema Editorial y Retícula de Conectividad"
 category: "Sistemas"
 categoryTag: "Sistemas Visuales & Diseño Editorial"
 year: "2026"
