@@ -1,19 +1,20 @@
 # Configuración oficial de Jekyll para GitHub Pages — AISUNI ✷
 title: "AISUNI ✷ — Archivo Activo"
 description: "Investigación en artes visuales y sistemas generativos: un espacio de experimentación con tecnologías emergentes y herramientas algorítmicas para nuevas inteligencias visuales."
-url: "https://github.io"
-baseurl: ""
-timezone: "America/New_York" # 🗽 Set to New York Time
+url: "https://aisuni-lab.github.io" # 🌐 Fixed to match your correct organization/user sub-domain
+baseurl: "/aisuni"                  # 📁 Fixed so Jekyll appends the correct subfolder pathway
+timezone: "America/New_York"
 markdown: kramdown
-future: true # Enforces publication even if a project date is set to later in 2026
+future: true
 
 # Colecciones desacopladas de contenido (.md)
 collections:
   proyectos:
-    output: true # ✅ Allows Jekyll to read and compile these files into your data loop
+    output: true
     sort_by: num
   archivo:
-    output: true # ✅ Allows Jekyll to read and compile these files into your data loop
+    output: true
+    sort_by: num
 
 exclude:
   - README.md
