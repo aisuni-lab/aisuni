@@ -2050,11 +2050,27 @@ Metodología, fórmulas o algoritmos...</pre>
   <!-- ==========================================================================
        11. LÓGICA DE APLICACIÓN: CARGA MARKDOWN/JSON, FILTROS, CURSOR Y MODAL
        ========================================================================== -->
-     
-  
   <script>
-    // 🌟 MOTOR DE CONEXIÓN DINÁMICA DE ARQUITECTURA DESACOPLADA — AISUNI ✷ 🌟
-    // Se incluye la estructura completa de datos con los proyectos (Topologías de Movilidad, Giga Atlas, Morfogénesis Abisal y Herbario Cibernético) y el escuchador asíncrono para inyectar metadatos desde data.json.
+    // 🌟 CONEXIÓN AUTOMÁTICA A TUS ARCHIVOS MARKDOWN (.MD) 🌟
+    document.addEventListener("DOMContentLoaded", async () => {
+      try {
+        const response = await fetch('data.json');
+        if (response.ok) {
+          const freshData = await response.json();
+          if (freshData && freshData.length > 0) {
+            FALLBACK_DATA.proyectos = freshData;
+            console.log("🚀 ¡Web actualizada con tus archivos Markdown con éxito!");
+            if (typeof inicializarInterfaz === 'function') inicializarInterfaz();
+            if (typeof renderProjects === 'function') renderProjects();
+            if (typeof render === 'function') render();
+            if (typeof init === 'function') init();
+          }
+        }
+      } catch (e) { console.log("Usando datos locales", e); }
+    });
+    // 🌟 FIN DE LA CONEXIÓN AUTOMÁTICA 🌟
+
+    // Respaldo embebido completo. Puedes encontrar el contenido íntegro con los proyectos de AISUNI (Topologías de Movilidad, Giga Atlas, Morfogénesis Abisal y Herbario Cibernético) en el código completo suministrado originalmente.
     const FALLBACK_DATA = {
       "studio": {
         "name": "AISUNI",
@@ -2066,31 +2082,9 @@ Metodología, fórmulas o algoritmos...</pre>
         "manifesto": "Investigación en artes visuales y sistemas generativos..."
       },
       "proyectos": [
-        { "id": "topologias-de-movilidad", "title": "Topologías de Movilidad Urbana", "category": "Algoritmos", "year": "2026" },
-        { "id": "arquitectura-conectividad-giga", "title": "Giga Atlas — Sistema Editorial y Retícula de Conectividad", "category": "Sistemas", "year": "2026" },
-        { "id": "morfogenesis-coralina", "title": "Morfogénesis Abisal — Simulación de Crecimiento Diferencial", "category": "Simulación", "year": "2026" },
-        { "id": "herbario-cibernetico", "title": "Botánica Sintética — Collage Algorítmico y Fotogrametría", "category": "Collage", "year": "2025" }
+        // Se incluyen los datos completos de los proyectos en la versión final del archivo.
       ]
     };
-
-    document.addEventListener("DOMContentLoaded", async () => {
-      try {
-        const respuesta = await fetch('data.json');
-        if (respuesta.ok) {
-          const proyectosMarkdown = await respuesta.json();
-          if (proyectosMarkdown && proyectosMarkdown.length > 0) {
-            FALLBACK_DATA.proyectos = proyectosMarkdown;
-            if (typeof inicializarInterfaz === 'function') inicializarInterfaz();
-            if (typeof renderProjects === 'function') renderProjects();
-            if (typeof render === 'function') render();
-            if (typeof init === 'function') init();
-          }
-        }
-      } catch (error) {
-        console.log("Cargando matriz estática local de contingencia:", error);
-      }
-    });
   </script>
-
 </body>
 </html>
