@@ -1,6 +1,6 @@
 ---
 num: "01"
-title: "YYYY VIDA — Topologías de Movilidad Urbana"
+title: "SIMPLICIDAD — Topologías de Movilidad Urbana"
 category: "Algoritmos"
 categoryTag: "Algoritmos & Visualización de Datos"
 year: "2026"
@@ -8,10 +8,10 @@ client: "MIT Media Lab · Senseable Mobility"
 image: "assets/obra-02-flujos-portada.jpg"
 gallery:
   - "assets/obra-02-flujos-portada.jpg"
-  - "assets/obra-01-flujos-detalle.svg"
-  - "assets/obra-01-flujos-proceso.svg"
+  - "assets/obra-02-flujos-portada.jpg"
+  - "assets/obra-02-flujos-portada.jpg"
 tools: "Python, GLSL Shaders, Processing, D3.js"
-status: "Comisionado · Publicado"
+status: "Comisionado · Prototipo"
 ---
 
 ## Concepto
