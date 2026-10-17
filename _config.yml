@@ -1,39 +1,24 @@
-# Configuración oficial de Jekyll para GitHub Pages — AISUNI ✷
-title: "AISUNI ✷ — Archivo Activo"
-description: "Investigación en artes visuales y sistemas generativos: un espacio de experimentación con tecnologías emergentes y herramientas algorítmicas para nuevas inteligencias visuales."
+title: AISUNI
 url: ""
 baseurl: ""
-timezone: "America/New_York"
 markdown: kramdown
-
-# Colecciones de contenido (.md)
+permalink: pretty
 collections:
   proyectos:
-    output: true
+    output: false
   archivo:
-    output: true
-
-include:
-  - _proyectos
-  - _archivo
-  - proyectos
-  - archivo
-
+    output: false
+  contenido:
+    output: false
 defaults:
   - scope:
       path: ""
-      type: "proyectos"
     values:
       layout: null
-  - scope:
-      path: ""
-      type: "archivo"
-    values:
-      layout: null
-
 exclude:
   - README.md
-  - LICENSE
-  - .gitignore
-  - actualizar_sitio.py
-  - .github
+  - Gemfile
+  - Gemfile.lock
+  - tests
+  - node_modules
+  - package.json

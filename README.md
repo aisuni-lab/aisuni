@@ -1,48 +1,60 @@
-# AISUNI ✷ — Portafolio y Archivo Activo (Arquitectura Escalable `.md`)
+# AISUNI — Archivo activo
 
-Sitio web editorial suizo e índice interactivo para **AISUNI**, diseñado para escalar a decenas o cientos de proyectos y piezas de archivo mediante archivos `.md` independientes.
+Sitio editorial en una sola página, con Jekyll y colecciones Markdown, compatible con GitHub Pages.
 
----
+## Publicar en GitHub Pages
 
-## ¿Qué se corrigió y mejoró en esta versión v3.0?
+1. Crea un repositorio en GitHub (por ejemplo `aisuni`). Sube **todos los archivos y carpetas**, incluidos los nombres que empiezan con `_`.
+2. En **Settings → Pages**, selecciona **Deploy from a branch**, rama **main**, carpeta **/(root)** y guarda.
+3. Si el repositorio está en `usuario.github.io/aisuni/`, edita `_config.yml` y establece `baseurl: "/aisuni"`. Si está en el dominio raíz o usas un dominio personalizado, deja `baseurl: ""` y configura `url` según tu dominio.
+4. GitHub Pages compila `data.json` automáticamente a partir de los Markdown en cada commit a `main`. La publicación puede tardar unos minutos.
 
-1. **Eliminación definitiva de `--- layout: null ---` en `index.html`**:
-   - `index.html` comienza en la línea 1 directamente con `<!DOCTYPE html>` (100% HTML5 puro), por lo que jamás mostrará `--- layout: null ---` en la parte superior de la página, sin importar si usas GitHub Pages con o sin Jekyll, Live Server o cualquier hosting estático.
-2. **Solución al problema de archivos `.md` nuevos que aparecían solo a veces**:
-   - **Fin de colisiones de ID al duplicar archivos**: Antes, cuando copiabas un archivo `.md` existente para crear uno nuevo y quedaba el mismo `id: "..."` dentro del archivo, las descargas en paralelo sobreescribían un proyecto con otro aleatoriamente. Ahora hemos eliminado el campo `id` de las plantillas y el sistema identifica cada obra estrictamente por el **nombre de su archivo** (`09-nueva-obra.md`).
-   - **Auto-numeración inteligente desde el nombre del archivo**: Si nombras tu archivo `09-mi-obra.md` o `15-experimento.md` (o `arc-07-pieza.md`), el sistema toma automáticamente el número `09`, `15` o `ARC-07` del nombre del archivo, incluso si olvidaste cambiar `num:` dentro del YAML.
-   - **Árbol Git en 1 sola petición + Caché por SHA y ETag + `manifest.json`**: Antes se hacían 8 peticiones sin caché a `api.github.com` en cada recarga, agotando el límite de 60 peticiones/hora de GitHub en 7 recargas. Ahora usa una única consulta con validación `ETag` (que no consume cuota en GitHub), guarda en caché cada archivo `.md` por su hash `SHA` de Git y descarga instantáneamente solo los archivos nuevos o modificados.
-3. **Escalabilidad para muchos proyectos en el futuro**:
-   - Se incorporó un **buscador en tiempo real** (`Buscar obra, año, cliente...`) en la cinta de filtros y un botón de **resincronización instantánea (`↻`)** en la insignia `Archivo Activo` del encabezado.
-   - Incluye el flujo automático `.github/workflows/auto-sync-md.yml` y el script `actualizar_sitio.py` que mantienen `manifest.json` sincronizado al hacer push en GitHub.
+## Añadir un proyecto
 
----
+En GitHub abre `_proyectos` → **Add file → Create new file**, crea por ejemplo `mi-proyecto.md` y copia la estructura de cualquier archivo existente. Cambia `id` (único), `num`, `title`, `category`, `year`, `image`, `gallery` y textos. Haz **Commit changes**: el proyecto aparecerá tras el deploy. Para una pieza de archivo, haz lo mismo en `_archivo`.
 
-## Cómo Agregar o Actualizar Proyectos y Archivos `.md`
+El cuerpo Markdown debe contener `## Concepto` y `## Proceso`. Los metadatos van entre las dos líneas `---` iniciales. Los datos se convierten en JSON en build time; nunca editas `index.html` para añadir contenidos. `num` establece el orden de clasificación; usa numeraciones de longitud coherente (`01`, `02`, `03`...).
 
-Solo crea o edita un archivo `.md` dentro de `_proyectos/` o `_archivo/`. Puedes duplicar cualquier archivo `.md` existente y cambiar su nombre (por ejemplo `_proyectos/09-mi-nuevo-proyecto.md`):
+## Multimedia y formatos
 
-```markdown
----
-num: "09"
-title: "Nombre de Mi Nuevo Proyecto"
-category: "Algoritmos"
-categoryTag: "Algoritmos & Visualización"
-year: "2026"
-client: "Cliente o Estudio"
-image: "assets/obra-01-flujos-portada.jpg"
-gallery:
-  - "assets/obra-01-flujos-portada.jpg"
-  - "assets/obra-01-flujos-detalle.svg"
-tools: "Python, GLSL, Processing"
-status: "Comisionado · Publicado"
----
+Coloca imágenes en `assets/` y referencia su ruta relativa sin barra inicial (`assets/mi-imagen.webp`). Las imágenes mantienen su aspecto original en el visor (`object-fit: contain`), aunque las vistas previas se recortan para conservar un índice ordenado.
 
-## Concepto
-Escribe aquí los párrafos de concepto y enfoque de la obra...
+Para mezclar fotos y videos en una ficha usa `media` **en lugar de** `gallery`:
 
-## Proceso
-Escribe aquí el proceso técnico, metodología o fórmulas entre backticks...
+```yaml
+media:
+  - type: image
+    src: "assets/mi-foto-vertical.webp"
+    alt: "Descripción de la imagen"
+  - type: image
+    src: "assets/mi-foto-horizontal.jpg"
+  - type: mp4
+    src: "assets/mi-video.mp4"
+    poster: "assets/poster.webp"
+  - type: youtube
+    src: "https://www.youtube.com/watch?v=jfKfPfyJRdk"
+  - type: vimeo
+    src: "https://vimeo.com/76979871"
 ```
 
-*(Nota: Incluso si creas un archivo `.md` rápido sin bloque `---`, o solo con `title` y texto libre, el motor lo detectará, le asignará número correlativo automático y generará su portada vectorial suiza).*
+Los links ilustrativos de YouTube/Vimeo son ejemplos de formato, no videos de AISUNI. No se incluyen en los proyectos demo. El reproductor requiere que el dueño del video permita incrustarlo. Para videos pesados se recomienda alojamiento externo: GitHub Pages tiene límites de almacenamiento y transferencia.
+
+## Editar textos y enlaces
+
+- `_contenido/portada.md`: manifiesto.
+- `_contenido/info.md`: información, metodología, tags e imagen.
+- `_contenido/contacto.md`: email y enlaces sociales. Los links que vienen por defecto son **placeholders** y debes sustituirlos por tus cuentas reales.
+- `_config.yml`: configuración de GitHub Pages y URL base.
+
+Las imágenes SVG que se incluyen son **placeholders generados** para facilitar pruebas y no pretenden ser obras reales ni documentación de los proyectos.
+
+## Desarrollo local y pruebas
+
+Instala Ruby + Bundler y corre `bundle install && bundle exec jekyll serve`, luego abre `http://localhost:4000/`. El archivo `index.html` necesita servidor: GitHub Pages no se emula haciendo doble clic en el HTML porque Jekyll debe compilar Liquid/Markdown. Para ver la pantalla sin Jekyll, el repositorio incluye un archivo `preview.html` con un snapshot de demostración (no es fuente editorial, ni debe publicarse como página principal).
+
+## Consideraciones
+
+- El buscador/filtros filtra la colección entera cargada en memoria, sin límite de elementos impuesto por código; conjuntos enormes pueden requerir paginación en el futuro.
+- Edición de Markdown dispara la recompilación automática desde la rama configurada.
+- La web carga fuentes desde Google Fonts y videos externos desde su proveedor. Todo el resto es estático.
+- Revisa el contenido editorial demo y reemplaza SVGs/links de ejemplo antes del lanzamiento público.
